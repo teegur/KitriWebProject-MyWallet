@@ -37,7 +37,9 @@ a{text-decoration:none; color:black}
 	<div class="design right">
 		<div class="design" id="join">
 			<% if (!session.isNew())  {%>
-				<a href="${pageContext.request.contextPath }/LogoutController">로그아웃</a>
+				<c:if test="${sessionScope.id eq 'admin' }">
+					<a href="${pageContext.request.contextPath }/MemberListController">회원관리</a>
+				</c:if>
 			<%}else{%>
 				<a href="join.jsp">회원가입</a>
 			<%} %>
