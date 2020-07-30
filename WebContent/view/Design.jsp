@@ -44,7 +44,7 @@ a{text-decoration:none; color:black}
 		</div>
 		<div class="design" id="log_state">
 			<% if (!session.isNew())  {%>
-				<a href="${pageContext.request.contextPath }/LogoutController">로그아웃</a>
+				<a href="${pageContext.request.contextPath }/DelController">로그아웃</a>
 			<%}else{%>
 				<a href="${pageContext.request.contextPath }/view/Login.jsp">로그인</a>
 			<%} %>
