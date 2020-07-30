@@ -38,7 +38,7 @@ public class LoginController extends HttpServlet {
       request.setCharacterEncoding("utf-8");
       response.setContentType("text/html;charset=utf-8");
       response.setCharacterEncoding("utf-8");
-      
+      //
       //기능을 제공할 서비스 객체 생성
       memberDAO dao = new memberDAOImpl();
       //ServiceInterface service = new JoinServiceImpl();

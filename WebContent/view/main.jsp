@@ -17,7 +17,7 @@
 		}
 		if (flag) {%>
 			<!-- 로그인된 경우 -->
-			<h1>로그인 되었습니다(꾸며야함)</h1>
+			<h1>로그인 되었습니다</h1>
 			<a href="${pageContext.request.contextPath }/LogoutController">로그아웃</a>
 		<%} else { %>
 			<!--  로그아웃한 경우 -->
