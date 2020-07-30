@@ -37,7 +37,7 @@ a{text-decoration:none; color:black}
 	<div class="design right">
 		<div class="design" id="join">
 			<% if (!session.isNew())  {%>
-				<c:if test="${sessionScope.id eq 'admin' }">
+				<c:if test="${sessionScope.id eq 'admin' }"> <!-- 관리자인 경우 -->
 					<a href="${pageContext.request.contextPath }/MemberListController">회원관리</a>
 				</c:if>
 			<%}else{%>
