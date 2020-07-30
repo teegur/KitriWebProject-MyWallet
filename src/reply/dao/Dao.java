@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import conn.DBConnect;
-import model.Reply;
+import model.ReplyVO;
 
 public class Dao {
 	
@@ -16,11 +16,11 @@ public class Dao {
 		db = DBConnect.getInstance();
 	}
 	
-	public ArrayList<Reply> selectAll(int boardseq) {
+	public ArrayList<ReplyVO> selectAll(int boardseq) {
 		
 		Connection conn = null;
 		ResultSet rs = null;
-		ArrayList<Reply> list = new ArrayList<Reply>();		
+		ArrayList<ReplyVO> list = new ArrayList<ReplyVO>();		
 		PreparedStatement pstmt = null;		
 		
 		try {			
@@ -32,7 +32,7 @@ public class Dao {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				list.add(new Reply(rs.getInt("replyseq"), rs.getInt("boardseq"), rs.getString("id"), rs.getString("name"), rs.getString("content"), rs.getString("w_date")));
+				list.add(new ReplyVO(rs.getInt("replyseq"), rs.getInt("boardseq"), rs.getString("id"), rs.getString("name"), rs.getString("content"), rs.getString("w_date")));
 			}
 
 		} catch (SQLException e) {
@@ -51,7 +51,7 @@ public class Dao {
 		return list;
 	}// selectAll method End	
 	
-	public void insert(Reply reply) {
+	public void insert(ReplyVO reply) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;		

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.Reply;
+import model.ReplyVO;
 import reply.dao.Dao;
 
 /**
@@ -43,7 +43,7 @@ public class WriteController extends HttpServlet {
 		String id = (String) session.getAttribute("id");
 		String name = (String) session.getAttribute("name");
 		
-		Reply reply = new Reply(boardseq, id, name, content, "date");
+		ReplyVO reply = new ReplyVO(boardseq, id, name, content, "date");
 		
 		dao.insert(reply);
 		

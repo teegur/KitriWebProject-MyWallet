@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Reply;
+import model.ReplyVO;
 import reply.dao.Dao;
 
 /**
@@ -37,8 +37,8 @@ public class ListController extends HttpServlet {
 		
 		Dao dao = new Dao();
 		int boardseq = 1;
-		ArrayList<Reply> temp = dao.selectAll(boardseq);
-		ArrayList<Reply> list = new ArrayList<Reply>();
+		ArrayList<ReplyVO> temp = dao.selectAll(boardseq);
+		ArrayList<ReplyVO> list = new ArrayList<ReplyVO>();
 		int pagenum = 1;
 		
 		if(request.getParameter("pagenum") != null ) {

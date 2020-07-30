@@ -1,6 +1,6 @@
 package model;
 
-public class Reply {
+public class ReplyVO {
 	private int replyseq;
 	private int boardseq;
 	private String id;
@@ -8,9 +8,9 @@ public class Reply {
 	private String content;
 	private String w_date;	
 	
-	public Reply() {}
+	public ReplyVO() {}
 	
-	public Reply(int boardseq, String id, String name, String content, String w_date) {
+	public ReplyVO(int boardseq, String id, String name, String content, String w_date) {
 		this.boardseq = boardseq;
 		this.id = id;
 		this.name = name;
@@ -20,7 +20,7 @@ public class Reply {
 	
 	
 
-	public Reply(int replyseq, int boardseq, String id, String name, String content, String w_date) {
+	public ReplyVO(int replyseq, int boardseq, String id, String name, String content, String w_date) {
 		super();
 		this.replyseq = replyseq;
 		this.boardseq = boardseq;
