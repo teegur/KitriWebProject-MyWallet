@@ -36,7 +36,11 @@ a{text-decoration:none; color:black}
 	</div>
 	<div class="design right">
 		<div class="design" id="join">
-			<a href="join.jsp">회원가입</a>
+			<% if (!session.isNew())  {%>
+				<a href="${pageContext.request.contextPath }/LogoutController">로그아웃</a>
+			<%}else{%>
+				<a href="join.jsp">회원가입</a>
+			<%} %>
 		</div>
 		<div class="design" id="log_state">
 			<% if (!session.isNew())  {%>
