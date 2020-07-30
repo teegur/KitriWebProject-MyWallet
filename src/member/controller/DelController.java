@@ -49,7 +49,7 @@ public class DelController extends HttpServlet {
 				
 		session.invalidate(); // 로그아웃 때와 마찬가지로 session 초기화 해야한다.
 				
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/view/main.jsp");
 				
 		if (dispatcher!=null) {
 			dispatcher.forward(request, response);
