@@ -66,7 +66,7 @@ function checkFunc(){
 	</c:import>
 	<h3>댓글 목록</h3>	
 	<table border="1" cellspacing="0" >
-		<c:forEach var="reply" items="${list}">
+		<c:forEach var="reply" items="${list }">
 			<tr>
 				<td>${reply.getName() }</td><td>${reply.getContent() }</td><td>${reply.getW_date() }</td>
 					<c:if test="${ sessionScope.id == reply.getId() }">  
