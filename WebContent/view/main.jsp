@@ -12,7 +12,7 @@
 	<c:import url="/view/Menu.jsp" />
 	<%
 		boolean flag = false;
-		if(!session.isNew()) {
+		if(!session.isNew()) {	// session.isNew() 함수 부분 확인 필요
 			flag = (boolean) session.getAttribute("flag"); // LoginController에서 flag값을 저장.
 		}
 		if (flag) {%>
@@ -20,8 +20,8 @@
 			<h1>로그인 되었습니다</h1>
 			<a href="${pageContext.request.contextPath }/LogoutController">로그아웃</a>
 		<%} else { %>
-			<!--  로그아웃한 경우 -->
-			<h1>로그아웃 되었습니다(꾸며야함)</h1>
-		<%}%>
+		<!--  로그아웃한 경우 -->
+		<h1>로그아웃 되었습니다(꾸며야함)</h1>
+	<%}%>
 </body>
 </html>

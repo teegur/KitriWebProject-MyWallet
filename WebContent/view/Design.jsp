@@ -28,7 +28,7 @@ a{text-decoration:none; color:black}
 <div class="design top">
 	<div class="design left">
 		<div class="design" id="mem_info">
-			<a href="memberInfo.jsp">회원정보</a>
+			<a href="${pageContext.request.contextPath }/view/memberInfo.jsp">회원정보</a>
 		</div>	
 	</div>
 	<div class="design title">
@@ -41,7 +41,7 @@ a{text-decoration:none; color:black}
 					<a href="${pageContext.request.contextPath }/MemberListController">회원관리</a>
 				</c:if>
 			<%}else{%>
-				<a href="join.jsp">회원가입</a>
+				<a href="${pageContext.request.contextPath }/view/JoinForm.jsp">회원가입</a>
 			<%} %>
 		</div>
 		<div class="design" id="log_state">
