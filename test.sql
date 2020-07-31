@@ -35,13 +35,22 @@ create table membertest (
    class varchar2(20)
 );
 
+create table household (
+   id  varchar2(20),
+   w_date  varchar2(20), 
+   category  varchar2(20),
+   content varchar2(20) ,
+   price number(20),
+   type number(1)
+);
+
 insert into membertest values ('admin','관리자','xxx', '1234', 'xxxx', '오프라인', '관리자')
 
 select * from free_board;
 
 select * from membertest;
 
-select * from membertest;
+select * from household;
 
 select * from reply;
 
