@@ -28,7 +28,7 @@ a{text-decoration:none; color:black}
 <div class="design top">
 	<div class="design left">
 		<div class="design" id="mem_info">
-			<a href="${pageContext.request.contextPath }/view/memberInfo.jsp">회원정보</a>
+			<a href="${pageContext.request.contextPath }/MemberSearchController">회원정보</a>
 		</div>	
 	</div>
 	<div class="design title">

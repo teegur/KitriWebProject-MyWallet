@@ -24,7 +24,7 @@
         <a class="nav-link" href="#">공지사항</a>
       </li>
       <li class="nav-item" style="width:200px">
-        <a class="nav-link" href="#">자유게시판</a>
+        <a class="nav-link" href="${pageContext.request.contextPath }/Board/List_free.jsp?pagenum=1">자유게시판</a>
       </li>
       <li class="nav-item" style="width:200px">
         <a class="nav-link" href="#">가계부작성</a>
