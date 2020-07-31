@@ -32,9 +32,9 @@ public class EditBoardController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html; charset=utf-8");
-		response.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
 
 		nService service= new ServiceImpl();
 		int num=Integer.parseInt(request.getParameter("sequence"));

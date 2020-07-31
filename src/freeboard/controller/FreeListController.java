@@ -34,9 +34,9 @@ public class FreeListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html; charset=utf-8");
-		response.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		
 		nService service= new ServiceImpl();
 		ArrayList<BoardVO> temp=(ArrayList<BoardVO>)service.getAll();//총갯수 데이터

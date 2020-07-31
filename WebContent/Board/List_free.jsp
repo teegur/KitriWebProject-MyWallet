@@ -13,6 +13,8 @@
 	
 	
 	<c:import url="/FreeListController"></c:import>	
+	
+		
 		
 	   <h3>글 목록</h3>
 	   <a href="${pageContext.request.contextPath}/Board/Write.jsp" style="color:black">글작성</a>

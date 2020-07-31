@@ -5,6 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+function cancel(){
+	var flag=confirm("취소하시겠습니까");
+	if(flag){
+		location.href="${pageContext.request.contextPath }/ReadController?seq=<%=request.getParameter("sequence") %>";
+	}
+
+}
+
+</script>
 </head>
 <body>
 <h3 >글수정하기<br></h3>
@@ -36,7 +46,7 @@
 			<tr>
 				<td colspan="2">
 					<input type="submit" value="수정">
-					<input type="reset" value="취소">
+					<input type="button" value="취소" onclick="cancel()">
 				</td>
 			</tr>		
 		</table>
