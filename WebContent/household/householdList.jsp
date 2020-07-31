@@ -12,14 +12,13 @@
 	<br>
 	<table border="1">
 		<tr>
-			<th>날짜</th><th>카테고리</th><th>내용</th><th>금액</th><th>종류</th>
+			<th>날짜</th><th>카테고리</th><th>내용</th><th>종류</th><th>금액</th>
 		</tr>
 		<c:forEach var="h" items="${h }">
 			<tr>
 				<td>${h.getDate() }</td>
 				<td>${h.getCategory() }</td>
 				<td>${h.getContent() }</td>
-				<td>${h.getPrice() }</td>
 				<td>
 					<c:if test="${h.getType() eq 1 }"> <!-- 수입 -->
 						수입
@@ -28,6 +27,7 @@
 						지출
 					</c:if>
 				</td>
+				<td>${h.getPrice() }</td>
 			</tr>
 		</c:forEach>
 	
