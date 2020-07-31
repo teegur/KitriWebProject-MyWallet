@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>Insert title here</title>
 </head>
 <script>
@@ -51,16 +52,104 @@ function check() {
 <body>
 	<!-- request의 m객체에 정보저장 -->
 	<c:import url="/view/Menu.jsp" />
-	<form action="${pageContext.request.contextPath }/MemberEditController" method="post" name="InsertForm" onsubmit="return check()">
-		아이디 : <input type="text" name="id" value="${m.id }" readonly><br>
-		비밀번호 : <input type="password" name="pwd" value="${m.password }"><br>
-		이름 : <input type="text" name="name" value="${m.name }"><br>
-		이메일 : <input type="text" name="email" value="${m.email }"><br>
-		주소 : <input type="text" name="address" value="${m.address }"><br>
-		상태 : <input type="text" name="status" value="${m.status }" readonly><br>
-		등급 : <input type="text" name="cls" value="${m.cls }" readonly><br>
-		<input type="submit" value="정보수정"><br>
-		<a href="${pageContext.request.contextPath }/DelController">회원탈퇴</a>
-	</form>
+	
+  <div id="wrapper">
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content" style= "margin-left: 30%; margin-right: 30%;">
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">회원 정보 수정</h1>
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3" style="margin-left: 0px; margin-right: 0px; text-align:center">
+              <h6 class="m-0 font-weight-bold text-dark">회원 정보</h6>
+            </div>
+            
+            <div class="card-body" style= "margin-left: 5%; margin-right: 5%;">
+            	<form action="${pageContext.request.contextPath }/MemberEditController" method="post" name="InsertForm" onsubmit="return check()">
+					<div class="form-group row">
+						<label for="id" class="col-sm-4">
+						아이디 : 
+						</label>
+						<input class="col-sm-8 form-control" type="text" name="id" value="${m.id }" readonly><br>
+					</div>
+					
+					<div class="form-group row">
+						<label for="pwd" class="col-sm-4"> 
+						비밀번호 : 
+						</label>
+						<input class="col-sm-8 form-control" type="password" name="pwd" value="${m.password }"><br>
+					</div>	
+					<div class="form-group row">
+						<label for="name" class="col-sm-4"> 
+						이름 : 
+						</label>	
+						<input class="col-sm-8 form-control" type="text" name="name" value="${m.name }"><br>
+					</div>
+					<div class="form-group row">
+						<label for="email" class="col-sm-4"> 
+						이메일 : 
+						</label>
+						<input class="col-sm-8 form-control" type="text" name="email" value="${m.email }"><br>
+					</div>
+					<div class="form-group row">
+						<label for="address" class="col-sm-4"> 
+						주소 : 
+						</label>
+						<input class="col-sm-8 form-control" type="text" name="address" value="${m.address }"><br>
+					</div>
+					<div class="form-group row">
+						<label for="status" class="col-sm-4"> 
+						상태 : 
+						</label>	
+						<input class="col-sm-8 form-control " type="text" name="status" value="${m.status }" readonly><br>
+					</div>	
+					<div class="form-group row">
+						<label for="cls" class="col-sm-4"> 
+						등급 : 
+						</label>
+						<input class="col-sm-8 form-control" type="text" name="cls" value="${m.cls }" readonly><br>
+					</div>
+					<div class="form-group row">	
+						<input class="col btn btn-dark" type="submit" value="정보수정">
+					</div>
+						<a style="float:right" href="${pageContext.request.contextPath }/DelController">회원탈퇴</a>
+				 </form>
+				</div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+      
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Wallet team</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+      
+      </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+      
 </body>
 </html>
