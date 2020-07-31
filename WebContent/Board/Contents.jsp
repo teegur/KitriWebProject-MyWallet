@@ -49,11 +49,11 @@
 				
 			<tr>
 				<th>글 제목</th>
-<<<<<<< HEAD
+
 				<td><input type="text" value="${b.title}" name="title" readonly size="45" ></td>
-=======
+
 				<td><input type="text" value="${b.title }" name="title" size="45"  readonly></td>
->>>>>>> db182b73e2475f7edfc37625c664c02bb7227cd2
+
 			</tr>	
 			
 			
@@ -61,11 +61,11 @@
 			
 			<tr>
 				<th>글 내용</th>
-<<<<<<< HEAD
+
 				<td><textarea rows="15" cols="45" readonly name="content" >${b.content}</textarea></td>
-=======
+
 				<td><textarea rows="15" cols="45" name="content" readonly>${b.content}</textarea></td>
->>>>>>> db182b73e2475f7edfc37625c664c02bb7227cd2
+
 			</tr>	
 			<tr>
 				<td colspan="2">
