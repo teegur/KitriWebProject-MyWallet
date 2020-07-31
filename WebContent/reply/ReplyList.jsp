@@ -58,6 +58,7 @@ function checkFunc(){
 		document.location.reload();					
 	}
 }
+fuction pageMove()
 </script>
 </head>
 <body>
@@ -66,19 +67,21 @@ function checkFunc(){
 		<c:param name="sequence" value="${param.sequence }"/>
 	</c:import>
 	<h3>댓글 목록</h3>	
-	<table border="1" cellspacing="0" >
-		<c:forEach var="reply" items="${list }">
-			<tr>
-				<td>${reply.getName() }</td><td>${reply.getContent() }</td><td>${reply.getW_date() }</td>
-					<c:if test="${ sessionScope.id == reply.getId() }">  
-						<td><a href="javascript:delConfirm(${reply.getReplyseq()})">삭제</a></td>
-					</c:if>					
-			</tr>
-		</c:forEach>
-	</table>	
+		<%--<c:if test="${requestScope.ogsize != 0}"> --%>
+			<table border="1" cellspacing="0" >
+				<c:forEach var="reply" items="${list }">
+					<tr>
+						<td>${reply.getName() }</td><td>${reply.getContent() }</td><td>${reply.getW_date() }</td>
+							<c:if test="${ sessionScope.id == reply.getId() }">  
+								<td><a href="javascript:delConfirm(${reply.getReplyseq()})">삭제</a></td>
+							</c:if>					
+					</tr>
+				</c:forEach>
+			</table>	
+		<%-- </c:if> --%>
 	
 		<c:forEach var="pagenum" begin= "1" end  = "${size}">
-			<a href="http://localhost:8081/Project_semi/reply/ReplyList.jsp?pagenum=${pagenum}&sequence=${param.sequence}" >${pagenum}</a>
+			<a href="http://localhost:8081/Project_semi/ReadController?seq=5&pagenum=${pagenum}" >${pagenum}</a>
 		</c:forEach>
 	
 	
