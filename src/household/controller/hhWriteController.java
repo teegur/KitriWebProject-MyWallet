@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import household.dao.hhDao;
-import model.Household;
+import model.hhVO;
 /**
  * Servlet implementation class hhWriteController
  */
@@ -36,7 +36,8 @@ public class hhWriteController extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		hhDao dao = new hhDao();
-		Household hh = new Household(
+		hhVO hh = new hhVO(
+				0,
 				(String)session.getAttribute("id"),
 				request.getParameter("date"),
 				request.getParameter("category"),

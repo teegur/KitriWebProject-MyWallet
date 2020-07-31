@@ -14,6 +14,12 @@ create sequence replyseq
 	increment by 1
 	minvalue 1
 	nocycle
+	
+create sequence hhkey
+	start with 1
+	increment by 1
+	minvalue 1
+	nocycle
 
 
 create table free_board(
@@ -30,6 +36,7 @@ create sequence seq_board;
 
 
 create table household (
+   key number(20),
    id  varchar2(20),
    w_date  varchar2(20), 
    category  varchar2(20),

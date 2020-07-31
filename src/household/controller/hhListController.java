@@ -12,8 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import household.dao.hhDao;
-import model.Household;
-
+import model.hhVO;
 /**
  * Servlet implementation class hhListController
  */
@@ -38,7 +37,7 @@ public class hhListController extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 		
-		ArrayList<Household> h = new ArrayList<Household>();
+		ArrayList<hhVO> h = new ArrayList<hhVO>();
 		
 		HttpSession session = request.getSession();
 		

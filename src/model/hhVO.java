@@ -1,7 +1,8 @@
 package model;
 
-public class Household {
+public class hhVO{
 	
+	private int key;
 	private String id;
 	private String date;
 	private String category;
@@ -11,8 +12,9 @@ public class Household {
 	
 	
 	
-	public Household(String id, String date, String category, String content, int price, int type) {
+	public hhVO(int key, String id, String date, String category, String content, int price, int type) {
 		super();
+		this.key = key;
 		this.id = id;
 		this.date = date;
 		this.category = category;
@@ -21,15 +23,21 @@ public class Household {
 		this.type = type;
 	}
 	
-	
-
 	@Override
 	public String toString() {
-		return "Household [id=" + id + ", date=" + date + ", category=" + category + ", content=" + content + ", price="
-				+ price + ", type=" + type + "]";
+		return "Household [key=" + key + ", id=" + id + ", date=" + date + ", category=" + category + ", content="
+				+ content + ", price=" + price + ", type=" + type + "]";
+	}
+	
+	
+
+	public int getKey() {
+		return key;
 	}
 
-
+	public void setKey(int key) {
+		this.key = key;
+	}
 
 	public String getId() {
 		return id;

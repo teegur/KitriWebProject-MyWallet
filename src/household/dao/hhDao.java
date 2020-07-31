@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import conn.DBConnect;
-import model.Household;
+import model.hhVO;
 
 public class hhDao {
 	
@@ -16,7 +16,7 @@ public class hhDao {
 		db = DBConnect.getInstance();
 	}
 	
-	public void insert(Household HH) {
+	public void insert(hhVO HH) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;		
@@ -24,7 +24,7 @@ public class hhDao {
 		
 		try {			
 			conn = db.getConnection();
-			String sql = "insert into household values(?, ?, ?, ?, ?, ?)";
+			String sql = "insert into household values(hhkey.nextval, ?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, HH.getId()); 
@@ -51,11 +51,11 @@ public class hhDao {
 		}		
 	}// insert method End	
 	
-	public ArrayList<Household> select(String id) {
+	public ArrayList<hhVO> select(String id) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;		
 		ResultSet rs = null;
-		ArrayList<Household> result = new ArrayList<Household>(); // 결과를 저장할 어레이리스트
+		ArrayList<hhVO> result = new ArrayList<hhVO>(); // 결과를 저장할 어레이리스트
 		
 		try {			
 			conn = db.getConnection();
@@ -67,7 +67,7 @@ public class hhDao {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				result.add(new Household(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6)));
+				result.add(new hhVO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7)));
 			}
 			
 		} catch (SQLException e) {
