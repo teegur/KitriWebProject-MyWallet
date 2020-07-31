@@ -18,20 +18,30 @@ create table reply (
 )
 
 create sequence replyseq
-start with 1
-increment by 1
-minvalue 1
-nocycle;
+	start with 1
+	increment by 1
+	minvalue 1
+	nocycle
+
 
 create table free_board(
-seq number(5),
-title varchar2(100),           
-contents varchar2(4000),
-writer varchar2(30),
-time varchar2(30),
-viewcount number(5),
-recommend_cnt number(5)
-);
+	seq number(5),
+	title varchar2(100),           
+	contents varchar2(4000),
+	writer varchar2(30),
+	time varchar2(30),
+	viewcount number(5),
+	recommend_cnt number(5)
+)
+
+create table household (
+   id  varchar2(20),
+   w_date  varchar2(20), 
+   category  varchar2(20),
+   content varchar2(20) ,
+   price number(20),
+   type number(1)
+)
 
 select * from free_board;
 
@@ -39,3 +49,4 @@ select * from membertest;
 
 select * from reply;
 
+select * from household;

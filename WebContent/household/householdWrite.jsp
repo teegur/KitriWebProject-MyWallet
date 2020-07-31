@@ -28,21 +28,22 @@ function getXMLHttpRequest(){
 function hhWrite(){
 	var form = document.getElementById("hhWriteForm");
 	var type = form.type.value;
-	var date = form.type.value;
-	var category = form.type.value;
+	var date = form.date.value;
+	var category = form.category.value;
 	var content = form.content.value;
-	var price = form.type.value;
+	var price = form.price.value;
 		
-	if(!category || !content ||   ){
+	if(!category || !content || !price ){ // 여기까지 했음.
 		alert("공란이 있습니다");
 		return false;
 	}
 	else{
-		var param = "content=" + content;
+		var param = "content=" + content + "&type=" + type + "&date=" + date + "&category=" + category + "&price=" + price;
+		
 		
 		httpRequest = getXMLHttpRequest();
 		httpRequest.onreadystatechange = checkFunc;
-		httpRequest.open("POST", "http://localhost:8081/Practice1/WriteController",true);
+		httpRequest.open("POST", "http://localhost:8081/Project_semi/hhWriteController",true);
 		httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8');
 		httpRequest.send(param);
 	}

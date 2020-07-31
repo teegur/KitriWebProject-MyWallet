@@ -9,6 +9,8 @@ public class Household {
 	private int price;
 	private int type;
 	
+	
+	
 	public Household(String id, String date, String category, String content, int price, int type) {
 		super();
 		this.id = id;
@@ -18,6 +20,16 @@ public class Household {
 		this.price = price;
 		this.type = type;
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Household [id=" + id + ", date=" + date + ", category=" + category + ", content=" + content + ", price="
+				+ price + ", type=" + type + "]";
+	}
+
+
 
 	public String getId() {
 		return id;

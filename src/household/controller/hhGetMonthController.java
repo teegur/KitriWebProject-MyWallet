@@ -6,21 +6,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import household.dao.hhDao;
-import model.Household;
 /**
- * Servlet implementation class hhWriteController
+ * Servlet implementation class hhGetMonthController
  */
-@WebServlet("/hhWriteController")
-public class hhWriteController extends HttpServlet {
+@WebServlet("/hhGetMonthController")
+public class hhGetMonthController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public hhWriteController() {
+    public hhGetMonthController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,22 +27,7 @@ public class hhWriteController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset=utf-8");
-		response.setCharacterEncoding("utf-8");
-		
-		HttpSession session = request.getSession();
-		hhDao dao = new hhDao();
-		Household hh = new Household(
-				(String)session.getAttribute("id"),
-				request.getParameter("date"),
-				request.getParameter("category"),
-				request.getParameter("content"),
-				Integer.parseInt(request.getParameter("price")),
-				Integer.parseInt(request.getParameter("type"))
-				);
-		System.out.println(hh);
-		dao.insert(hh);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
