@@ -10,18 +10,6 @@
 <body>
 	<!-- 윗부분에는 menu.jsp 인클루드 -->
 	<c:import url="/view/Menu.jsp" />
-	<%
-		boolean flag = false;
-		if(!session.isNew()) {	// session.isNew() 함수 부분 확인 필요
-			flag = (boolean) session.getAttribute("flag"); // LoginController에서 flag값을 저장.
-		}
-		if (flag) {%>
-			<!-- 로그인된 경우 -->
-			<h1>로그인 되었습니다</h1>
-			<a href="${pageContext.request.contextPath }/LogoutController">로그아웃</a>
-		<%} else { %>
-		<!--  로그아웃한 경우 -->
-		<h1>로그아웃 되었습니다(꾸며야함)</h1>
-	<%}%>
+	<!-- 메인 창에 무엇을 할지 정해야한다. -->
 </body>
 </html>

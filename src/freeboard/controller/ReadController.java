@@ -1,28 +1,31 @@
-package reply.controller;
+package freeboard.controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.sound.midi.Sequence;
 
-import model.ReplyVO;
-import reply.dao.Dao;
+import model.BoardVO;
+import freeboard.service.ServiceImpl;
+import freeboard.service.nService;
+
 
 /**
- * Servlet implementation class WriteController
+ * Servlet implementation class ReadController
  */
-@WebServlet("/WriteController")
-public class WriteController extends HttpServlet {
+@WebServlet("/ReadController")
+public class ReadController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WriteController() {
+    public ReadController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,24 +34,21 @@ public class WriteController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-		response.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
+		response.setCharacterEncoding("utf-8");
 		
-		Dao dao = new Dao();
+		nService service =new ServiceImpl();
+		int seq =Integer.parseInt(request.getParameter("seq"));
 		
-		String content = request.getParameter("content");
-		//int boardseq = 1;
-		int boardseq = Integer.parseInt(request.getParameter("sequence"));
-		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("id");
-		String name = (String) session.getAttribute("name");
-		
-		ReplyVO reply = new ReplyVO(boardseq, id, name, content, "date");
-		
-		dao.insert(reply);
-		
-		//response.sendRedirect(request.getContextPath()+"/ReplyList.jsp");
+		BoardVO b=service.getBoard(seq);
+		service.countupdate(b);
+		b.setViewcount(b.getViewcount()+1);
+		request.setAttribute("b", b);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/Board/Contents.jsp");
+		if(dispatcher != null) {
+		dispatcher.forward(request, response);
+		}
 	}
 
 	/**

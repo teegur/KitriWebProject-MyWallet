@@ -36,7 +36,8 @@ public class ListController extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		
 		Dao dao = new Dao();
-		int boardseq = 1;
+		//int boardseq = 1;
+		int boardseq = Integer.parseInt(request.getParameter("sequence"));
 		ArrayList<ReplyVO> temp = dao.selectAll(boardseq);
 		ArrayList<ReplyVO> list = new ArrayList<ReplyVO>();
 		int pagenum = 1;
