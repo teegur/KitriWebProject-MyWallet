@@ -56,5 +56,8 @@ function rec(sequence){
 		<input type="button" value="추천하기" onclick="rec(${b.sequence})" >
 		<input type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/Board/List_free.jsp?pagenum=1'" >
 	</form>
+	<jsp:include  page="/reply/ReplyList.jsp">
+		<jsp:param value="${b.sequence }" name="sequence"/>
+	</jsp:include>
 </body>
 </html>

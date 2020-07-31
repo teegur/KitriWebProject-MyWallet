@@ -34,7 +34,7 @@ function getXMLHttpRequest(){
 	return httpRequest;
 }
 
-function writeCmt(){
+function writeCmt(sequence){
 	var form = document.getElementById("writeCommentForm");
 	var content = form.content.value;
 	
@@ -43,7 +43,7 @@ function writeCmt(){
 		return false;
 	}
 	else{
-		var param = "content=" + content;
+		var param = "content=" + content +"&sequence=" + parseInt(sequence);
 		
 		httpRequest = getXMLHttpRequest();
 		httpRequest.onreadystatechange = checkFunc;
@@ -63,6 +63,7 @@ function checkFunc(){
 <body>
 	<c:import url="/ListController">
 		<c:param name="colcnt" value = "10"/>
+		<c:param name="sequence" value="${param.sequence }"/>
 	</c:import>
 	<h3>댓글 목록</h3>	
 	<table border="1" cellspacing="0" >
@@ -77,13 +78,13 @@ function checkFunc(){
 	</table>	
 	
 		<c:forEach var="pagenum" begin= "1" end  = "${size}">
-			<a href="http://localhost:8081/Project_semi/reply/ReplyList.jsp?pagenum=${pagenum}" >${pagenum}</a>
+			<a href="http://localhost:8081/Project_semi/reply/ReplyList.jsp?pagenum=${pagenum}&sequence=${param.sequence}" >${pagenum}</a>
 		</c:forEach>
 	
 	
 	<h3>댓글 작성</h3>
 		<form id="writeCommentForm">
-			<input type="text" name="content"/><input type="button" value="작성" onclick="writeCmt()" />
+			<input type="text" name="content"/><input type="button" value="작성" onclick="writeCmt(${param.sequence})" />
 		</form>
 </body>
 </html>

@@ -38,7 +38,8 @@ public class WriteController extends HttpServlet {
 		Dao dao = new Dao();
 		
 		String content = request.getParameter("content");
-		int boardseq = 1;
+		//int boardseq = 1;
+		int boardseq = Integer.parseInt(request.getParameter("sequence"));
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		String name = (String) session.getAttribute("name");
