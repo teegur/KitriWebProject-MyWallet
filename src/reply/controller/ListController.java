@@ -59,7 +59,7 @@ public class ListController extends HttpServlet {
 		}		
 		
 		
-		request.setAttribute("list", list);
+		request.setAttribute("list", temp); // list temp로 수정
 		int size = ( ( temp.size() - 1 ) / 10 )+ 1;
 		request.setAttribute("size", size);
 		int ogsize = temp.size();

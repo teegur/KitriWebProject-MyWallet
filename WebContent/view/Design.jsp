@@ -39,7 +39,7 @@ a{text-decoration:none; color:black}
 		</div>	
 	</div>
 	<div class="design title">
-		<h1><a href="index.jsp">Kitri</a></h1>
+		<h1><a href="${pageContext.request.contextPath }/view/main.jsp">Kitri</a></h1>
 	</div>
 	<div class="design right">
 		<div class="design" id="join">

@@ -58,7 +58,7 @@ function checkFunc(){
 		document.location.reload();					
 	}
 }
-fuction pageMove()
+
 </script>
 </head>
 <body>
@@ -67,7 +67,7 @@ fuction pageMove()
 		<c:param name="sequence" value="${param.sequence }"/>
 	</c:import>
 	<h3>댓글 목록</h3>	
-		<%--<c:if test="${requestScope.ogsize != 0}"> --%>
+		<c:if test="${requestScope.ogsize != 0}"> 
 			<table border="1" cellspacing="0" >
 				<c:forEach var="reply" items="${list }">
 					<tr>
@@ -78,11 +78,12 @@ fuction pageMove()
 					</tr>
 				</c:forEach>
 			</table>	
-		<%-- </c:if> --%>
-	
+		</c:if> 
+		<%-- 
 		<c:forEach var="pagenum" begin= "1" end  = "${size}">
 			<a href="http://localhost:8081/Project_semi/ReadController?seq=5&pagenum=${pagenum}" >${pagenum}</a>
 		</c:forEach>
+		--%>
 	
 	
 	<h3>댓글 작성</h3>

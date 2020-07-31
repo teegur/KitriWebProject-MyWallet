@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sound.midi.Sequence;
 
 import model.BoardVO;
 import freeboard.service.ServiceImpl;
@@ -34,9 +33,9 @@ public class ReadController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html; charset=utf-8");
-		response.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		
 		nService service =new ServiceImpl();
 		int seq =Integer.parseInt(request.getParameter("seq"));
@@ -45,7 +44,10 @@ public class ReadController extends HttpServlet {
 		service.countupdate(b);
 		b.setViewcount(b.getViewcount()+1);
 		request.setAttribute("b", b);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/Board/Contents.jsp");
+		
+		
 		if(dispatcher != null) {
 		dispatcher.forward(request, response);
 		}

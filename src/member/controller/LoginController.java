@@ -48,6 +48,7 @@ public class LoginController extends HttpServlet {
       // 세션 생성
       HttpSession session = request.getSession();
       
+      
       // 로그인에 필요한 요청 파라메터를 읽는다.
       String id = request.getParameter("id");
       String pwd = request.getParameter("pwd");
@@ -55,9 +56,13 @@ public class LoginController extends HttpServlet {
       // id로 멤버 검색
       memberVO m = dao.select(id);
       
+<<<<<<< HEAD
       String cls = m.getCls();
       
       System.out.println(pwd);
+=======
+      //System.out.println(pwd);
+>>>>>>> db182b73e2475f7edfc37625c664c02bb7227cd2
       //System.out.println(m.getPassword());
       
       // id가 동일한 멤버가 있고 비밀번호도 동일하면 로그인 성공
