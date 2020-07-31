@@ -52,9 +52,6 @@ public class LoginController extends HttpServlet {
       String id = request.getParameter("id");
       String pwd = request.getParameter("pwd");
       
-      System.out.println(id);
-      System.out.println(pwd);
-      
       // id로 멤버 검색
       memberVO m = dao.select(id);
       

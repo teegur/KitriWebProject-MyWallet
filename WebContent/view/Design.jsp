@@ -55,7 +55,7 @@ a{text-decoration:none; color:black}
 				<c:if test="${sessionScope.flag }"> <!--  로그인 성공 -->
 					<a href="${pageContext.request.contextPath }/LogoutController">로그아웃</a>
 				</c:if>
-				<c:if test="${!sessionScope.flag }">
+				<c:if test="${!sessionScope.flag }"> <!-- 로그인 실패시  -->
 					<a href="${pageContext.request.contextPath }/view/Login.jsp">로그인</a>
 				</c:if>
 			<%}else{%>
