@@ -57,6 +57,18 @@ create table household (
    type number(1)
 );
 
+create table notice(
+seq number(5),
+title varchar2(100),           
+contents varchar2(4000),
+writer varchar2(30),
+time varchar2(30),
+viewcount number(5),
+recommend_cnt number(5)
+);
+
+create sequence seq_notice;
+
 insert into membertest values ('admin','관리자','xxx', '1234', 'xxxx', '오프라인', '관리자')
 
 select * from free_board;
