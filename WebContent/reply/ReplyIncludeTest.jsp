@@ -10,7 +10,9 @@
 <body>
 	<c:import url="/TestController"/>
 	<h1>테스트합니다</h1>
-	<jsp:include  page="/reply/ReplyList.jsp"/>
+	<jsp:include  page="/reply/ReplyList.jsp">
+		<jsp:param value="11" name="sequence"/>
+	</jsp:include>
 	<h1>테스트합니다</h1>	
 </body>
 </html>
