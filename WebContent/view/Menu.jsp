@@ -21,7 +21,7 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item" style="width:200px">
-        <a class="nav-link" href="#">공지사항</a>
+        <a class="nav-link" href="${pageContext.request.contextPath }/notice/List_notice.jsp?pagenum=1">공지사항</a>
       </li>
       <li class="nav-item" style="width:200px">
         <a class="nav-link" href="${pageContext.request.contextPath }/Board/List_free.jsp?pagenum=1">자유게시판</a>

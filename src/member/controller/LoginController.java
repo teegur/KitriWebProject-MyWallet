@@ -55,6 +55,8 @@ public class LoginController extends HttpServlet {
       // id로 멤버 검색
       memberVO m = dao.select(id);
       
+      String cls = m.getCls();
+      
       System.out.println(pwd);
       //System.out.println(m.getPassword());
       
@@ -62,6 +64,7 @@ public class LoginController extends HttpServlet {
       if (m!=null && pwd.equals(m.getPassword())) {
          // 로그인 성공한 id를 세션에 저장
          session.setAttribute("id", id);
+         session.setAttribute("cls", cls);
          // 로그인 성공 체크
          flag = true;
          // 상태 변경

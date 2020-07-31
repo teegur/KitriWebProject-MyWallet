@@ -65,3 +65,6 @@ select * from household;
 select * from reply;
 
 select * from household;
+
+
+select *from notice;
