@@ -85,7 +85,6 @@
 </head>
 
 <body class="bg-gradient-dark">
-
   <div class="container" style = "padding-left: 9.5rem; padding-right: 9.5rem;">
 
     <div class="card o-hidden border-0 shadow-lg my-5">
