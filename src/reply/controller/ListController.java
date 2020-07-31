@@ -42,6 +42,8 @@ public class ListController extends HttpServlet {
 		ArrayList<ReplyVO> list = new ArrayList<ReplyVO>();
 		int pagenum = 1;
 		
+		System.out.println(boardseq);
+		
 		if(request.getParameter("pagenum") != null ) {
 			pagenum = Integer.parseInt(request.getParameter("pagenum"));
 		}
@@ -60,6 +62,8 @@ public class ListController extends HttpServlet {
 		request.setAttribute("list", list);
 		int size = ( ( temp.size() - 1 ) / 10 )+ 1;
 		request.setAttribute("size", size);
+		int ogsize = temp.size();
+		request.setAttribute("ogsize", ogsize);
 	}
 
 	/**
