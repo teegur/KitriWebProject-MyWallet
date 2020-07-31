@@ -56,7 +56,7 @@ public class LoginController extends HttpServlet {
       // id로 멤버 검색
       memberVO m = dao.select(id);
       
-      System.out.println(pwd);
+      //System.out.println(pwd);
       //System.out.println(m.getPassword());
       
       // id가 동일한 멤버가 있고 비밀번호도 동일하면 로그인 성공

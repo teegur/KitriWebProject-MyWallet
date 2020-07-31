@@ -6,6 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+	window.onbeforeunload = closingCode;
+	function closingCode(){
+		// do something...
+		System.out.println("종료");
+		return null;
+	}
+</script>
 </head>
 <body>
 	<!-- 윗부분에는 menu.jsp 인클루드 -->
