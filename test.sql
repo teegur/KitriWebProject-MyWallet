@@ -37,5 +37,7 @@ select * from free_board;
 
 select * from membertest;
 
+select * from membertest;
+
 select * from reply;
 

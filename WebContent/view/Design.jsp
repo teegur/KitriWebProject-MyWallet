@@ -28,7 +28,14 @@ a{text-decoration:none; color:black}
 <div class="design top">
 	<div class="design left">
 		<div class="design" id="mem_info">
-			<a href="${pageContext.request.contextPath }/MemberSearchController">회원정보</a>
+			<c:if test="${sessionScope.flag eq true }"> <!-- 로그인한 경우만 메뉴출력 -->
+				<c:if test="${sessionScope.id eq 'admin' }"> <!-- 관리자인 경우 -->
+					<a href="${pageContext.request.contextPath }/MemberListController">회원관리</a>
+				</c:if>
+				<c:if test="${sessionScope.id ne 'admin' }"> <!-- 관리자가 아닌 경우 -->
+				<a href="${pageContext.request.contextPath }/MemberSearchController">회원정보</a>
+				</c:if>
+			</c:if>
 		</div>	
 	</div>
 	<div class="design title">
@@ -36,17 +43,21 @@ a{text-decoration:none; color:black}
 	</div>
 	<div class="design right">
 		<div class="design" id="join">
-			<% if (!session.isNew())  {%>
-				<c:if test="${sessionScope.id eq 'admin' }"> <!-- 관리자인 경우 -->
-					<a href="${pageContext.request.contextPath }/MemberListController">회원관리</a>
-				</c:if>
-			<%}else{%>
+			<c:if test="${sessionScope.flag eq true }">
+				<%=(String) session.getAttribute("id") %>님 환영합니다
+			</c:if>
+			<c:if test="${sessionScope.flag ne true}">
 				<a href="${pageContext.request.contextPath }/view/JoinForm.jsp">회원가입</a>
-			<%} %>
+			</c:if>
 		</div>
 		<div class="design" id="log_state">
-			<% if (!session.isNew())  {%>
-				<a href="${pageContext.request.contextPath }/DelController">로그아웃</a>
+			<% if (!session.isNew())  {%> <!-- 새로 생성된 세션이 있을 때 (로그인 시도를 한 경우) -->
+				<c:if test="${sessionScope.flag }"> <!--  로그인 성공 -->
+					<a href="${pageContext.request.contextPath }/LogoutController">로그아웃</a>
+				</c:if>
+				<c:if test="${!sessionScope.flag }">
+					<a href="${pageContext.request.contextPath }/view/Login.jsp">로그인</a>
+				</c:if>
 			<%}else{%>
 				<a href="${pageContext.request.contextPath }/view/Login.jsp">로그인</a>
 			<%} %>
