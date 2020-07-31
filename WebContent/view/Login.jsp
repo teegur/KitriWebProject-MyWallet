@@ -63,7 +63,7 @@
                   </div>
                    -->
                   <div class="text-center small">
-                   	아이디가 없으시다면? <a href="JoinForm.jsp">회원가입</a> <!-- 정상적으로 링크 연결됨. -->
+                   	아이디가 없으시다면? <a href="${pageContext.request.contextPath }/view/JoinForm.jsp">회원가입</a> <!-- 정상적으로 링크 연결됨. -->
                   </div>
                   <hr>
                 </div>
