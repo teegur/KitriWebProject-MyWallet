@@ -88,5 +88,14 @@ public class BoardVO {
 		this.recommend_cnt = recommend_cnt;
 	}
 
+
+
+	@Override
+	public String toString() {
+		return "BoardVO [sequence=" + sequence + ", title=" + title + ", writer=" + writer + ", content=" + content
+				+ ", time=" + time + ", viewcount=" + viewcount + ", recommend_cnt=" + recommend_cnt + "]";
+	}
+	
+	
 	
 }

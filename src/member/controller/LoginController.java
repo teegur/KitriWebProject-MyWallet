@@ -48,6 +48,7 @@ public class LoginController extends HttpServlet {
       // 세션 생성
       HttpSession session = request.getSession();
       
+      
       // 로그인에 필요한 요청 파라메터를 읽는다.
       String id = request.getParameter("id");
       String pwd = request.getParameter("pwd");
