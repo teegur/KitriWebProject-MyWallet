@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<c:import url="/view/Menu.jsp" />
 	<c:import url="/household/householdWrite.jsp" /> <!-- 가계부 작성 폼 -->
 	<br>
 	<table border="1">
