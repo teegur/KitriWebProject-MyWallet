@@ -1,12 +1,18 @@
 package household.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import household.dao.hhDao;
+import model.Household;
 
 /**
  * Servlet implementation class hhListController
@@ -32,9 +38,21 @@ public class hhListController extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 		
+		ArrayList<Household> h = new ArrayList<Household>();
+		
 		HttpSession session = request.getSession();
 		
+		hhDao dao = new hhDao();
 		
+		h = dao.select((String) session.getAttribute("id")); // 자신의 아이디에 대한 가계부만 확인
+		
+		request.setAttribute("h", h);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/household/householdList.jsp");
+		
+		if (dispatcher != null) {
+			dispatcher.forward(request, response);
+		}
 		
 	}
 
