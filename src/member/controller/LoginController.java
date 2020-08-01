@@ -53,12 +53,13 @@ public class LoginController extends HttpServlet {
       String id = request.getParameter("id");
       String pwd = request.getParameter("pwd");
       
-      System.out.println(id); // test
-      System.out.println(pwd); // test
+      //System.out.println(id); // test
+      //System.out.println(pwd); // test
+      
       // id로 멤버 검색
       memberVO m = dao.select(id);
       
-      System.out.println(m); // test
+      //System.out.println(m); // test
       
       // id가 동일한 멤버가 있고 비밀번호도 동일하면 로그인 성공
       if (m!=null && pwd.equals(m.getPassword())) {

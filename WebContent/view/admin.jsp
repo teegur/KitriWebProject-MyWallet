@@ -60,6 +60,7 @@
                       <th>주소</th>
         			  <th>상태</th>
         			  <th>회원등급</th>
+        			  <th>점수</th>
         			  <th>관리</th>
                     </tr>
                   </thead>
@@ -73,6 +74,7 @@
 	                  <td>${m.getAddress() }</td>
 	                  <td>${m.getStatus() }</td>
 	                  <td>${m.getCls() }</td>
+	                  <td>${m.getScore() }</td>
 	                  <td><a href="${pageContext.request.contextPath }/DelController?id=${m.getId() }">삭제</a></td>
 				   </tr>
             	   </c:if>
