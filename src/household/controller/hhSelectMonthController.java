@@ -15,16 +15,16 @@ import household.dao.hhDao;
 import model.hhVO;
 
 /**
- * Servlet implementation class hhGetMonthController
+ * Servlet implementation class hhSelectMonthController
  */
-@WebServlet("/hhGetMonthController")
-public class hhGetMonthController extends HttpServlet {
+@WebServlet("/hhSelectMonthController")
+public class hhSelectMonthController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public hhGetMonthController() {
+    public hhSelectMonthController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,22 +42,37 @@ public class hhGetMonthController extends HttpServlet {
 		HttpSession session = request.getSession();		
 		hhDao dao = new hhDao();
 		
-		h = dao.select((String) session.getAttribute("id")); // 자신의 아이디에 대한 가계부만 확인
-				
-		ArrayList<hhVO> m = new ArrayList<hhVO>();
+		h = dao.select((String) session.getAttribute("id")); // 자신의 아이디에 대한 가계부만 확인		
+		
+		ArrayList<hhVO> m = new ArrayList<hhVO>();		
+		
+		
 		if(h.size() != 0) {
 			m.add(h.get(0));
+			m.get(0).setContent(m.get(0).getDate().substring(5,7)); //월로사용
+			m.get(0).setDate(m.get(0).getDate().substring(0,4)); // 연도		
+			m.get(0).setKey(1);
 		}
 		
-		int i = 0;
-		for(hhVO one : h) {
-			if(one.getDate().substring(0, 7) == m.get(i).getDate().substring(0, 7)) {
-				m.get(i).setPrice(m.get(i).getPrice() + one.getPrice());
+		int i = 0;		
+		for(int j = 1; j < h.size(); j ++) {
+			if(h.get(j).getDate().substring(0, 4).equals(m.get(i).getDate())
+			&& h.get(j).getDate().substring(5,7).equals(m.get(i).getContent())) {
+				m.get(i).setKey(m.get(i).getKey() + 1);
+				continue;
 			}
+			
 			else {
-				m.add(one);
+				m.add(h.get(j));		
 				i++;
+				m.get(i).setContent(m.get(i).getDate().substring(5,7)); //월로사용
+				m.get(i).setDate(m.get(i).getDate().substring(0,4)); // 연도			
+				m.get(i).setKey(1);
 			}
+		}
+		
+		for(int j = 0; j < m.size(); j++) {
+			System.out.println(m.get(j));
 		}
 		
 		request.setAttribute("m", m);		
@@ -68,6 +83,7 @@ public class hhGetMonthController extends HttpServlet {
 		if (dispatcher != null) {
 			dispatcher.forward(request, response);
 		}
+		
 	}
 
 	/**

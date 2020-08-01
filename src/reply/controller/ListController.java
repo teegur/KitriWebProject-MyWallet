@@ -42,8 +42,6 @@ public class ListController extends HttpServlet {
 		ArrayList<ReplyVO> list = new ArrayList<ReplyVO>();
 		int pagenum = 1;
 		
-		System.out.println(boardseq);
-		
 		if(request.getParameter("pagenum") != null ) {
 			pagenum = Integer.parseInt(request.getParameter("pagenum"));
 		}

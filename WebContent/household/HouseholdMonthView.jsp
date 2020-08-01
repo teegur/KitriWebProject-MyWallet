@@ -8,14 +8,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:import url="/hhGetMonthController"/>
-	
-	
-	<table>
-<table>
-<tr>
-<td><a></a></td>
-</table>
+	<c:import url="/view/Menu.jsp" />	
+	<br>
+	<table border="1">
+		<tr>
+			<th>연도</th><th>월</th><th>입력갯수</th>
+		<c:forEach var="m" items="${m }">
+			<tr>
+				<td>${m.getDate() }</td>
+				<td>${m.getContent() }</td>
+				<td>${m.getKey() }</td>
+			</tr>
+		</c:forEach>	
+	</table>
 
 </body>
 </html>

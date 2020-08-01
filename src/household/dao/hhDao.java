@@ -59,7 +59,7 @@ public class hhDao {
 		
 		try {			
 			conn = db.getConnection();
-			String sql = "select * from household where id=?";
+			String sql = "select * from household where id=? order by w_date desc";
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, id); 
