@@ -55,6 +55,8 @@ create table membertest (
    class varchar2(20)
 );
 
+insert into membertest values ('admin','관리자','xxx', '1234', 'xxxx', '오프라인', '관리자')
+
 create table household (
    id  varchar2(20),
    w_date  varchar2(20), 
@@ -75,8 +77,6 @@ recommend_cnt number(5)
 );
 
 create sequence seq_notice;
-
-insert into membertest values ('admin','관리자','xxx', '1234', 'xxxx', '오프라인', '관리자')
 
 select * from free_board;
 

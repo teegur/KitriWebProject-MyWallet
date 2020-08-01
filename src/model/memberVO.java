@@ -1,14 +1,14 @@
 package model;
 
 public class memberVO {
-	   String id;
-	   String password;
-	   String name;
-	   String email;
+	   private String id;
+	   private String password;
+	   private String name;
+	   private String email;
 	   
-	   String address;
-	   String status;
-	   String cls;
+	   private String address;
+	   private String status;
+	   private String cls;
 	   
 	   @Override
 	   public String toString() {
@@ -29,6 +29,8 @@ public class memberVO {
 	      this.status = status;
 	      this.cls = cls;
 	   }
+	   
+	   
 
 	   public String getId() {
 	      return id;
