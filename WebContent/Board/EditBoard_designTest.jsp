@@ -50,24 +50,25 @@ function cancel(){
 			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"	>
 							<tr>
 					<th>글번호</th>
-			<td colspan="2"><input class="for-control" type="text" value="<%=request.getParameter("sequence") %>" name="sequence" size="45" readonly><br>조회수: ${b.viewcount} 
-					추천수: ${b.recommend_cnt}</td>	
+			<td colspan="2"><input class="form-control" type="text" value="<%=request.getParameter("sequence") %>" name="sequence" size="60" readonly>
+			<br>조회수: ${b.viewcount}  추천수: ${b.recommend_cnt}
+			</td>	
 			</tr>
 			<tr >
 					<th >작성자 </th>	
-					<td><input class="for-control" type="text" value="<%=request.getParameter("writer") %>" name="writer" size="45" readonly></td>
+					<td><input class="form-control" type="text" value="<%=request.getParameter("writer") %>" name="writer" size="60" readonly></td>
 					</tr>	
 			<tr >
 					<th >작성 날짜</th>
-					<td><input class="for-control" type="text" value="<%=request.getParameter("time") %>" name="time" size="45" readonly><br></td>						
+					<td><input class="form-control" type="text" value="<%=request.getParameter("time") %>" name="time" size="60" readonly><br></td>						
 			</tr>	
 			<tr>
 				<th>글 제목</th>
-				<td><input class="for-control" type="text" value="<%=request.getParameter("title") %>" name="title" size="45" ${str }></td>
+				<td><input class="form-control" type="text" value="<%=request.getParameter("title") %>" name="title" size="60" ${str }></td>
 			</tr>	
 			<tr>
 				<th>글 내용</th>
-				<td><textarea class="for-control" rows="15" cols="45" name="content" ${str }><%=request.getParameter("content") %></textarea></td>
+				<td><textarea class="form-control" rows="20" cols="60" name="content" ${str }><%=request.getParameter("content") %></textarea></td>
 			</tr>	
 			<tr>
 				<td colspan="2">
@@ -109,7 +110,7 @@ function cancel(){
 </c:if>
 <c:if test="${sessionScope.id ==null }">
 		<script type="text/javascript">
-		alert("로그인을 해야 글작성이 가능합니다");
+		alert("로그인을 해야 글 수정이 가능합니다");
 		location.href="${pageContext.request.contextPath }/view/Login.jsp";
 		</script>
 </c:if>
