@@ -107,6 +107,12 @@ function check() {
 						<input class="col-sm-8 form-control" type="text" name="address" value="${m.address }"><br>
 					</div>
 					<div class="form-group row">
+						<label for="address" class="col-sm-4"> 
+						점수 : 
+						</label>
+						<input class="col-sm-8 form-control" type="text" name="score" value="${m.score }" readonly><br>
+					</div>
+					<div class="form-group row">
 						<label for="status" class="col-sm-4"> 
 						상태 : 
 						</label>	
