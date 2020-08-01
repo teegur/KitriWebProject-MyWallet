@@ -40,7 +40,7 @@ public class MemberEditController extends HttpServlet {
 		memberDAO dao = new memberDAOImpl();
 		
 		memberVO m = new memberVO(request.getParameter("id"), request.getParameter("name"), request.getParameter("email"), request.getParameter("pwd"), request.getParameter("address"),
-				request.getParameter("status"), request.getParameter("cls"));
+				request.getParameter("status"), request.getParameter("cls"), Integer.parseInt(request.getParameter("score")));
 		
 		dao.update(m);
 		

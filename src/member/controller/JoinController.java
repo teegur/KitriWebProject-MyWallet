@@ -48,7 +48,13 @@ public class JoinController extends HttpServlet {
 	      String email = request.getParameter("email");
 	      String address = request.getParameter("address");
 	      
-	      memberVO m = new memberVO(id,name,email,pw,address,"오프라인","일반 회원"); // 가입할 땐 '오프라인', 로그인 할 때 '온라인', 일반회원 (회원가입시 무조건 일반회원)
+	      //System.out.println("아이디" + id);
+	      //System.out.println("비밀번호" + pw);
+	      //System.out.println("이름" + name);
+	      //System.out.println("이메일" + email);
+	      //System.out.println("주소" + address);	// 여기까지 정상출력
+	      
+	      memberVO m = new memberVO(id,name,email,pw,address,"오프라인","일반 회원",0); // 가입할 땐 '오프라인', 로그인 할 때 '온라인', 일반회원 (회원가입시 무조건 일반회원), 스코어 0
 	      
 	      dao.insert(m); // 위에서 저장한 객체값 회원가입
 	      

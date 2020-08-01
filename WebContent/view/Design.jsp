@@ -33,7 +33,7 @@ a{text-decoration:none; color:black}
 					<a href="${pageContext.request.contextPath }/MemberListController">회원관리</a>
 				</c:if>
 				<c:if test="${sessionScope.id ne 'admin' }"> <!-- 관리자가 아닌 경우 -->
-				<a href="${pageContext.request.contextPath }/MemberSearchController">회원정보</a>
+					<a href="${pageContext.request.contextPath }/MemberSearchController">회원정보</a>
 				</c:if>
 			</c:if>
 		</div>	

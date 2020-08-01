@@ -1,38 +1,47 @@
 package model;
 
 public class memberVO {
-	   private String id;
-	   private String password;
-	   private String name;
-	   private String email;
+	private String id;
+	private String password;
+	private String name;
+	private String email;
 	   
-	   private String address;
-	   private String status;
-	   private String cls;
+	private String address;
+	private String status;
+	private String cls;
+	private int score;
+	
+	
 	   
-	   @Override
-	   public String toString() {
-	      // TODO Auto-generated method stub
-	      return super.toString();
-	   }
-	   
-	   public memberVO() {};
-	   
-	   public memberVO(String id, String name, String email, String password, String address, String status,
-	         String cls) {
-	      super();
-	      this.id = id;
-	      this.password = password;
-	      this.name = name;
-	      this.email = email;
-	      this.address = address;
-	      this.status = status;
-	      this.cls = cls;
-	   }
-	   
-	   
+	@Override
+	public String toString() {
+		return "memberVO [id=" + id + ", password=" + password + ", name=" + name + ", email=" + email + ", address="
+				+ address + ", status=" + status + ", cls=" + cls + ", score=" + score + "]";
+	}
 
-	   public String getId() {
+	public memberVO() {};
+
+	public memberVO(String id, String name, String email, String password, String address, String status, String cls, int score) {
+		super();
+		this.id = id;
+		this.password = password;
+		this.name = name;
+		this.email = email;
+		this.address = address;
+		this.status = status;
+		this.cls = cls;
+		this.score = score;
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
+	public String getId() {
 	      return id;
 	   }
 

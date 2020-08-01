@@ -55,8 +55,6 @@ create table membertest (
    class varchar2(20)
 );
 
-insert into membertest values ('admin','관리자','xxx', '1234', 'xxxx', '오프라인', '관리자')
-
 create table household (
    id  varchar2(20),
    w_date  varchar2(20), 
@@ -90,3 +88,16 @@ select * from household;
 
 
 select *from notice;
+
+create table membertest (
+   id varchar2(20) primary key,
+   name varchar2(20),
+   email varchar2(30),
+   password varchar2(20),
+   address varchar2(60),
+   status varchar2(20),
+   class varchar2(20),
+   score number(20)
+);
+
+insert into MEMBERTEST values ('admin','관리자','xxxx','1234','xxxx','오프라인','관리자',100000);

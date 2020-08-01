@@ -23,7 +23,7 @@ public class memberDAOImpl implements memberDAO{
 	      Connection conn = null;
 	      
 	      //db에 한 줄 추가하는 sql
-	      String sql = "insert into membertest values(?,?,?,?,?,?,?)";// id,name,email,password,address,status,class
+	      String sql = "insert into membertest values(?,?,?,?,?,?,?,?)";// id,name,email,password,address,status,class,score
 	      
 	      PreparedStatement pstmt = null;
 	      try {
@@ -41,6 +41,7 @@ public class memberDAOImpl implements memberDAO{
 	         pstmt.setString(5, m.getAddress());
 	         pstmt.setString(6, m.getStatus());
 	         pstmt.setString(7, m.getCls());
+	         pstmt.setInt(8, m.getScore());
 	         
 	         // sql 실행
 	         pstmt.executeUpdate();
@@ -82,7 +83,7 @@ public class memberDAOImpl implements memberDAO{
 	        rs = pstmt.executeQuery(); // 결과값 출력
 	               
 	        if (rs.next()) {
-	             return new memberVO(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
+	             return new memberVO(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getInt(8));
 	        }
 	               
 	        } catch(SQLException e) {
@@ -222,7 +223,7 @@ public class memberDAOImpl implements memberDAO{
 	            
 	            
 	            while (rs.next()) {
-	               result.add(new memberVO(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7)));
+	               result.add(new memberVO(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getInt(8)));
 	            }
 	            
 	         } catch(SQLException e) {
