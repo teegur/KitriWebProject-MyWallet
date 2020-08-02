@@ -59,7 +59,7 @@ public class MemberEmailcheckController extends HttpServlet {
 
 		// 메일 받을 주소
 		/* String to_email = m.getEmail(); */
-		String to_email = "dolly0920@naver.com";
+		String to_email = request.getParameter("email");
 
 		// SMTP 서버 정보를 설정한다.
 		Properties props = new Properties();
