@@ -10,13 +10,14 @@
 <body>
 	<c:import url="/view/Menu.jsp" />	
 	<br>
+	<h3 align="center">해당 월을 클릭하시면 이동합니다</h3>
 	<table border="1">
 		<tr>
 			<th>연도</th><th>월</th><th>입력갯수</th>
 		<c:forEach var="m" items="${m }">
 			<tr>
 				<td>${m.getDate() }</td>
-				<td>${m.getContent() }</td>
+				<td><a href="${pageContext.request.contextPath }/hhGetMonthController?year=${m.getDate()}&month=${m.getContent()}">${m.getContent() }</a></td>
 				<td>${m.getKey() }</td>
 			</tr>
 		</c:forEach>	

@@ -85,6 +85,32 @@ public class hhDao {
 		}
 		return result;
 	}
+
+	public void delete(int key) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;		
+		ResultSet rs = null;
+		
+		try {			
+			conn = db.getConnection();
+			String sql = "delete from household where key = ?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, key);
+					
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}		
+	}
 	
 
 }

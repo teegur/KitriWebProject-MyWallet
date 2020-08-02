@@ -1,6 +1,9 @@
 package household.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,17 +13,18 @@ import javax.servlet.http.HttpSession;
 
 import household.dao.hhDao;
 import model.hhVO;
+
 /**
- * Servlet implementation class hhWriteController
+ * Servlet implementation class hhDeleteController
  */
-@WebServlet("/hhWriteController")
-public class hhWriteController extends HttpServlet {
+@WebServlet("/hhDeleteController")
+public class hhDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public hhWriteController() {
+    public hhDeleteController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,22 +34,17 @@ public class hhWriteController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html;charset=UTF-8");
-		response.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		response.setCharacterEncoding("utf-8");
 		
-		HttpSession session = request.getSession();
 		hhDao dao = new hhDao();
-		hhVO hh = new hhVO(
-				0,
-				(String)session.getAttribute("id"),
-				request.getParameter("date"),
-				request.getParameter("category"),
-				request.getParameter("content"),
-				Integer.parseInt(request.getParameter("price")),
-				Integer.parseInt(request.getParameter("type"))
-				);
-		dao.insert(hh);
+		
+		dao.delete(Integer.parseInt(request.getParameter("key")));
+		
+		response.sendRedirect(request.getHeader("referer"));
+		
+		
 	}
 
 	/**

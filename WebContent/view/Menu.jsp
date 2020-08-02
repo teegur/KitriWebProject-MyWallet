@@ -26,7 +26,7 @@
         <a class="nav-link" href="${pageContext.request.contextPath }/Board/List_free.jsp?pagenum=1">자유게시판</a>
       </li>
       <li class="nav-item" style="width:200px">
-        <a class="nav-link" href="${pageContext.request.contextPath }/hhListController">가계부작성</a>
+        <a class="nav-link" href="${pageContext.request.contextPath }/hhSelectMonthController">가계부작성</a>
       </li>    
     </ul>
   </div>  

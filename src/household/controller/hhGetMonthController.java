@@ -38,32 +38,29 @@ public class hhGetMonthController extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		response.setCharacterEncoding("utf-8");
+		
 		ArrayList<hhVO> h = new ArrayList<hhVO>();		
+		ArrayList<hhVO> m = new ArrayList<hhVO>();	
 		HttpSession session = request.getSession();		
 		hhDao dao = new hhDao();
 		
 		h = dao.select((String) session.getAttribute("id")); // 자신의 아이디에 대한 가계부만 확인
-				
-		ArrayList<hhVO> m = new ArrayList<hhVO>();
-		if(h.size() != 0) {
-			m.add(h.get(0));
-		}
 		
-		int i = 0;
 		for(hhVO one : h) {
-			if(one.getDate().substring(0, 7) == m.get(i).getDate().substring(0, 7)) {
-				m.get(i).setPrice(m.get(i).getPrice() + one.getPrice());
-			}
-			else {
+			if(one.getDate().substring(0,4).equals(request.getParameter("year"))
+			&& one.getDate().substring(5,7).equals(request.getParameter("month"))) {
 				m.add(one);
-				i++;
 			}
 		}
 		
-		request.setAttribute("m", m);		
+		request.setAttribute("h", m);
+		request.setAttribute("year", request.getParameter("year"));
+		request.setAttribute("month", request.getParameter("month"));
 		
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/household/HouseholdMonthView.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/household/householdList.jsp");
 		
 		if (dispatcher != null) {
 			dispatcher.forward(request, response);

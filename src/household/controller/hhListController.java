@@ -37,10 +37,8 @@ public class hhListController extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 		
-		ArrayList<hhVO> h = new ArrayList<hhVO>();
-		
-		HttpSession session = request.getSession();
-		
+		ArrayList<hhVO> h = new ArrayList<hhVO>();		
+		HttpSession session = request.getSession();		
 		hhDao dao = new hhDao();
 		
 		h = dao.select((String) session.getAttribute("id")); // 자신의 아이디에 대한 가계부만 확인

@@ -69,11 +69,8 @@ public class hhSelectMonthController extends HttpServlet {
 				m.get(i).setDate(m.get(i).getDate().substring(0,4)); // 연도			
 				m.get(i).setKey(1);
 			}
-		}
+		}	
 		
-		for(int j = 0; j < m.size(); j++) {
-			System.out.println(m.get(j));
-		}
 		
 		request.setAttribute("m", m);		
 		

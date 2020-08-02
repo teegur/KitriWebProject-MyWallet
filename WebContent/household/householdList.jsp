@@ -6,6 +6,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+function delConfirm(key){
+	var result = confirm("정말로 삭제할까요?");
+	if(result){
+	    location.href="http://localhost:8081/Project_semi/hhDeleteController?key=" + String(key)
+	}else{
+	    alert("취소 되었습니다.");
+	}
+}
+
+function moveback(){
+	location.href="${pageContext.request.contextPath }/hhSelectMonthController"
+}
+</script>
 </head>
 <body>
 	<c:import url="/view/Menu.jsp" />
@@ -13,7 +27,7 @@
 	<br>
 	<table border="1">
 		<tr>
-			<th>날짜</th><th>카테고리</th><th>내용</th><th>종류</th><th>금액</th>
+			<th>날짜</th><th>카테고리</th><th>내용</th><th>종류</th><th>금액</th><th>삭제</th>
 		</tr>
 		<c:forEach var="h" items="${h }">
 			<tr>
@@ -29,11 +43,19 @@
 					</c:if>
 				</td>
 				<td>${h.getPrice() }</td>
+				<td>
+					<a href="javascript:delConfirm(${h.getKey()})">삭제</a>
+				</td>
 			</tr>
 		</c:forEach>
 	
 	</table>
-	
-	
+	<table style="margin-left: auto;margin-right: auto;">
+		<tr>
+			<td>
+				<input type="button" value="월 목록 이동" onclick="javscript:moveback()" >
+			</td>
+		</tr>
+	</table>	
 </body>
 </html>

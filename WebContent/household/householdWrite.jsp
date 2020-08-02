@@ -25,27 +25,34 @@ function getXMLHttpRequest(){
 	return httpRequest;
 }
 
-function hhWrite(){
+function hhWrite(year, month){
 	var form = document.getElementById("hhWriteForm");
 	var type = form.type.value;
 	var date = form.date.value;
 	var category = form.category.value;
 	var content = form.content.value;
 	var price = form.price.value;
-		
-	if(!category || !content || !price ){ // 여기까지 했음.
+	
+	
+	if(!category || !content || !price || !type ){ // 여기까지 했음.
 		alert("공란이 있습니다");
 		return false;
 	}
 	else{
-		var param = "content=" + content + "&type=" + type + "&date=" + date + "&category=" + category + "&price=" + price;
+		if(year != date.substring(0,4) || month !=date.substring(5,7)){
+			alert("연도와 열이 다릅니다");
+			return false;
+		}
+		else{
+			var param = "content=" + content + "&type=" + type + "&date=" + date + "&category=" + category + "&price=" + price;
 		
 		
-		httpRequest = getXMLHttpRequest();
-		httpRequest.onreadystatechange = checkFunc;
-		httpRequest.open("POST", "http://localhost:8081/Project_semi/hhWriteController",true);
-		httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8');
-		httpRequest.send(param);
+			httpRequest = getXMLHttpRequest();
+			httpRequest.onreadystatechange = checkFunc;
+			httpRequest.open("POST", "http://localhost:8081/Project_semi/hhWriteController",true);
+			httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8');
+			httpRequest.send(param);
+		}
 	}
 }
 function checkFunc(){
@@ -58,12 +65,26 @@ function checkFunc(){
 </head>
 <body>
 	<form action="" id="hhWriteForm">
-		<input type="radio" name="type" value="0">지출<input type="radio" name="type" value="1">수입<br>
-		날짜 : <input type="date" name="date"><br>
-		카테고리 : <input type="text" name="category"><br>
-		내용 : <input type="text" name="content"><br>
-		금액 : <input type="number" name="price"><br>
-		<input type="button" value="작성 완료" onclick="hhWrite()"><input type="reset" value="초기화">	
+		<table style="margin-left: auto; margin-right:auto;" >
+		<tr>
+			<td></td><td><input type="radio" name="type" value="0">지출<input type="radio" name="type" value="1">수입</td>
+		</tr>
+		<tr>
+			<td>날짜 :</td><td><input type="date" name="date"></td>
+		</tr>
+		<tr>
+			<td>카테고리 :</td> <td><input type="text" name="category"></td>
+		</tr>
+		<tr>
+			<td>내용 :</td><td><input type="text" name="content"></td>
+		</tr>
+		<tr>
+			<td>금액 :</td><td><input type="number" name="price"></td>
+		</tr>
+		<tr>
+			<td></td><td><input type="button" value="작성 완료" onclick="hhWrite(${year},${month})"> <input type="reset" value="초기화"></td>	
+		</tr>
+		</table>
 	</form>
 </body>
 </html>
