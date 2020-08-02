@@ -46,6 +46,8 @@ public class hhWriteController extends HttpServlet {
 				Integer.parseInt(request.getParameter("type"))
 				);
 		dao.insert(hh);
+		
+		response.sendRedirect(request.getHeader("referer"));
 	}
 
 	/**

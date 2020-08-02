@@ -23,7 +23,12 @@ function moveback(){
 </head>
 <body>
 	<c:import url="/view/Menu.jsp" />
+	
+	<h3 align="center">${year}년 ${month}월 가계부 목록</h3>
+	
 	<c:import url="/household/householdWrite.jsp" /> <!-- 가계부 작성 폼 -->
+	
+	
 	<br>
 	<table border="1">
 		<tr>
@@ -41,6 +46,8 @@ function moveback(){
 					<c:if test="${h.getType() eq 0 }"> <!-- 지출 -->
 						지출
 					</c:if>
+					<c:if test="${h.getType() eq 3 }"> <!-- 예시 -->						
+					</c:if>
 				</td>
 				<td>${h.getPrice() }</td>
 				<td>
@@ -50,6 +57,7 @@ function moveback(){
 		</c:forEach>
 	
 	</table>
+	<br>
 	<table style="margin-left: auto;margin-right: auto;">
 		<tr>
 			<td>
