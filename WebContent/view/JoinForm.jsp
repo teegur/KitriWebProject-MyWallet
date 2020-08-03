@@ -21,6 +21,25 @@
   <link href="${pageContext.request.contextPath }/startbootstrap-sb-admin-2-gh-pages/css/sb-admin-2.min.css" rel="stylesheet">
 
 <script>
+	//Ajax사용 설정
+	function getXMLHttpRequest(){
+	    var httpRequest = null;
+	 
+	    if(window.ActiveXObject){
+	         try{
+	             httpRequest = new ActiveXObject("Msxml2.XMLHTTP");    
+	         } catch(e) {
+	             try{
+	                 httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+	             } catch (e2) { httpRequest = null; }
+	         }
+	     }
+	     else if(window.XMLHttpRequest){
+	         httpRequest = new window.XMLHttpRequest();
+	     }
+	     return httpRequest;    
+	 }
+	
 	function check() {
 		var idTxt = document.JoinFormTem.id;
 		var pwTxt = document.JoinFormTem.pwd;
@@ -39,6 +58,11 @@
 		
 		if(document.JoinFormTem.idDuplication.value != "idCheck") {
 			alert("아이디 중복체크를 해주세요.");
+			return false;
+		}
+		
+		if(document.JoinFormTem.emailCheck.value != "emailCheck") {
+			alert("이메일 인증이 필요합니다.");
 			return false;
 		}
 		
@@ -70,16 +94,79 @@
 			return false;
 		}
 	}
+	
+	// 이메일 인증 메시지 전송
+	function sendEmail() {
+      var emailTxt = document.getElementById("userEmail").value;
+      //alert(emailTxt);
+      alert("인증메일을 전송합니다. 잠시만 기다려주세요.");
+      if(!emailTxt) {
+         alert("이메일을 입력하세요.");
+         return false;
+      } else {
+         //alert(idTxt); // 여기까지 출력됨
+         var param = "email="+emailTxt
+         httpRequest = getXMLHttpRequest();
+         httpRequest.onreadystatechange = callback;
+         httpRequest.open("POST","http://localhost:8081/Project_semi/MemberEmailcheckController",true);
+         httpRequest.setRequestHeader('Content-Type','application/x-www-form-urlencoded'); // 헤더 선언 중요!
+         httpRequest.send(param); // email="emailTxt" 전달 / 주소?뒤에 썼다고 생각하면 된다.(request값 설정)
+      }    
+      return false;
+   }
+	
+	
+	//callback함수 정의
+	function callback() {
+      if (httpRequest.readyState==4) {
+         var resultText = httpRequest.responseText; // 이부분에서 출력되는 값이 String변환이 안되는듯 (아래에서 확인한결과 String 타입이 되긴하는데 alert창에서 드래그가 안됨 뭔가 이상..)
+         //var resultText = sessionStorage.getItem("AuthenticationKey"); // session출력하면 null값 나옴..
+         //alert(resultText); // 여기서도 드래그 안됨.. 내용은 정상
+         //alert("1");
+         //document.getElementById("authKeynum").innerHTML = resultText;
+         document.JoinFormTem.authKey.value = resultText;
+         alert("입력하신 이메일로 인증번호를 전송하였습니다."); // 확인
+      }
+   }
 		
-		// 아이디 중복체크 화면 (중복확인 버튼 누를 때 실행)
+	// 아이디 중복체크 화면 (중복확인 버튼 누를 때 실행)
 	function openIdChk() {
 		window.name = "parentForm";
 		window.open("idCheckForm.jsp","chkForm","width=500, height=300, resizable=no, scrollbars=no");
 	}
 		
-		// id 입력창에 새로운 입력이 있을 시 바로 uncheck
+	// id 입력창에 새로운 입력이 있을 시 바로 uncheck
 	function inputIdChk() {
+		//alert("?");
 		document.JoinFormTem.idDuplication.value = "idUncheck";
+	}
+		
+	// email 입력창에 새로운 입력이 있을 시
+	function inputEmailchk() {
+		//alert("?");
+		document.JoinFormTem.emailCheck.value = "emailUncheck";
+	}
+	
+	function compareKey() {
+		var inputKey = document.getElementById("inputKeynum").value;
+		//var AuthKeynum = document.getElementById("authKeynum").value;
+		var AuthKeynum = document.JoinFormTem.authKey.value;
+		
+		//document.write( typeof inputKey );
+		//document.write( typeof AuthKeynum); // 둘다 string 출력되는 것 확인
+		AuthKeynum = AuthKeynum.trim(); // 좌우 공백제거
+		//document.write(AuthKeynum); // 여기서 스페이스가 포함된다.
+		//document.write(inputKey);
+		
+		alert(inputKey);
+		alert(AuthKeynum);
+		
+		if (inputKey === AuthKeynum) {
+			document.JoinFormTem.emailCheck.value="emailCheck";
+			alert("인증되었습니다.");
+		} else {
+			alert("인증번호를 확인하세요.");
+		}
 	}
 </script>
 </head>
@@ -114,9 +201,29 @@
                 <div class="form-group">
                     <input type="text" class="form-control form-control-user" name="name" placeholder="이름">
                 </div>
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-user" name="email" placeholder="이메일">
+                
+				<!-- 작업중 -->
+                <div class="form-group row">
+                	<div class="col-sm-8">
+                  		<input type="text" class="form-control form-control-user" name="email" id="userEmail" placeholder="이메일" onkeydown="inputEmailchk()">
+                  	</div>
+                  	<div class="col-sm-4">
+                  		<input type="button" class="btn btn-dark btn-user btn-block" value="인증번호 전송" onclick="sendEmail()">
+                  		<input type="hidden" name="authKey" id="authKeynum" value="@5123gakjlbl3"> <!-- 인증을 위한 키 -->
+				  	</div>	
                 </div>
+                
+                <!-- 작업중 -->
+                <div class="form-group row">
+                	<div class="col-sm-8">
+                  		<input type="text" class="form-control form-control-user" id="inputKeynum" name="authKeyTxt" placeholder="이메일 인증번호 입력">
+                  	</div>
+                  	<div class="col-sm-4">
+                  		<input type="button" class="btn btn-dark btn-user btn-block" value="인증번호 확인" onclick="compareKey()">
+                  		<input type="hidden" name="emailCheck" value="emailUncheck"> <!-- 이메일 체크 확인 변수 -->
+				  	</div>	
+                </div>
+
                 <div class="form-group">
                   <input type="text" class="form-control form-control-user" name="address" placeholder="주소">
                 </div>

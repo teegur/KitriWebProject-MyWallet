@@ -1,6 +1,7 @@
 package member.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Properties;
 import java.util.Random;
 
@@ -122,7 +123,9 @@ public class MemberEmailcheckController extends HttpServlet {
 		HttpSession saveKey = request.getSession();
 		saveKey.setAttribute("AuthenticationKey", AuthenticationKey);
 		
+		PrintWriter out = response.getWriter();
 		
+		out.println(AuthenticationKey); // callback함수에서 responseText로 받기위해서이다.
 		
 		
 		// 패스워드 바꿀때 뭘 바꿀지 조건에 들어가는 id
