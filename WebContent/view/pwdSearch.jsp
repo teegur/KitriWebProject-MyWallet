@@ -65,7 +65,7 @@
              //emailTxt = emailTxt.trim();
              result = result.trim();
              emailTxt = emailTxt.trim();
-             alert("이메일로 인증키를 전송하였습니다.");
+             alert("등록한 이메일로 인증키를 전송하였습니다.");
          	 //window.close();
         	 location.href='http://localhost:8081/Project_semi/view/pwdSearchSend.jsp?Authkey='+result+'&Email='+emailTxt; // request로 authkey와 email값 전달
          }
@@ -74,10 +74,10 @@
 </script>
 </head>
 <body>
-	<c:import url="/view/Menu.jsp" />
-	<h2>아이디를 입력하세요.</h2>
-	<form action="${pageContext.request.contextPath }/view/Login.jsp" name="pwdSearchTem" method="post" onsubmit="return check()">
-		아이디 : <input type="text" name="id" id="userId">
+	<br><br><br><br>
+	<form action="#" name="pwdSearchTem" method="post" onsubmit="return check()" style="text-align:center;">
+		<h4> 비밀번호를 찾고자 하는 아이디를 입력해 주세요. </h4>
+		<input type="text" name="id" id="userId">
 		<input type="submit" value="다음">
 	</form>
 </body>

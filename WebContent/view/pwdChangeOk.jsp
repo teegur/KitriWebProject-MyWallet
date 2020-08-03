@@ -12,7 +12,10 @@
 </script>
 </head>
 <body>
-	<h3>임시 비밀번호를 이메일로 전송하였습니다.</h3>
-	<input type="button" value="닫기" onclick="chk()">
+	<br><br><br><br>
+	<div style="text-align:center;">
+		<h3>임시 비밀번호를 이메일로 전송하였습니다.</h3>
+		<input type="button" value="닫기" onclick="chk()">
+	</div>
 </body>
 </html>

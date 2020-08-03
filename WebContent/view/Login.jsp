@@ -57,11 +57,9 @@
                     <input type="submit" class="btn btn-dark btn-user btn-block" value="Login">
                   </form>
                   <hr>
-                  <!-- 
                   <div class="text-center">
-                    <a class="small" href="forgot-password.html">Forgot Password?</a>
+               		 <a class="small" href="${pageContext.request.contextPath }/view/pwdSearch.jsp" onClick="window.open(this.href, '', 'width=500, height=300'); return false;">Forgot Password?</a>
                   </div>
-                   -->
                   <div class="text-center small">
                    	아이디가 없으시다면? <a href="${pageContext.request.contextPath }/view/JoinForm.jsp">회원가입</a> <!-- 정상적으로 링크 연결됨. -->
                   </div>
