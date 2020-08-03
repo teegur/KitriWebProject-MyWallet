@@ -47,8 +47,10 @@ public class hhSelectMonthController extends HttpServlet {
 		ArrayList<hhVO> m = new ArrayList<hhVO>();		
 		
 		
+		
 		if(h.size() != 0) {
 			m.add(h.get(0));
+			System.out.println(h.get(0));
 			m.get(0).setContent(m.get(0).getDate().substring(5,7)); //월로사용
 			m.get(0).setDate(m.get(0).getDate().substring(0,4)); // 연도		
 			m.get(0).setKey(1);
