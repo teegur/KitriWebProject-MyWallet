@@ -9,6 +9,7 @@ import java.util.List;
 
 import conn.DBConnect;
 import model.BoardVO;
+import model.LikeVO;
 
 
 
@@ -228,6 +229,39 @@ Connection conn=null;
 	}
 	}
 
+	@Override
+	public void like(String id, int sequence) {
+		Connection conn=null;
+		
+		String sql="insert into likey values(?,?,?) ";
+		PreparedStatement pstmt =null;
+		
+		try {
+			conn =db.getConnection();
+			pstmt= conn.prepareStatement(sql);
+			
+			pstmt.setString(1,id);
+			pstmt.setInt(2,sequence);
+			pstmt.setBoolean(3, false);
+			
+			pstmt.executeUpdate();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				pstmt.close();
+			}catch (SQLException e) {
+				e.printStackTrace();
+				// TODO: handle exception
+			}
+		
+	}
+		
+	}
+
+	
 		
 	}
 	

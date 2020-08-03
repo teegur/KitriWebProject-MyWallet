@@ -8,11 +8,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sun.xml.internal.ws.wsdl.writer.document.Service;
 
 import freeboard.service.ServiceImpl;
 import freeboard.service.nService;
+import model.LikeVO;
 
 /**
  * Servlet implementation class RecController
@@ -36,13 +38,19 @@ public class RecController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		response.setCharacterEncoding("utf-8");
+		HttpSession session=request.getSession();
 		
 		nService service=new ServiceImpl();
 		int num=Integer.parseInt(request.getParameter("sequence"));
+		String id=(String)session.getAttribute("id");
+		
+		LikeVO like=new LikeVO(id, num, "false");
+		
+		service.like(id, num); //like 테이블에 id,num저장
 		service.recupdate(num);
+		request.setAttribute("num", like.getSequence());
 		
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/Board/List_free.jsp?pagenum=1");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("freeboard.controller/ReadController?sequence=num");
 		if(dispatcher != null) {
 		dispatcher.forward(request, response);
 		}

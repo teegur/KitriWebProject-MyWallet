@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,10 +8,10 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 function del(sequence){
-	location.href = "${pageContext.request.contextPath}/DelBoardController?sequence="+sequence;
+	location.href = "${pageContext.request.contextPath}/DelNoticeController?sequence="+sequence;
 }
 function rec(sequence){
-	location.href = "${pageContext.request.contextPath}/RecController?sequence="+sequence;
+	location.href = "${pageContext.request.contextPath}/RecNoticeController?sequence="+sequence;
 }
 </script>
 <style>
@@ -19,10 +20,9 @@ function rec(sequence){
 <body>
 
 <c:if test="${sessionScope.id == b.writer }">
-			
-		
-	<form action="${pageContext.request.contextPath }/Board/EditBoard.jsp" method="post">
-		<h3 >글 읽기</h3>
+				
+	<form action="${pageContext.request.contextPath }/notice/EditBoard_notice.jsp" method="post">
+		<h3 >공지사항 </h3>
 		<table border="1" cellspacint="0">
 			<tr>
 					<th>글번호</th>
@@ -64,17 +64,16 @@ function rec(sequence){
 		</table> 
 		
 		<input type="button" value="추천하기" onclick="rec(${b.sequence})" >
-		<input type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/Board/List_free.jsp?pagenum=1'" >
+		<input type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/notice/List_notice.jsp?pagenum=1'" >
 	</form>
 
-	<jsp:include  page="/reply/ReplyList.jsp">
-		<jsp:param value="${b.sequence }" name="sequence"/>
-	</jsp:include>
+
 </c:if>	
+
 <c:if test="${sessionScope.id != b.writer }">
 
-<h3 >글 읽기</h3>
-<form action="${pageContext.request.contextPath }/Board/EditBoard.jsp" method="post">
+<h3 >공지사항</h3>
+<form action="${pageContext.request.contextPath }/notice/EditBoard_notice.jsp" method="post">
 		<table border="1" cellspacint="0">
 			<tr>
 					<th>글번호</th>
@@ -105,11 +104,9 @@ function rec(sequence){
 			
 		</table> 
 		<input type="button" value="추천하기" onclick="rec(${b.sequence})" >
-		<input type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/Board/List_free.jsp?pagenum=1'" >
+		<input type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/notice/List_notice.jsp?pagenum=1'" >
 	</form>
-		<jsp:include  page="/reply/ReplyList.jsp">
-			<jsp:param value="${b.sequence }" name="sequence"/>
-		</jsp:include>
+	
 </c:if>
 
 

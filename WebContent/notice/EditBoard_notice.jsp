@@ -9,7 +9,7 @@
 function cancel(){
 	var flag=confirm("취소하시겠습니까");
 	if(flag){
-		location.href="${pageContext.request.contextPath }/ReadController?seq=<%=request.getParameter("sequence") %>";
+		location.href="${pageContext.request.contextPath }/ReadNoticeController?seq=<%=request.getParameter("sequence") %>";
 	}
 
 }
@@ -19,7 +19,7 @@ function cancel(){
 <body>
 <h3 >글수정하기<br></h3>
 
-	<form action="${pageContext.request.contextPath }/EditBoardController" method="post">
+	<form action="${pageContext.request.contextPath }/EditNoticeController" method="post">
 		<table border="2"	cellspacing="0"	>
 			<tr>
 			<tr>

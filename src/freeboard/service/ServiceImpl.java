@@ -62,4 +62,15 @@ public class ServiceImpl implements nService{
 	}
 
 
+	@Override
+	public void like(String id, int num) {
+		dao.like(id,num);
+		
+	}
+
+	
+
+
+	
+
 }

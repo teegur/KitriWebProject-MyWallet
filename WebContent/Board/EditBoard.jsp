@@ -12,7 +12,7 @@ function cancel(){
 	if(flag){
 		location.href="${pageContext.request.contextPath }/ReadController?seq=<%=request.getParameter("sequence") %>";
 	}
-
+	
 }
 
 </script>

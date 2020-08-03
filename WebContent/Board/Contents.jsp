@@ -11,12 +11,16 @@
 		location.href = "${pageContext.request.contextPath}/DelBoardController?sequence="+sequence;
 	}
 	function rec(sequence){
+		if(<%=request.getAttribute("num") %> == ${b.sequence } ){
+			alert("이미 좋아요를 누르셨습니다");
+		}
+		else {
 		location.href = "${pageContext.request.contextPath}/RecController?sequence="+sequence;
+			
+			
+		}
 	}
-	function check() {
-		var titleTxt = document.editForm.title.value;
-		alert(titleTxt);
-	}
+
 </script>
 <style>
 </style>
@@ -52,7 +56,7 @@
 
 				<td><input type="text" value="${b.title}" name="title" readonly size="45" ></td>
 
-				<td><input type="text" value="${b.title }" name="title" size="45"  readonly></td>
+				
 
 			</tr>	
 			
@@ -64,7 +68,7 @@
 
 				<td><textarea rows="15" cols="45" readonly name="content" >${b.content}</textarea></td>
 
-				<td><textarea rows="15" cols="45" name="content" readonly>${b.content}</textarea></td>
+				
 
 			</tr>	
 			<tr>
