@@ -59,7 +59,7 @@ public class hhDao {
 		
 		try {			
 			conn = db.getConnection();
-			String sql = "select * from household where id=?";
+			String sql = "select * from household where id=? order by w_date desc";
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, id); 
@@ -84,6 +84,32 @@ public class hhDao {
 			}
 		}
 		return result;
+	}
+
+	public void delete(int key) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;		
+		ResultSet rs = null;
+		
+		try {			
+			conn = db.getConnection();
+			String sql = "delete from household where key = ?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, key);
+					
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}		
 	}
 	
 

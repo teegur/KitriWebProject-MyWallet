@@ -11,7 +11,7 @@ public class hhVO{
 	private int type;
 	
 	
-	
+	public hhVO() {};
 	public hhVO(int key, String id, String date, String category, String content, int price, int type) {
 		super();
 		this.key = key;
