@@ -41,7 +41,7 @@ public class EditBoardController extends HttpServlet {
 		String writer=request.getParameter("writer");
 		String title= request.getParameter("title");
 		String content = request.getParameter("content");
-		BoardVO b=new BoardVO(num,title,writer,content,null,0,0);
+		BoardVO b=new BoardVO(num,title,content,writer,null,0,0);
 	
 		service.editBoard(b);
 		

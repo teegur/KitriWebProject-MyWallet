@@ -61,8 +61,8 @@ Connection conn=null;
 			pstmt= conn.prepareStatement(sql);
 			
 			pstmt.setString(1, b.getTitle());
-			pstmt.setString(2, b.getWriter());
-			pstmt.setString(3, b.getContent());
+			pstmt.setString(3, b.getWriter());
+			pstmt.setString(2, b.getContent());
 			
 			pstmt.executeUpdate();
 			

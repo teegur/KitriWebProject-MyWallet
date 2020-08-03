@@ -10,6 +10,50 @@
 	function del(sequence){
 		location.href = "${pageContext.request.contextPath}/DelBoardController?sequence="+sequence;
 	}
+	function getXMLHttpRequest(){
+		var httpRequest = null;
+		
+		if(window.ActiveXObject){
+			try{
+				httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
+			}catch(e){
+				try{
+					httpRequest = new ActiveXObject("Microsoft.XMLHTTP");				
+				}catch(e2){ httpRequest = null;}
+			}
+		}
+		else if(window.XMLHttpRequest){
+			httpRequest = new window.XMLHttpRequest();
+		}
+		return httpRequest;
+	}
+	
+	function rec(sequence){
+		var form = document.getElementById("writeCommentForm");
+		var content = form.content.value;
+		
+		if(!content){
+			alert("내용을 입력하세요.");
+			return false;
+		}
+		else{
+			var param = "content=" + content +"&sequence=" + parseInt(sequence);
+			
+			httpRequest = getXMLHttpRequest();
+			httpRequest.onreadystatechange = checkFunc;
+			httpRequest.open("POST", "http://localhost:8081/Project_semi/WriteController",true);
+			httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8');
+			httpRequest.send(param);
+		}
+	}
+	function checkFunc(){
+		if(httpRequest.readyState == 4){
+			var resultText = httpRequest.responseText;
+			document.location.reload();					
+		}
+	}
+	
+	
 	function rec(sequence){
 		if(<%=request.getAttribute("num") %> == ${b.sequence } ){
 			alert("이미 좋아요를 누르셨습니다");
