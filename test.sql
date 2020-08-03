@@ -105,3 +105,24 @@ select * from membertest;
 
 insert into attendance values ('dolly0920',sysdate);
 
+create table likey(
+ id varchar2(20) ,
+ seq number(5) primary key,
+ likey varchar2(10)
+);
+
+select * from likey;
+
+select * from free_board;
+
+create table free_board(
+	seq number(5),
+	title varchar2(100), 
+	writer varchar2(30),          
+	contents varchar2(4000),
+	time varchar2(30),
+	viewcount number(5),
+	recommend_cnt number(5)
+)
+
+create sequence seq_board;

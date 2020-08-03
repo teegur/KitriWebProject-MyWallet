@@ -174,7 +174,7 @@ Connection conn=null;
 	public void update(BoardVO b) {
 		Connection conn=null;
 		
-		String sql="update free_board set title=? ,content=? ,time=sysdate where seq=?";
+		String sql="update free_board set title=? ,contents=? ,time=sysdate where seq=?";
 		PreparedStatement pstmt =null;
 		
 		try {
