@@ -127,7 +127,7 @@ function check() {
 					<div class="form-group row">	
 						<input class="col btn btn-dark" type="submit" value="정보수정">
 					</div>
-						<a style="float:right" href="${pageContext.request.contextPath }/DelController">회원탈퇴</a>
+						<a style="float:right" href="${pageContext.request.contextPath }/DelController" onclick="return confirm('탈퇴하시겠습니까?')">회원탈퇴</a>
 				 </form>
 				</div>
             </div>
