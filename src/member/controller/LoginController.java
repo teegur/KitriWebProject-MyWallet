@@ -74,7 +74,13 @@ public class LoginController extends HttpServlet {
       }
       
       session.setAttribute("flag",flag); // 로그인 성공 여부 저장
-      RequestDispatcher dispatcher = request.getRequestDispatcher("/view/main.jsp");
+      
+      String path = "/view/Login.jsp"; // 로그인 실패 시 로그인 창으로
+      
+      if (flag) { // 로그인 성공 시  main으로
+    	  path = "/view/main.jsp";
+      }
+      RequestDispatcher dispatcher = request.getRequestDispatcher(path);
       
       if (dispatcher != null) {
          dispatcher.forward(request, response);

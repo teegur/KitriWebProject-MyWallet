@@ -15,11 +15,6 @@ create sequence replyseq
 	minvalue 1
 	nocycle
 	
-create sequence hhkey
-	start with 1
-	increment by 1
-	minvalue 1
-	nocycle
 
 
 create table free_board(
@@ -35,6 +30,12 @@ drop table free_board
 drop sequence seq_board
 create sequence seq_board
 
+
+create sequence hhkey
+	start with 1
+	increment by 1
+	minvalue 1
+	nocycle
 
 create table household (
    key number(20),
@@ -70,8 +71,11 @@ select * from household;
 
 select * from reply;
 
+<<<<<<< HEAD
 select * from LIKEY;
 
+=======
+>>>>>>> f812810dd0e0d16c45bf816b27fa12bed866b5e4
 select *from notice;
 
 create table membertest (
@@ -86,3 +90,17 @@ create table membertest (
 )
 
 insert into MEMBERTEST values ('admin','愿�由ъ옄','xxxx','1234','xxxx','�삤�봽�씪�씤','愿�由ъ옄',100000);
+
+select * from household;
+
+create table attendance (
+  id varchar2(20),
+  w_date varchar2(20)
+);
+
+select * from attendance;
+
+select * from membertest;
+
+insert into attendance values ('dolly0920',sysdate);
+

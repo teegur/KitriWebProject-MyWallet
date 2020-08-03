@@ -6,22 +6,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+function oncheck(){
+	var form = document.getElementById('writeForm');
+	var date = form.date.value;
+	if(date == ''){
+		alert("날짜를 입력하세요");
+		return false;
+	}
+	return true;
+}
+</script>
 </head>
 <body>
 	<c:import url="/view/Menu.jsp" />	
 		<br>
 	<h4 align="center">새로운 월 추가</h4>
-	<form action="${pageContext.request.contextPath }/hhWriteController" method="post">		
+	<form action="${pageContext.request.contextPath }/hhWriteController" method="post" id="writeForm" onsubmit="return oncheck()">		
 		<input type="hidden" name="type" value="3">
 		<input type="hidden" name="category" value="자동생성">
 		<input type="hidden" name="content" value=" ">
 		<input type="hidden" name="price" value="0">
 		<table style="margin-left: auto; margin-right:auto;" >
 		<tr>
-			<td>날짜 :</td><td><input type="date" name="date"></td>			
+			<td>날짜 :</td><td><input type="month" name="date"></td>			
 		</tr>
 		<tr>
-			<td></td><td><input type="submit" value="생성"/>
+			<td></td><td><input type="submit" value="생성" />
 		</tr>
 		</table>
 	</form>

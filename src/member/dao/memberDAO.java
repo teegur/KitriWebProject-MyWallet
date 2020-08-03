@@ -16,4 +16,9 @@ public interface memberDAO {
 	void update_status(String s, String id);
 	   
 	ArrayList<memberVO> getAll();
+	
+	boolean select_attendance(String id, String date);
+	
+	void check_attendance(String id, String date);
+	
 }
