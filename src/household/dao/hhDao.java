@@ -112,5 +112,42 @@ public class hhDao {
 		}		
 	}
 	
+	public ArrayList<hhVO> selectcategory(String date, int type) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;		
+		ResultSet rs = null;
+		ArrayList<hhVO> result = new ArrayList<hhVO>(); // 결과를 저장할 어레이리스트
+		
+		try {			
+			conn = db.getConnection();
+			String sql = "select sum(price), category from household where w_Date like ? and type = ? group by category";
+			//select * from household  where w_Date like '2020-08%' order by category
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, date + "%");
+			pstmt.setInt(2, type);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				result.add(new hhVO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7)));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+	
 
 }
