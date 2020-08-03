@@ -66,10 +66,10 @@ public class MemberAttendanceController extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		//String id = (String) session.getAttribute("id");
+		String id = (String) session.getAttribute("id");
 		
 		//임시값설정
-		String id = "dolly0920";
+		//String id = "dolly0920";
 		
 		boolean Attendance_flag = dao.select_attendance(id,d_result); // 이미 출석했는지 안했는지 파악
 		
