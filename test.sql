@@ -25,13 +25,14 @@ create sequence hhkey
 create table free_board(
 	seq number(5),
 	title varchar2(100),           
-	contents varchar2(4000),
-	writer varchar2(30),
+	writer varchar2(4000),
+	content varchar2(30),
 	time varchar2(30),
 	viewcount number(5),
 	recommend_cnt number(5)
 )
-
+drop table free_board
+drop sequence seq_board
 create sequence seq_board
 
 
@@ -56,6 +57,8 @@ time varchar2(30),
 viewcount number(5),
 recommend_cnt number(5)
 )
+
+
 
 create sequence seq_notice;
 
