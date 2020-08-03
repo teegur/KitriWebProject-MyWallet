@@ -99,7 +99,7 @@
 	function sendEmail() {
       var emailTxt = document.getElementById("userEmail").value;
       //alert(emailTxt);
-      alert("인증메일을 전송합니다. 잠시만 기다려주세요.");
+      alert("이메일 확인 후 인증 메일을 전송합니다. 잠시만 기다려주세요.");
       if(!emailTxt) {
          alert("이메일을 입력하세요.");
          return false;
@@ -124,8 +124,12 @@
          //alert(resultText); // 여기서도 드래그 안됨.. 내용은 정상
          //alert("1");
          //document.getElementById("authKeynum").innerHTML = resultText;
-         document.JoinFormTem.authKey.value = resultText;
-         alert("입력하신 이메일로 인증번호를 전송하였습니다."); // 확인
+         if (resultText==1) {
+        	 alert("입력하신 이메일로 이미 가입되어있습니다.");
+         } else {
+	         document.JoinFormTem.authKey.value = resultText;
+	         alert("입력하신 이메일로 인증번호를 전송하였습니다."); // 확인
+         }
       }
    }
 		
@@ -158,10 +162,11 @@
 		//document.write(AuthKeynum); // 여기서 스페이스가 포함된다.
 		//document.write(inputKey);
 		
-		alert(inputKey);
-		alert(AuthKeynum);
-		
-		if (inputKey === AuthKeynum) {
+		//alert(inputKey);
+		//alert(AuthKeynum);
+		if (inputKey == "@5123gakjlbl3") { // 기본키로 지정해놓은 값과 같으면 안된다.
+			alert("인증번호를 확인하세요.");
+		} else if (inputKey === AuthKeynum) {
 			document.JoinFormTem.emailCheck.value="emailCheck";
 			alert("인증되었습니다.");
 		} else {
@@ -209,7 +214,7 @@
                   	</div>
                   	<div class="col-sm-4">
                   		<input type="button" class="btn btn-dark btn-user btn-block" value="인증번호 전송" onclick="sendEmail()">
-                  		<input type="hidden" name="authKey" id="authKeynum" value="@5123gakjlbl3"> <!-- 인증을 위한 키 -->
+                  		<input type="hidden" name="authKey" id="authKeynum" value="@5123gakjlbl3"> <!-- 인증을 위한 키 --> <!-- 임시로 입력한 값이다 -->
 				  	</div>	
                 </div>
                 

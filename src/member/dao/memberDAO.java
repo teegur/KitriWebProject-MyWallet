@@ -23,4 +23,6 @@ public interface memberDAO {
 	
 	void update_pwd(String email, String pw);
 	
+	boolean select_email(String email); // 중복된 이메일 검색
+	
 }
