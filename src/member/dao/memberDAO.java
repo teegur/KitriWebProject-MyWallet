@@ -21,4 +21,6 @@ public interface memberDAO {
 	
 	void check_attendance(String id, String date);
 	
+	void update_pwd(String email, String pw);
+	
 }

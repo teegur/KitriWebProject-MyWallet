@@ -321,4 +321,33 @@ public class memberDAOImpl implements memberDAO{
 		
 	}
 
+	@Override
+	public void update_pwd(String email, String pw) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+	      
+	      String sql = "update membertest set password=? where email=?";
+	      
+	      PreparedStatement pstmt = null;
+	      try {
+	         conn = db.getConnection();
+	         
+	         pstmt = conn.prepareStatement(sql); // sql명령 실행
+	         
+	         pstmt.setString(1, pw);
+	         pstmt.setString(2, email);
+	         
+	         pstmt.executeUpdate();
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         try {
+	            pstmt.close();
+	            conn.close();
+	         } catch (SQLException e) {
+	            e.printStackTrace();
+	         }
+	      }
+	}
+
 }
