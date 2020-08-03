@@ -240,4 +240,85 @@ public class memberDAOImpl implements memberDAO{
 	         return result;
 	}
 
+	@Override
+	public boolean select_attendance(String id, String date) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+	    ResultSet rs = null;
+	    memberVO m = null;
+	            
+	    //db에서 id에 대한 결과를 출력하는 sql
+	    String sql = "select * from attendance where id=? and w_date=?";
+	            
+	    PreparedStatement pstmt = null;
+	            
+	    try {
+	               //커넥션 객체 획득
+	    	conn = db.getConnection();
+	               
+	        //java에서 sql을 실행하는 PreparedStatement객체 생성
+	        pstmt = conn.prepareStatement(sql);
+	               
+	        //sql의 ?파라메터 매칭
+	        //String w_date = date;
+	        pstmt.setString(1, id);
+	        pstmt.setString(2, date);
+	               
+	        // sql 실행
+	        rs = pstmt.executeQuery(); // 결과값 출력
+	               
+	        if (rs.next()) { // 동일한 값이 있다면
+	             return true;
+	        }
+	               
+	        } catch(SQLException e) {
+	            e.printStackTrace();
+	        } finally {
+	        	try {
+	                rs.close();
+	                pstmt.close();
+	                conn.close();
+	            } catch(SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	    
+	        return false; // 동일한 값이 없다면
+	}
+
+	@Override
+	public void check_attendance(String id, String date) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+	      
+	      //db에 한 줄 추가하는 sql
+	    String sql = "insert into attendance values(?,?)";// id,date
+	      
+	    PreparedStatement pstmt = null;
+	    try {
+	         //커넥션 객체 획득
+	         conn = db.getConnection();
+	         
+	         //java에서 sql을 실행하는 PreparedStatement객체 생성
+	         pstmt = conn.prepareStatement(sql);
+	         
+	         //sql의 ?파라메터 매칭
+	         pstmt.setString(1,id);
+	         pstmt.setString(2,date);
+
+	         // sql 실행
+	         pstmt.executeUpdate();
+	      } catch(SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         try {
+	            pstmt.close();
+	            conn.close();
+	         } catch(SQLException e) {
+	            e.printStackTrace();
+	         }
+	      }
+		
+	}
+
 }

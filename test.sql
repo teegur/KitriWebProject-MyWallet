@@ -85,3 +85,12 @@ insert into MEMBERTEST values ('admin','愿�由ъ옄','xxxx','1234','xxxx','�
 
 select * from household;
 
+create table attendance (
+  id varchar2(20),
+  w_date varchar2(20)
+);
+
+select * from attendance;
+
+insert into attendance values ('dolly0920',sysdate);
+
