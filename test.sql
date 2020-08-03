@@ -61,6 +61,7 @@ recommend_cnt number(5)
 
 
 
+
 create sequence seq_notice;
 
 select * from free_board;

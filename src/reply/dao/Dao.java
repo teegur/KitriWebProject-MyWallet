@@ -109,4 +109,36 @@ public class Dao {
 			}
 		}		
 	}// delete method End	
+	
+public void boardreplydelete(int boardseq) {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;		
+		ResultSet rs = null;
+		
+		try {			
+			conn = db.getConnection();
+			String sql = "delete from reply where boardseq=?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, boardseq); 
+			
+					
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}		
+	}// insert method End	
+	
 }

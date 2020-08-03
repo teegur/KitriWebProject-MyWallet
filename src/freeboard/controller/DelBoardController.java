@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import freeboard.service.ServiceImpl;
 import freeboard.service.nService;
+import reply.dao.Dao;
 
 /**
  * Servlet implementation class DelBoardController
@@ -34,11 +35,11 @@ public class DelBoardController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		response.setCharacterEncoding("utf-8");
-
+		Dao dao=new Dao();
 		nService service= new ServiceImpl();
 		int num=Integer.parseInt(request.getParameter("sequence"));
 		service.delBoard(num);
-		
+		dao.boardreplydelete(num);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/Board/List_free.jsp?pagenum=1");
 		if(dispatcher != null) {
 		dispatcher.forward(request, response);
