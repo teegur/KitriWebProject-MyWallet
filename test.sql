@@ -95,5 +95,7 @@ create table attendance (
 
 select * from attendance;
 
+select * from membertest;
+
 insert into attendance values ('dolly0920',sysdate);
 
