@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.BoardVO;
+import model.LikeVO;
 
 
 public interface nService {
@@ -15,4 +16,8 @@ public interface nService {
 	void countupdate(BoardVO b); //조회수 +1 하기
 	void recupdate(int num); //추천 +1 하기
 	void like(String id,int num); //좋아요하기
+	
+	
+	
+	
 }

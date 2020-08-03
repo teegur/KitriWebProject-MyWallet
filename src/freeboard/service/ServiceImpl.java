@@ -5,11 +5,13 @@ import java.util.List;
 
 import freeboard.dao.Dao_impl;
 import model.BoardVO;
+import model.LikeVO;
 
 
 public class ServiceImpl implements nService{
 
 	private Dao_impl dao;
+	
 	public  ServiceImpl() {
 		dao=new Dao_impl();
 	}
@@ -68,6 +70,11 @@ public class ServiceImpl implements nService{
 		
 	}
 
+
+
+
+
+	
 	
 
 

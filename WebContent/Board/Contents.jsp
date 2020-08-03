@@ -55,15 +55,12 @@
 	
 	
 	function rec(sequence){
-		if(<%=request.getAttribute("num") %> == ${b.sequence } ){
-			alert("이미 좋아요를 누르셨습니다");
+		
+	
+			location.href = "${pageContext.request.contextPath}/RecController?sequence="+sequence;
+					
 		}
-		else {
-		location.href = "${pageContext.request.contextPath}/RecController?sequence="+sequence;
-			
-			
-		}
-	}
+	
 
 </script>
 <style>
@@ -72,7 +69,7 @@
 <body>
 
 <c:if test="${sessionScope.id == b.writer }">
-			
+	
 		
 	<form action="${pageContext.request.contextPath }/Board/EditBoard_designTest.jsp" method="post" name="editForm" onsubmit="return check()">
 		<h3 >글 읽기 </h3>
@@ -81,7 +78,8 @@
 					<th>글번호</th>
 			
 			<td colspan="2"><input type="text" value="${b.sequence }" name="sequence" size="45" readonly><br>
-			조회수: ${b.viewcount} 추천수: ${b.recommend_cnt}</td>	
+			조회수: ${b.viewcount} ♥${b.recommend_cnt } 
+</td>	
 			
 			</tr>
 			<tr >
@@ -124,7 +122,6 @@
 			</tr>	
 		</table> 
 		
-		<input type="button" value="추천하기" onclick="rec(${b.sequence})" >
 		<input type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/Board/List_free.jsp?pagenum=1'" >
 	</form>
 
@@ -141,7 +138,11 @@
 					<th>글번호</th>
 			
 			<td colspan="2"><input type="text" value="${b.sequence }" name="sequence" size="45" readonly><br>
-			조회수: ${b.viewcount} 추천수: ${b.recommend_cnt}</td>	
+			조회수: ${b.viewcount} 좋아요수:${b.recommend_cnt}
+			
+			
+			
+				</td>	
 			
 			</tr>
 			<tr >
@@ -165,7 +166,10 @@
 			</tr>	
 			
 		</table> 
-		<input type="button" value="추천하기" onclick="rec(${b.sequence})" >
+		<%if(request.getAttribute("like") ==null ){ %><input type="button" value="♡" onclick="rec(${b.sequence})" ><%}
+			else{%><input type="button" value="♥ " onclick="rec(${b.sequence})" ><%} %>
+		
+		
 		<input type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/Board/List_free.jsp?pagenum=1'" >
 	</form>
 		<jsp:include  page="/reply/ReplyList.jsp">

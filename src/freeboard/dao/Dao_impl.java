@@ -49,6 +49,34 @@ Connection conn=null;
 		
 	}
 
+	public void recdelete(int num) {
+		Connection conn=null;
+				
+				String sql="update free_board set recommend_cnt=recommend_cnt-1 where seq=?";
+				PreparedStatement pstmt =null;
+			
+				try {
+					conn =db.getConnection();
+					pstmt= conn.prepareStatement(sql);
+					
+					pstmt.setInt(1, num);
+					
+					pstmt.executeUpdate();
+					
+				}catch(SQLException e) {
+					e.printStackTrace();
+					
+				} finally {
+					try {
+						pstmt.close();
+					}catch (SQLException e) {
+						e.printStackTrace();
+						// TODO: handle exception
+					}
+				
+			}
+				
+			}
 	@Override
 	public void insert(BoardVO b) {
 		Connection conn=null;
@@ -242,7 +270,7 @@ Connection conn=null;
 			
 			pstmt.setString(1,id);
 			pstmt.setInt(2,sequence);
-			pstmt.setBoolean(3, false);
+			pstmt.setString(3,"false");
 			
 			pstmt.executeUpdate();
 			
@@ -259,6 +287,70 @@ Connection conn=null;
 		
 	}
 		
+	}
+
+	public void likedelete(int sequence) {
+		Connection conn=null;
+		
+		String sql="delete likey where seq=?";
+		PreparedStatement pstmt =null;
+		
+		try {
+			conn =db.getConnection();
+			pstmt= conn.prepareStatement(sql);
+			
+			
+			pstmt.setInt(1,sequence);
+			
+			
+			pstmt.executeUpdate();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				pstmt.close();
+			}catch (SQLException e) {
+				e.printStackTrace();
+				// TODO: handle exception
+			}
+		
+	}
+		
+	}
+	
+	@Override
+	public LikeVO likeselect(int num) {
+		Connection conn=null;
+		ResultSet rs=null;
+		BoardVO b=null;
+		String sql="select * from likey where seq=? ";
+		PreparedStatement pstmt =null;
+		
+		try {
+			conn =db.getConnection();
+			pstmt= conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, num);
+			
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				return new LikeVO(rs.getString(1),rs.getInt(2),rs.getString(3));
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				pstmt.close();
+			}catch (SQLException e) {
+				e.printStackTrace();
+				// TODO: handle exception
+			}
+		}
+		return null;
 	}
 
 	

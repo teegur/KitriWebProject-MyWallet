@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import com.sun.xml.internal.ws.wsdl.writer.document.Service;
 
+import freeboard.dao.Dao;
+import freeboard.dao.Dao_impl;
 import freeboard.service.ServiceImpl;
 import freeboard.service.nService;
 import model.LikeVO;
@@ -39,21 +41,30 @@ public class RecController extends HttpServlet {
 		response.setContentType("text/html; charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 		HttpSession session=request.getSession();
+		Dao dao=new Dao_impl();
 		
-		nService service=new ServiceImpl();
 		int num=Integer.parseInt(request.getParameter("sequence"));
 		String id=(String)session.getAttribute("id");
 		
-		LikeVO like=new LikeVO(id, num, "false");
-		
-		service.like(id, num); //like 테이블에 id,num저장
-		service.recupdate(num);
-		request.setAttribute("num", like.getSequence());
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("freeboard.controller/ReadController?sequence=num");
-		if(dispatcher != null) {
-		dispatcher.forward(request, response);
+		nService service=new ServiceImpl();
+		LikeVO like =dao.likeselect(num); //like 테이블 불러오기
+		boolean flag = false;
+		if(like ==null) { //좋아요를 안눌렀다면 likey에 추가와 추천 카운트 +1
+			dao.like(id, num);
+			dao.recupdate(num);
+			
 		}
+		else { 			//좋아요를 눌렀다면 likey에서 삭제하고 추천카운트 -1
+			dao.likedelete(num);
+			dao.recdelete(num);
+			request.setAttribute("like", like.getLike());
+		}
+		
+		response.sendRedirect(request.getHeader("referer"));
+		//RequestDispatcher dispatcher = request.getRequestDispatcher(request.getHeader("referer"));
+		//if(dispatcher != null) {
+		//dispatcher.forward(request, response);
+		//}
 		
 	}
 

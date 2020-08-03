@@ -70,7 +70,7 @@ select * from household;
 
 select * from reply;
 
-
+select * from LIKEY;
 
 select *from notice;
 

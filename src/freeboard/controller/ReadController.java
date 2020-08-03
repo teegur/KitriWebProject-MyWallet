@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.BoardVO;
+import model.LikeVO;
+import freeboard.dao.Dao;
+import freeboard.dao.Dao_impl;
 import freeboard.service.ServiceImpl;
 import freeboard.service.nService;
 
@@ -36,12 +39,14 @@ public class ReadController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		
+		Dao dao=new Dao_impl();
 		nService service =new ServiceImpl();
 		int seq =Integer.parseInt(request.getParameter("seq"));
 		
 		BoardVO b=service.getBoard(seq);
 		service.countupdate(b);
+		LikeVO like =dao.likeselect(seq);
+		request.setAttribute("like", like);
 		b.setViewcount(b.getViewcount()+1);
 		request.setAttribute("b", b);
 		
