@@ -40,7 +40,7 @@ function hhWrite(year, month){
 	}
 	else{
 		if(year != date.substring(0,4) || month !=date.substring(5,7)){
-			alert("연도와 열이 다릅니다");
+			alert("연도와 월이 다릅니다");
 			return false;
 		}
 		else{

@@ -74,7 +74,7 @@
 <c:if test="${sessionScope.id == b.writer }">
 			
 		
-	<form action="${pageContext.request.contextPath }/Board/EditBoard.jsp" method="post" name="editForm" onsubmit="return check()">
+	<form action="${pageContext.request.contextPath }/Board/EditBoard_designTest.jsp" method="post" name="editForm" onsubmit="return check()">
 		<h3 >글 읽기 </h3>
 		<table border="1">
 			<tr>
