@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +28,13 @@
       </li>
       <li class="nav-item" style="width:200px">
         <a class="nav-link" href="${pageContext.request.contextPath }/hhSelectMonthController">가계부작성</a>
-      </li>    
+      </li>
+      <!-- 작업중 -->
+	  <c:if test="${sessionScope.flag eq true }"> <!-- 로그인에 성공한 경우만 메뉴가 보인다. -->
+		  <li class="nav-item" style="width:200px">
+	        <a class="nav-link" href="${pageContext.request.contextPath }/MemberAttendanceController">출석 체크</a>
+	      </li>   
+	  </c:if>
     </ul>
   </div>  
 </nav>

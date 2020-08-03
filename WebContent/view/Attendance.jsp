@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<c:import url="/view/Menu.jsp" />
 	<c:if test="${Attendance_flag eq false }">
 		출석하였습니다.
 	</c:if>
