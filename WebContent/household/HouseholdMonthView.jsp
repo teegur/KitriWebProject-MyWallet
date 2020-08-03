@@ -29,7 +29,7 @@ function oncheck(){
 		<input type="hidden" name="price" value="0">
 		<table style="margin-left: auto; margin-right:auto;" >
 		<tr>
-			<td>날짜 :</td><td><input type="date" name="date"></td>			
+			<td>날짜 :</td><td><input type="month" name="date"></td>			
 		</tr>
 		<tr>
 			<td></td><td><input type="submit" value="생성" />

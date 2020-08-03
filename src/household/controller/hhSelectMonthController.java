@@ -45,12 +45,9 @@ public class hhSelectMonthController extends HttpServlet {
 		h = dao.select((String) session.getAttribute("id")); // 자신의 아이디에 대한 가계부만 확인		
 		
 		ArrayList<hhVO> m = new ArrayList<hhVO>();		
-		
-		
-		
+						
 		if(h.size() != 0) {
 			m.add(h.get(0));
-			System.out.println(h.get(0));
 			m.get(0).setContent(m.get(0).getDate().substring(5,7)); //월로사용
 			m.get(0).setDate(m.get(0).getDate().substring(0,4)); // 연도		
 			m.get(0).setKey(1);
