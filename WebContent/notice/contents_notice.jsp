@@ -8,7 +8,12 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 function del(sequence){
-	location.href = "${pageContext.request.contextPath}/DelNoticeController?sequence="+sequence;
+	var ans = confirm("삭제 하시겠습니까?");
+	if(ans != "0")
+		{
+			location.href = "${pageContext.request.contextPath}/DelNoticeController?sequence="+sequence;
+		}
+     
 }
 function rec(sequence){
 	location.href = "${pageContext.request.contextPath}/RecNoticeController?sequence="+sequence;
