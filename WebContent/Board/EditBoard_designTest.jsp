@@ -51,7 +51,7 @@ function cancel(){
 							<tr>
 					<th>글번호</th>
 			<td colspan="2"><input class="form-control" type="text" value="<%=request.getParameter("sequence") %>" name="sequence" size="60" readonly>
-			<br>조회수: ${b.viewcount}  추천수: ${b.recommend_cnt}
+			<br>
 			</td>	
 			</tr>
 			<tr >

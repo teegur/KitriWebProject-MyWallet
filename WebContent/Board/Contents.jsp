@@ -93,7 +93,7 @@ function confirmDelete(id)
 			</tr>	
 		</table> 
 		
-		<input type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/Board/List_free.jsp?pagenum=1'" >
+		<input type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/Board/List_free_designTest.jsp?pagenum=1'" >
 	</form>
 
 	<jsp:include  page="/reply/ReplyList.jsp">
@@ -141,7 +141,7 @@ function confirmDelete(id)
 			else{%><input type="button" value="♥ " onclick="rec(${b.sequence})" ><%} %>
 		
 		
-		<input type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/Board/List_free.jsp?pagenum=1'" >
+		<input type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/Board/List_free_designTest.jsp?pagenum=1'" >
 	</form>
 		<jsp:include  page="/reply/ReplyList.jsp">
 			<jsp:param value="${b.sequence }" name="sequence"/>

@@ -8,9 +8,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:import url="/view/Menu.jsp" />
-	<form action="" method="post">
-	
-	</form>
+	<table>
+		<tr>
+			<th>제 목</th><th>날 짜</th>
+		</tr>
+		<c:forEach var="m" items="${news }">
+			<tr>
+				<td><a href="${m.getLink() }">${m.getTitle() }</a></td>
+				<td>${m.getPubDate() }</td>
+			</tr>
+		</c:forEach>
+	</table>
 </body>
 </html>

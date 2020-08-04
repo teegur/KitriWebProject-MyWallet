@@ -10,14 +10,6 @@
 
 <script type="text/javascript">
 
-function confirmDelete(id)
-{
-    var ans = confirm("삭제 하시겠습니까?");
-    if(ans == "0")
-     {
-       document.location = "delete_article.asp?id="+id;
-     }
-}
 
 	function del(sequence){
 		var ans = confirm("삭제 하시겠습니까?");
@@ -107,7 +99,7 @@ function confirmDelete(id)
 				</tr>	
 			</table> 
 			
-			<input class="btn float-right" type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/Board/List_free.jsp?pagenum=1'" ><br>
+			<input class="btn float-right" type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/Board/List_free_designTest.jsp?pagenum=1'" ><br>
 		 </div>
 		</form>
 	
@@ -156,7 +148,7 @@ function confirmDelete(id)
 			<%}	%>
 			
 			
-			<input class="btn float-right" type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/Board/List_free.jsp?pagenum=1'" ><br>
+			<input class="btn float-right" type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/Board/List_free_designTest.jsp?pagenum=1'" ><br>
 		</div>
 		</form>
 			<jsp:include  page="/reply/ReplyList_designTest.jsp">
