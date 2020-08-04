@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import conn.DBConnect;
+import model.BoardReplyVO;
+import model.BoardVO;
 import model.ReplyVO;
 
 public class Dao {
@@ -140,5 +142,37 @@ public void boardreplydelete(int boardseq) {
 			}
 		}		
 	}// insert method End	
+public ArrayList count() {
 	
+	Connection conn = null;
+	PreparedStatement pstmt = null;		
+	ResultSet rs = null;
+	ArrayList<BoardReplyVO> list = new ArrayList<BoardReplyVO>();
+	try {		
+		
+		conn = db.getConnection();
+		String sql = "select seq, count(boardseq) from free_board,reply where boardseq(+)=seq group by seq";
+		pstmt =conn.prepareStatement(sql);
+		
+		
+		rs=pstmt.executeQuery();
+		while(rs.next()) {
+			list.add(new BoardReplyVO(rs.getInt(1),rs.getInt(2)));
+		}
+		
+
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		try {
+			if (rs != null) {
+				rs.close();
+			}
+			pstmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}	return list;
+}// insert method End	
 }

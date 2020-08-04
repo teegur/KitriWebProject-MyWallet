@@ -116,15 +116,60 @@ create table likey(
 select * from likey;
 
 select * from free_board;
+select * from reply
 
-create table free_board(
+create table notice(
+seq number(5),
+title varchar2(100),     
+writer varchar2(30),      
+contents varchar2(4000),
+time varchar2(30),
+viewcount number(5),
+recommend_cnt number(5)
+);
+
+create sequence seq_board;
+create sequence seq_notice
+drop table notice;
+drop sequence seq_notice
+
+select 
+seq,title,writer,contents,time,
+viewcount,recommend_cnt,
+(select count(*) from reply 
+where boardseq=seq)
+from free_board,reply
+where boardseq=seq
+order by seq desc 
+
+
+drop table free_board;
+drop sequence seq_board;
+drop table reply;
+drop sequence replyseq
+
+create table reply (
+   replyseq number(20),
+   boardseq number(20),
+   id varchar2(20) ,
+   name varchar2(20),
+   content varchar2(4000),
+   w_date date
+)
+
+create sequence replyseq
+	start with 1
+	increment by 1
+	minvalue 1
+	nocycle
+
+	create table free_board(
 	seq number(5),
-	title varchar2(100), 
-	writer varchar2(30),          
-	contents varchar2(4000),
+	title varchar2(100),           
+	writer varchar2(30),
+	contents varchar2(4000),	
 	time varchar2(30),
 	viewcount number(5),
 	recommend_cnt number(5)
 )
-
 create sequence seq_board;

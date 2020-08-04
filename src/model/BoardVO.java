@@ -14,6 +14,8 @@ public class BoardVO {
 
 	
 
+
+
 	public BoardVO(int sequence, String title, String writer, String content, String time, int viewcount,
 			int recommend_cnt) {
 		super();
@@ -24,7 +26,10 @@ public class BoardVO {
 		this.time = time;
 		this.viewcount = viewcount;
 		this.recommend_cnt = recommend_cnt;
+		
 	}
+
+
 
 
 
@@ -87,6 +92,16 @@ public class BoardVO {
 	public void setRecommend_cnt(int recommend_cnt) {
 		this.recommend_cnt = recommend_cnt;
 	}
+	
+	
+
+
+
+
+
+	
+
+
 
 
 

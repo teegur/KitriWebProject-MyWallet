@@ -64,18 +64,21 @@
 		         </tr>
 		       </thead>
        			<tbody>
-		         <c:forEach var="b" items="${list1 }">
+		         <c:forEach var="b" items="${list1 }" varStatus="status">
+		         	
 		            <tr>
 		               <td>${b.sequence}</td>
 		               <td>
-		                  <a href="${pageContext.request.contextPath }/ReadController?seq=${b.sequence }" style="color:black">${b.title}</a>
+		                  <a href="${pageContext.request.contextPath }/ReadController?seq=${b.sequence }" style="color:black">
+		                  ${b.title} [${list[status.index].replycount}]</a>
 		               </td>
 		               <td>${b.writer}</td>
 		               <td>${b.time}</td>
 		               <td>${b.viewcount}</td>
 		               <td>${b.recommend_cnt}</td>
 		            </tr>
-		         </c:forEach>
+		            </c:forEach>
+		       
       			 </tbody>
    			</table>
          </div>

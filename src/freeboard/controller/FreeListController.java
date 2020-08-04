@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.BoardReplyVO;
 import model.BoardVO;
+import reply.dao.Dao;
 import freeboard.service.ServiceImpl;
 import freeboard.service.nService;
 
@@ -39,8 +41,20 @@ public class FreeListController extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		
 		nService service= new ServiceImpl();
+		Dao dao= new Dao();
 		ArrayList<BoardVO> temp=(ArrayList<BoardVO>)service.getAll();//총갯수 데이터
 		ArrayList<BoardVO> list1=new ArrayList<BoardVO>();//나눠서 보낼 데이터
+		ArrayList<BoardReplyVO> list=(ArrayList<BoardReplyVO>)dao.count();
+		
+		
+		for(BoardVO one : temp) {
+			System.out.println(one.getTitle());
+			}
+		
+		
+		for(BoardReplyVO one : list) {
+		System.out.println(one.getReplycount());
+		}
 		int pagenum=1;
 		pagenum=Integer.parseInt(request.getParameter("pagenum")); // 페이징 넘버
 		int totalpage = 0;
@@ -62,6 +76,7 @@ public class FreeListController extends HttpServlet {
 		}
 		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("list1", temp);
+		request.setAttribute("list", list);
 		
 		
 		
