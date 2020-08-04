@@ -91,9 +91,11 @@
          	   <a href="${pageContext.request.contextPath}/Board/Write_designTest.jsp" class="btn btn-dark float-right">글작성</a>
 		</div>
 		<!-- End of card body -->
+      <!--  
       <c:forEach var="i" begin="1" end="${totalpage }">
       	<a href="${pageContext.request.contextPath }/Board/List_free.jsp?pagenum=${i}" class="btn btn-primary mx-auto">${i}</a>
       </c:forEach>
+      -->
         </div>
         <!-- End of card -->
 
