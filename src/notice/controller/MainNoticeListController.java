@@ -48,7 +48,7 @@ public class MainNoticeListController extends HttpServlet {
 		for (BoardVO one:temp) {
 			cnt += 1;
 			list.add(one);
-			if (cnt==3) {
+			if (cnt==3) { // 3개만 뜨게함 (메인)
 				break;
 			}
 		}
