@@ -33,20 +33,13 @@
 	   <div class="row">
 
             <div class="col-lg-6">
-
               <!-- card-1 -->
-              <div class="card mb-4">
-                <div class="card-body">
-                  여기에 적당한 이미지 넣을거임
-                  <br>
-                  <br><br><br><br><br><br><br>
-                  <br><br><br><br><br><br><br>
-                  <br><br><br><br><br><br>
-                </div>
+              <div class="card mb-4" style="border-style:hidden;">
+ 				<div class="card-body">
+                  <c:import url="/view/Main_Banner.jsp" />
+                  <br><br><br><br><br>
+                 </div>
               </div>
-
-              
-
             </div>
 
             <div class="col-lg-6">
