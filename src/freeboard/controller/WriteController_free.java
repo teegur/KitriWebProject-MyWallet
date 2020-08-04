@@ -51,7 +51,7 @@ public class WriteController_free extends HttpServlet {
 		b.setWriter(writer);
 		
 		service.writerBoard(b);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/Board/List_free.jsp?pagenum=1");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/Board/List_free_designTest.jsp?pagenum=1");
 		if(dispatcher != null) {
 		dispatcher.forward(request, response);
 		}

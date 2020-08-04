@@ -10,14 +10,6 @@
 
 <script type="text/javascript">
 
-function confirmDelete(id)
-{
-    var ans = confirm("삭제 하시겠습니까?");
-    if(ans == "0")
-     {
-       document.location = "delete_article.asp?id="+id;
-     }
-}
 
 	function del(sequence){
 		var ans = confirm("삭제 하시겠습니까?");
