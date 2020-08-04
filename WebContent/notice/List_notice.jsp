@@ -127,7 +127,7 @@
   <script src="${pageContext.request.contextPath }/startbootstrap-sb-admin-2-gh-pages/js/demo/datatables-demo.js"></script>
 
 <style>
-div.dataTables_length, div.dataTables_info, div.dataTables_paginate{ display: none}
+div.dataTables_info{ display: none}
 </style>
 	
 	
