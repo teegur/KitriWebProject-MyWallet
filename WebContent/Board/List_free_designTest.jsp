@@ -74,7 +74,7 @@
 		                 </a>
 		                  
 		                  <c:if test="${list[status.index].replycount ne 0}">
-		                   	[${list[status.index].replycount }]
+		                   	<small>[${list[status.index].replycount }]</small>
 		                   </c:if>
 		               </td>
 		               <td>${b.writer}</td>
