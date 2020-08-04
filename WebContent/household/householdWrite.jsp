@@ -58,11 +58,14 @@ function hhWrite(year, month){
 
 function hhCategoryWrite(year, month){
 	var form = document.getElementById("hhWriteForm");
-	var type = 3;
-	var date = year + '-' + month;
+	var type = 3;	
 	var category = form.addcategory.value;
 	var content = " ";
 	var price = 0;
+	if(Number(month) >= 1 && Number(month) <= 9){
+		month = '0' + month;
+	}
+	var date = year + '-' + month;
 	
 	
 	if(!category ){ // 여기까지 했음.
@@ -80,6 +83,24 @@ function hhCategoryWrite(year, month){
 			httpRequest.send(param);
 		}
 	}
+	
+function categoryDelete(){
+	var form = document.getElementById("hhWriteForm");
+	var category = form.category.value;	
+	var delConfirm = confirm('해당 카테고리의 모든 내역이 함께 삭제됩니다.');
+	if(delConfirm ){
+			var param ="&category=" + category;
+			
+			httpRequest = getXMLHttpRequest();
+			httpRequest.onreadystatechange = checkFunc;
+			httpRequest.open("POST", "http://localhost:8081/Project_semi/hhDeleteCategory",true);
+			httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8');
+			httpRequest.send(param);
+	}
+	else{
+		alert("취소 되었습니다");
+	}
+}
 
 function checkFunc(){
 	if(httpRequest.readyState == 4){
@@ -111,6 +132,9 @@ function checkFunc(){
 				</c:if>	
 				</c:forEach>		
 				</select>
+			</td>
+			<td>
+				<input type="button" onclick="categoryDelete()" value="선택 카테고리 삭제">
 			</td>
 		</tr>
 		<tr>

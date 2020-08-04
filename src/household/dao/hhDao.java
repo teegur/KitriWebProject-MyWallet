@@ -212,5 +212,32 @@ public class hhDao {
 		return result;
 	}
 	
+	public void deleteCategory(String id, String category ) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;	
+		
+		try {			
+			conn = db.getConnection();
+			String sql = "delete from household where id = ? and category = ?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, id);
+			pstmt.setString(2, category);
+					
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}		
+		
+	}
+	
 
 }
