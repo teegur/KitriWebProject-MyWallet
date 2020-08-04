@@ -50,7 +50,7 @@ public class ReadController extends HttpServlet {
 		b.setViewcount(b.getViewcount()+1);
 		request.setAttribute("b", b);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/Board/Contents.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/Board/Contents_designTest.jsp");
 		
 		
 		if(dispatcher != null) {

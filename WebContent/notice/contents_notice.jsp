@@ -15,9 +15,7 @@ function del(sequence){
 		}
      
 }
-function rec(sequence){
-	location.href = "${pageContext.request.contextPath}/RecNoticeController?sequence="+sequence;
-}
+
 </script>
 <style>
 </style>
@@ -68,7 +66,7 @@ function rec(sequence){
 			</tr>	
 		</table> 
 		
-		<input type="button" value="추천하기" onclick="rec(${b.sequence})" >
+		
 		<input type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/notice/List_notice.jsp?pagenum=1'" >
 	</form>
 
@@ -108,7 +106,7 @@ function rec(sequence){
 			</tr>	
 			
 		</table> 
-		<input type="button" value="추천하기" onclick="rec(${b.sequence})" >
+		
 		<input type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/notice/List_notice.jsp?pagenum=1'" >
 	</form>
 	

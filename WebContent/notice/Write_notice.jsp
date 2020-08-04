@@ -41,7 +41,7 @@
 <c:if test="${sessionScope.cls != '관리자'}">
 		<script type="text/javascript">
 		alert("관리자만 글작성이 가능합니다");
-		location.href="${pageContext.request.contextPath }/view/main.jsp";
+		location.href="${pageContext.request.contextPath }/notice/List_notice.jsp?pagenum=1";
 		</script>
 </c:if>
 </body>

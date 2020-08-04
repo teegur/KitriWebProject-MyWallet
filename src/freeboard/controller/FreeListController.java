@@ -61,7 +61,7 @@ public class FreeListController extends HttpServlet {
 			totalpage=temp.size()/10+1;
 		}
 		request.setAttribute("totalpage", totalpage);
-		request.setAttribute("list1", list1);
+		request.setAttribute("list1", temp);
 		
 		
 		
