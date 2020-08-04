@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 <style type="text/css">	
 	/* banner */
-	.banner {position: relative; width: 340px; height: 300px; top: 50px;  margin:0 auto; padding:0; overflow: hidden;}
+	.banner {position: relative; width: 400px; height: 350px; top: 50px;  margin:0 auto; padding:0; overflow: hidden;}
 	.banner ul {position: absolute; margin: 0px; padding:0; list-style: none; }
-	.banner ul li {float: left; width: 340px; height: 300px; margin:0; padding:0;}
+	.banner ul li {float: left; width: 400px; height: 350px; margin:0; padding:0;}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
@@ -46,8 +46,8 @@
 	<div class="contents">
 		<div class="banner">
 			<ul>
-				<li><a href="https://www.hometax.go.kr/websquare/websquare.html?w2xPath=/ui/pp/index.xml" target="_blank"><img src="${pageContext.request.contextPath }/hometax.png" width="340px" height="300px"></a></li>
-				<li><a href="https://www.nps.or.kr/jsppage/main.jsp" target="_blank"><img src="${pageContext.request.contextPath }/Gookmin.jpg" width="340px" height="300px"></a></li>
+				<li><a href="https://www.hometax.go.kr/websquare/websquare.html?w2xPath=/ui/pp/index.xml" target="_blank"><img src="${pageContext.request.contextPath }/hometax.png" width="400px" height="350px"></a></li>
+				<li><a href="https://www.nps.or.kr/jsppage/main.jsp" target="_blank"><img src="${pageContext.request.contextPath }/Gookmin.jpg" width="400px" height="350px"></a></li>
 			</ul>
 		</div>
 	</div>
