@@ -55,15 +55,44 @@ function hhWrite(year, month){
 		}
 	}
 }
+
+function hhCategoryWrite(year, month){
+	var form = document.getElementById("hhWriteForm");
+	var type = 3;
+	var date = year + '-' + month;
+	var category = form.addcategory.value;
+	var content = " ";
+	var price = 0;
+	
+	
+	if(!category ){ // 여기까지 했음.
+		alert("카테고리를 입력해 주세요");
+		return false;
+	}
+	else{
+			var param = "content=" + content + "&type=" + type + "&date=" + date + "&category=" + category + "&price=" + price;
+		
+		
+			httpRequest = getXMLHttpRequest();
+			httpRequest.onreadystatechange = checkFunc;
+			httpRequest.open("POST", "http://localhost:8081/Project_semi/hhWriteController",true);
+			httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8');
+			httpRequest.send(param);
+		}
+	}
+
 function checkFunc(){
 	if(httpRequest.readyState == 4){
 		var resultText = httpRequest.responseText;
 		document.location.reload();					
 	}
 }
+
+
 </script>
 </head>
 <body>
+	<c:import url="/hhGetCatAllController"/>
 	<form action="" id="hhWriteForm">
 		<table style="margin-left: auto; margin-right:auto;" >
 		<tr>
@@ -73,8 +102,22 @@ function checkFunc(){
 			<td>날짜 :</td><td><input type="date" name="date"></td>
 		</tr>
 		<tr>
-			<td>카테고리 :</td> <td><input type="text" name="category"></td>
+			<td>카테고리 :</td>
+			<td>				
+				<select name="category" id="category">
+				<c:forEach var="cat" items="${cat}">
+				<c:if test="${cat.category ne '자동생성'}">
+				<option value="${cat.category }">${cat.category }</option>	
+				</c:if>	
+				</c:forEach>		
+				</select>
+			</td>
 		</tr>
+		<tr>
+			<td></td>			
+			<td><input type="text" name="addcategory"></td>
+			<td><input type="button" onclick="hhCategoryWrite(${year}, ${month})" value="카테고리추가"></td>	
+		</tr>			
 		<tr>
 			<td>내용 :</td><td><input type="text" name="content"></td>
 		</tr>

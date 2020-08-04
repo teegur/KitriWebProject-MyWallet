@@ -177,5 +177,40 @@ public class hhDao {
 		
 	}
 	
+	public ArrayList<ChartData> selectCatAll(String id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;		
+		ResultSet rs = null;
+		ArrayList<ChartData> result = new ArrayList<ChartData>(); // 결과를 저장할 어레이리스트
+		
+		try {			
+			conn = db.getConnection();
+			String sql = "select category from household where id = ? group by category order by category";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, id); 
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				result.add(new ChartData(0, rs.getString("category")));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+	
 
 }
