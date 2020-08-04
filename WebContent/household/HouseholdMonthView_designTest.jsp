@@ -92,7 +92,7 @@ function delConfirm(year, month){
 						<td><a href="javascript:delConfirm(${m.getDate()}, ${m.getContent()})">삭제</a></td>
 					</tr>
 				</c:forEach>
-			</table>
+			</table> 
 			
 		 </div>
 		</div>
