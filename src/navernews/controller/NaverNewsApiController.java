@@ -91,7 +91,16 @@ public class NaverNewsApiController extends HttpServlet {
             	String link = obj.getString("link");
             	String description = obj.getString("description");
             	String title = obj.getString("title");
-            	String pubDate = obj.getString("pubDate").substring(0, 16);
+            	//System.out.println("*****");
+            	//System.out.println(title);
+            	//System.out.println("------");
+            	title = title.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", ""); // 정규화식
+            	title = title.replace("&quot;",""); // 추가한 식
+            	//System.out.println(title);
+            	if (title.length() > 25) {
+            		title = title.substring(0,25) + "....";
+            	}
+            	String pubDate = obj.getString("pubDate").substring(0, 16); // 어차피 안씀
             	
             	//System.out.println(pubDate.substring(0,16));
             	

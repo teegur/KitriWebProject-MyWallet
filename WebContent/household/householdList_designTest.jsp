@@ -1,16 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Custom fonts for this template -->
   <link href="${pageContext.request.contextPath }/startbootstrap-sb-admin-2-gh-pages/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -22,12 +18,26 @@
   <!-- Custom styles for this page -->
   <link href="${pageContext.request.contextPath }/startbootstrap-sb-admin-2-gh-pages/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+
+<title>가계부</title>
+<script>
+function delConfirm(key){
+	var result = confirm("정말로 삭제할까요?");
+	if(result){
+	    location.href="http://localhost:8081/Project_semi/hhDeleteController?key=" + String(key)
+	}else{
+	    alert("취소 되었습니다.");
+	}
+}
+
+function moveback(){
+	location.href="${pageContext.request.contextPath }/hhSelectMonthController"
+}
+</script>
 </head>
 <body>
+	<c:import url="/view/Menu.jsp" />
 	
-<c:import url="/view/Menu.jsp" />
-	
-
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -38,68 +48,72 @@
  <div id="content">
 
    <!-- Begin Page Content -->
-   <div class="container-fluid">
-
-     <!-- Page Heading -->
-     <h1 class="h3 mb-2 text-gray-800">자유게시판</h1>
-	   
-	<c:import url="/FreeListController"></c:import>	
-
-  		
+   <div class="container-fluid">	
+	
+	<!-- 가계부 작성 카드 -->
 	<div class="card shadow mb-4">
        <div class="card-header py-3" style="margin-left: 0px; margin-right: 0px; text-align:center">
-         <h6 class="m-0 font-weight-bold text-dark">글 목록</h6>
+         <h6 class="m-0 font-weight-bold text-dark">${year}년 ${month}월 가계부 작성</h6>
        </div>
+       
        <div class="card-body">
-       	<div class="table-responsive">
-			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">	
-		     <thead>
-		         <tr>
-		            <th>글번호</th>
-		            <th>제목</th>
-		            <th>작성자</th>
-		            <th>작성시간</th>
-		            <th>조회수</th>
-		            <th>추천수</th>
-		         </tr>
-		       </thead>
-       			<tbody>
-		         <c:forEach var="b" items="${list1 }" varStatus="status">
-		         	
-		            <tr>
-		               <td>${b.sequence}</td>
-		               <td>
-		                  <a href="${pageContext.request.contextPath }/ReadController?seq=${b.sequence }" style="color:black">
-		                  ${b.title} 
-		                 </a>
-		                  
-		                  <c:if test="${list[status.index].replycount ne 0}">
-		                   	<small>[${list[status.index].replycount }]</small>
-		                   </c:if>
-		               </td>
-		               <td>${b.writer}</td>
-		               <td>${b.time}</td>
-		               <td>${b.viewcount}</td>
-		               <td>${b.recommend_cnt}</td>
-		            </tr>
-		            </c:forEach>
-		       
-      			 </tbody>
-   			</table>
-         </div>
-         <!-- End of table -->
-         	   <a href="${pageContext.request.contextPath}/Board/Write_designTest.jsp" class="btn btn-dark float-right">글작성</a>
-		</div>
-		<!-- End of card body -->
-        
-  <%--    <c:forEach var="i" begin="1" end="${totalpage }">
-      	<a href="${pageContext.request.contextPath }/Board/List_free.jsp?pagenum=${i}" class="btn btn-primary mx-auto">${i}</a>
-      </c:forEach>--%> 
-     
-        </div>
-        <!-- End of card -->
-
-        </div>
+		<c:import url="/household/householdWrite_designTest.jsp" /> <!-- 가계부 작성 폼 -->
+	   </div>
+	</div>
+	<!-- End of householdwrite card -->
+	
+	<!-- 가계부 목록 보여주는 카드 -->
+	<div class="card shadow mb-4">
+       <div class="card-header py-3" style="margin-left: 0px; margin-right: 0px; text-align:center">
+         <h6 class="m-0 font-weight-bold text-dark">${year}년 ${month}월 가계부 목록</h6>
+       </div>
+       
+       <div class="card-body">
+       <div class="table-responsive">
+		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+		<thead><tr>
+			<th>날짜</th><th>카테고리</th><th>내용</th><th>종류</th><th>금액</th><th>삭제</th>
+		</tr></thead>
+		<c:forEach var="h" items="${h }">
+			<c:if test="${h.type ne 3 }">
+			<tr>
+				<td>${h.getDate() }</td>
+				<td>${h.getCategory() }</td>
+				<td>${h.getContent() }</td>
+				<td>
+					<c:if test="${h.getType() eq 1 }"> <!-- 수입 -->
+						수입
+					</c:if>
+					<c:if test="${h.getType() eq 0 }"> <!-- 지출 -->
+						지출
+					</c:if>
+					<c:if test="${h.getType() eq 3 }"> <!-- 예시 -->						
+					</c:if>
+				</td>
+				<td>${h.getPrice() }</td>
+				<td>
+					<a href="javascript:delConfirm(${h.getKey()})">삭제</a>
+				</td>
+			</tr>
+			</c:if>
+		</c:forEach>
+	
+	  </table>
+	  </div>
+	 </div>
+	</div>
+	<!-- End of card -->
+	
+	<br>
+	<table style="margin-left: auto;margin-right: auto;">
+		<tr>
+			<td>
+				<input type="button" value="월 목록 이동" onclick="javscript:moveback()" >
+			</td>
+		</tr>
+	</table>
+	
+	</div>
         <!-- /.container-fluid -->
 
       </div>
@@ -121,8 +135,8 @@
 
   </div>
   <!-- End of Page Wrapper -->
-      
-  <!-- Bootstrap core JavaScript-->
+	
+	  <!-- Bootstrap core JavaScript-->
   <script src="${pageContext.request.contextPath }/startbootstrap-sb-admin-2-gh-pages/vendor/jquery/jquery.min.js"></script>
   <script src="${pageContext.request.contextPath }/startbootstrap-sb-admin-2-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -139,12 +153,6 @@
 
   <!-- Page level custom scripts -->
   <script src="${pageContext.request.contextPath }/startbootstrap-sb-admin-2-gh-pages/js/demo/datatables-demo.js"></script>
-
-<style>
-div.dataTables_length, div.dataTables_info, div.dataTables_paginate{ display: none}
-</style>
-	
-	
-
+		
 </body>
 </html>

@@ -1,4 +1,4 @@
-package freeboard.controller;
+package notice.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,24 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.BoardReplyVO;
 import model.BoardVO;
-import reply.dao.Dao;
-import freeboard.service.ServiceImpl;
-import freeboard.service.nService;
-
+import notice.service.NoticeService;
+import notice.service.NoticeServiceImpl;
 
 /**
- * Servlet implementation class ListController
+ * Servlet implementation class MainNoticeListController
  */
-@WebServlet("/FreeListController")
-public class FreeListController extends HttpServlet {
+@WebServlet("/MainNoticeListController")
+public class MainNoticeListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FreeListController() {
+    public MainNoticeListController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,44 +33,39 @@ public class FreeListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		
-		nService service= new ServiceImpl();
-		Dao dao= new Dao();
-		ArrayList<BoardVO> temp=(ArrayList<BoardVO>)service.getAll();//총갯수 데이터
+		NoticeService service= new NoticeServiceImpl();
+		ArrayList<BoardVO> temp= (ArrayList<BoardVO>) service.getAll();// 모든 공지사항
 		
-		ArrayList<BoardReplyVO> list=(ArrayList<BoardReplyVO>)dao.count();
+		ArrayList<BoardVO> list = new ArrayList<BoardVO>(); // 메인에 표시할 공지사항을 담는 arraylist
 		
+		int cnt = 0;
+		
+		for (BoardVO one:temp) {
+			cnt += 1;
+			list.add(one);
+			if (cnt==3) {
+				break;
+			}
+		}
 		
 		/*
-		int pagenum=1;
-		pagenum=Integer.parseInt(request.getParameter("pagenum")); // 페이징 넘버
-		int totalpage = 0;
-
-		int page = 10 * (pagenum - 1); //페이징당 시작 글 넘버
-		int last=page +10; //페이지당 마지막글 넘버
-		if(page + 10 > temp.size()) {
-			last = temp.size();
-		}
-		for(int i=page;i<last;i++) {
-			list1.add(temp.get(i));
-		}
-			
-		if(temp.size() %10 ==0){
-			totalpage=temp.size()/10; // 페이징에 보여질 최대 숫자
-		}
-		else{
-			totalpage=temp.size()/10+1;
+		for (BoardVO one:list) {
+			System.out.println(one);
 		}
 		*/
-		request.setAttribute("list1", temp);
-		request.setAttribute("list", list);
 		
+		request.setAttribute("notice", list); // 3개의 공지사항을 저장한 arraylist를 request에 저장
 		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/view/Main_notice.jsp");
 		
-
+		if (dispatcher != null) {
+			dispatcher.forward(request, response);
+		}
 	}
 
 	/**

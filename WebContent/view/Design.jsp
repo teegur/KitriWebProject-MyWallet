@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script src="https://kit.fontawesome.com/a876b41567.js" crossorigin="anonymous"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +40,7 @@ a{text-decoration:none; color:black}
 		</div>	
 	</div>
 	<div class="design title">
-		<h1><a href="${pageContext.request.contextPath }/view/main.jsp">Kitri</a></h1>
+		<h1><a href="${pageContext.request.contextPath }/view/main.jsp"><img src="${pageContext.request.contextPath }/project_main_logo.png" height="100"></i></a></h1>
 	</div>
 	<div class="design right">
 		<div class="design" id="join">

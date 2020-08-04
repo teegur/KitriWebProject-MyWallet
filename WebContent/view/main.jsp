@@ -33,20 +33,13 @@
 	   <div class="row">
 
             <div class="col-lg-6">
-
               <!-- card-1 -->
-              <div class="card mb-4">
-                <div class="card-body">
-                  여기에 적당한 이미지 넣을거임
-                  <br>
-                  <br><br><br><br><br><br><br>
-                  <br><br><br><br><br><br><br>
-                  <br><br><br><br><br><br>
-                </div>
+              <div class="card mb-4" style="border-style:hidden;">
+ 				<div class="card-body">
+                  <c:import url="/view/Main_Banner.jsp" />
+                  <br><br><br><br><br>
+                 </div>
               </div>
-
-              
-
             </div>
 
             <div class="col-lg-6">
@@ -54,17 +47,17 @@
               <!-- card-3 -->
               <div class="card mb-4">
                 <div class="card-header py-3" style="margin-left: 0px; margin-right: 0px; text-align:center">
-                   	공지사항
+                   	<b>공지사항</b>
                 </div>
                 <div class="card-body">
-                  This card uses Bootstrap's default styling with no utility classes added. Global styles are the only things modifying the look and feel of this default card example.
+                  <c:import url="/MainNoticeListController" />
                 </div>
               </div>
 
               <!-- card-4 -->
               <div class="card mb-4">
                 <div class="card-header py-3" style="margin-left: 0px; margin-right: 0px; text-align:center">
-                   	주요 경제 뉴스
+                   	<b>지금 이시각 주요 경제 뉴스</b>
                 </div>
                 <div class="card-body">
                   <c:import url="/NaverNewsApiController" />
