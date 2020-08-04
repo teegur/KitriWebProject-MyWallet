@@ -47,7 +47,7 @@ public class FreeListController extends HttpServlet {
 		ArrayList<BoardReplyVO> list=(ArrayList<BoardReplyVO>)dao.count();
 		
 		
-		/*
+		/*\\
 		int pagenum=1;
 		pagenum=Integer.parseInt(request.getParameter("pagenum")); // 페이징 넘버
 		int totalpage = 0;

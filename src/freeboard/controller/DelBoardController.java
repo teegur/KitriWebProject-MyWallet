@@ -40,7 +40,7 @@ public class DelBoardController extends HttpServlet {
 		int num=Integer.parseInt(request.getParameter("sequence"));
 		service.delBoard(num);
 		dao.boardreplydelete(num);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/Board/List_free_designTest.jsp?pagenum=1");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/Board/List_free_designTest.jsp");
 		if(dispatcher != null) {
 		dispatcher.forward(request, response);
 		}
