@@ -17,7 +17,8 @@
 			<input type="button" value="닫기" onclick="return window.close()">
 		</c:if>
 		<c:if test="${email_flag eq false }">
-			입력하신 이메일로 가입한 아이디가 존재하지 않습니다.<br><br>
+			<br>
+			입력하신 이메일로 가입한 아이디가 존재하지 않습니다.<br><br><br>
 			<input type="button" value="닫기" onclick="return window.close()">
 		</c:if>
 	</div>
