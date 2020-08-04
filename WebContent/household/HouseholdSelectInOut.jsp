@@ -9,8 +9,7 @@
 </head>
 <body>
 	<c:import url="/view/Menu.jsp" />
-	<form action="" method="post">
-	
-	</form>
+	<h4 align="center"><a href = "${pageContext.request.contextPath }/hhSelectMonthController"> 가계부 작성 </a></h4><br>	
+	<h4 align="center"><a href = "${pageContext.request.contextPath }/hhSelectMonthController2"> 월별 통계 보기 </a></h4>
 </body>
 </html>

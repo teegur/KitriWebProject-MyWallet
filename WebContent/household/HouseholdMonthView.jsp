@@ -16,6 +16,15 @@ function oncheck(){
 	}
 	return true;
 }
+
+function delConfirm(year, month){
+	var result = confirm("정말로 삭제할까요?");
+	if(result){
+	    location.href="http://localhost:8081/Project_semi/hhDeleteMonthController?year=" + String(year) + "&month=" + String(month);
+	}else{
+	    alert("취소 되었습니다.");
+	}
+}
 </script>
 </head>
 <body>
@@ -41,12 +50,13 @@ function oncheck(){
 	<h4 align="center">해당 월을 클릭하시면 이동합니다</h4>
 	<table border="1">
 		<tr>
-			<th>연도</th><th>월</th><th>입력갯수</th>
+			<th>연도</th><th>월</th><th>입력갯수</th><th></th>
 		<c:forEach var="m" items="${m }">
 			<tr>
 				<td>${m.getDate() }</td>
 				<td><a href="${pageContext.request.contextPath }/hhGetMonthController?year=${m.getDate()}&month=${m.getContent()}">${m.getContent() }</a></td>
 				<td>${m.getKey() }</td>
+				<td><a href="javascript:delConfirm(${m.getDate()}, ${m.getContent()})">삭제</a></td>
 			</tr>
 		</c:forEach>	
 	</table>

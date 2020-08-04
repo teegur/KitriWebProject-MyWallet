@@ -35,6 +35,7 @@ function moveback(){
 			<th>날짜</th><th>카테고리</th><th>내용</th><th>종류</th><th>금액</th><th>삭제</th>
 		</tr>
 		<c:forEach var="h" items="${h }">
+			<c:if test="${h.type ne 3 }">
 			<tr>
 				<td>${h.getDate() }</td>
 				<td>${h.getCategory() }</td>
@@ -54,6 +55,7 @@ function moveback(){
 					<a href="javascript:delConfirm(${h.getKey()})">삭제</a>
 				</td>
 			</tr>
+			</c:if>
 		</c:forEach>
 	
 	</table>

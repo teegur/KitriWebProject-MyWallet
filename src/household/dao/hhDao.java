@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import conn.DBConnect;
+import model.ChartData;
 import model.hhVO;
 
 public class hhDao {
@@ -89,7 +90,6 @@ public class hhDao {
 	public void delete(int key) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;		
-		ResultSet rs = null;
 		
 		try {			
 			conn = db.getConnection();
@@ -112,25 +112,26 @@ public class hhDao {
 		}		
 	}
 	
-	public ArrayList<hhVO> selectcategory(String date, int type) {
+	public ArrayList<ChartData> selectcategory(String id, String date, int type) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;		
 		ResultSet rs = null;
-		ArrayList<hhVO> result = new ArrayList<hhVO>(); // 결과를 저장할 어레이리스트
+		ArrayList<ChartData> result = new ArrayList<ChartData>(); // 결과를 저장할 어레이리스트
 		
 		try {			
 			conn = db.getConnection();
-			String sql = "select sum(price), category from household where w_Date like ? and type = ? group by category";
+			String sql = "select sum(price), category from household where w_Date like ? and type = ? and id = ? group by category order by sum(price) desc";
 			//select * from household  where w_Date like '2020-08%' order by category
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, date + "%");
 			pstmt.setInt(2, type);
+			pstmt.setString(3,  id);
 			
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				result.add(new hhVO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7)));
+				result.add(new ChartData(rs.getInt("sum(price)"), rs.getString("category")));
 			}
 			
 		} catch (SQLException e) {
@@ -147,6 +148,33 @@ public class hhDao {
 			}
 		}
 		return result;
+	}
+
+	public void deleteMonth(String id, String date ) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;	
+		
+		try {			
+			conn = db.getConnection();
+			String sql = "delete from household where id = ? and w_date like ?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, id);
+			pstmt.setString(2, date + "%");
+					
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}		
+		
 	}
 	
 

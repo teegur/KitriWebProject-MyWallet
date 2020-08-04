@@ -1,31 +1,36 @@
 package model;
 
 public class ChartData {
-	private int key;
-	private String id;
+	private int price;
+	private String category;
 	
-	public ChartData() {};
-	public ChartData(int key, String id) {
+	public ChartData(int price, String category) {
 		super();
-		this.key = key;
-		this.id = id;
+		this.price = price;
+		this.category = category;
 	}
 
-	public int getKey() {
-		return key;
+	public int getPrice() {
+		return price;
 	}
 
-	public void setKey(int key) {
-		this.key = key;
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
-	public String getId() {
-		return id;
+	public String getCategory() {
+		return category;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setCategory(String category) {
+		this.category = category;
 	}
+
+	@Override
+	public String toString() {
+		return "ChartData [price=" + price + ", category=" + category + "]";
+	}
+	
 	
 	
 	

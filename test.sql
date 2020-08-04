@@ -48,21 +48,24 @@ create table household (
 )
 
 
+drop table notice;
+drop sequence seq_notice;
+
+select * from notice;
 
 create table notice(
 seq number(5),
-title varchar2(100),           
+title varchar2(100),     
+writer varchar2(30),      
 contents varchar2(4000),
-writer varchar2(30),
 time varchar2(30),
 viewcount number(5),
 recommend_cnt number(5)
-)
-
-
-
+);
 
 create sequence seq_notice;
+
+
 
 select * from free_board;
 
