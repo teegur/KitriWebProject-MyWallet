@@ -10,7 +10,7 @@
 <body>
 	<table>
 		<tr>
-			<th>제목</th><th>날짜</th>
+			<th>제 목</th><th>날 짜</th>
 		</tr>
 		<c:forEach var="m" items="${news }">
 			<tr>

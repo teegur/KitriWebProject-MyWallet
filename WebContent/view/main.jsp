@@ -64,10 +64,10 @@
               <!-- card-4 -->
               <div class="card mb-4">
                 <div class="card-header py-3" style="margin-left: 0px; margin-right: 0px; text-align:center">
-                   	주요뉴스?
+                   	주요 경제 뉴스
                 </div>
                 <div class="card-body">
-                  This card uses Bootstrap's default styling with no utility classes added. Global styles are the only things modifying the look and feel of this default card example.
+                  <c:import url="/NaverNewsApiController" />
                 </div>
               </div>
 
