@@ -153,6 +153,10 @@ function moveback(){
 
   <!-- Page level custom scripts -->
   <script src="${pageContext.request.contextPath }/startbootstrap-sb-admin-2-gh-pages/js/demo/datatables-demo.js"></script>
+  
+<style>
+div.dataTables_info{ display: none}
+</style>
 		
 </body>
 </html>

@@ -64,6 +64,7 @@ function checkFunc(){
 </script>
 </head>
 <body>
+<c:import url="/hhGetCatAllController"/>
 	<form class="form-group" action="" id="hhWriteForm">
 		<table style="margin-left: auto; margin-right:auto;" >
 		<tr>
@@ -73,13 +74,33 @@ function checkFunc(){
 			<td>날짜 :</td><td><input class="form-control" type="date" name="date"></td>
 		</tr>
 		<tr>
-			<td>카테고리 :</td> <td><input class="form-control" type="text" name="category"></td>
+			<td>카테고리 :</td> 
+			<td>				
+				<select name="category" id="category">
+				<c:forEach var="cat" items="${cat}">
+				<c:if test="${cat.category ne '자동생성'}">
+				<option value="${cat.category }">${cat.category }</option>	
+				</c:if>	
+				</c:forEach>		
+				</select>
+			</td>
+			<td>
+				<input type="button" onclick="categoryDelete()" value="선택 카테고리 삭제">
+			</td>
 		</tr>
+		
+		<tr>
+		<td></td>			
+			<td><input class="form-control" type="text" name="addcategory"></td>
+			<td><input type="button" onclick="hhCategoryWrite(${year}, ${month})" value="카테고리추가"></td>	
+		</tr>
+		
 		<tr>
 			<td>내용 :</td><td><input class="form-control" type="text" name="content"></td>
 		</tr>
 		<tr>
-			<td>금액 :</td><td><input class="form-control" type="number" name="price"></td>
+			<td>금액 :</td>
+			<td><input class="form-control" type="number" name="price"></td>
 		</tr>
 		<tr>
 			<td></td>
