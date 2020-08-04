@@ -83,7 +83,7 @@ function checkFunc(){
        <div class="table-responsive">
 		<c:if test="${requestScope.ogsize != 0}"> 
 			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-			  <thead hidden>
+			  <thead style="display: none">
 			  <tr>
 			  <th width="10%">아이디</th>
 			  <th>내용</th>
@@ -100,6 +100,7 @@ function checkFunc(){
 					<c:if test="${ sessionScope.id == reply.getId() }">  
 						<td><a href="javascript:delConfirm(${reply.getReplyseq()})">삭제</a></td>
 					</c:if>
+					
 					<c:if test="${ sessionScope.id != reply.getId() }">  
 						<td></td>
 					</c:if>					
@@ -152,9 +153,11 @@ function checkFunc(){
   <!-- Page level custom scripts -->
   <script src="${pageContext.request.contextPath }/startbootstrap-sb-admin-2-gh-pages/js/demo/datatables-demo.js"></script>
 
+
 <style>
-div.dataTables_filter, div.dataTables_length{visibility: hidden;}
+div.dataTables_filter, div.dataTables_info, div.dataTables_length{ display: none}
 </style>
+
 	
 </body>
 </html>

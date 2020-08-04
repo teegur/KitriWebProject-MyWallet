@@ -64,11 +64,11 @@
 	      <div class="card-body">
 	       <div class="table-responsive">
 		
-	<!-- 내가 작성자일 때 -->
+	 <!-- 내가 작성자일 때 -->
 	<c:if test="${sessionScope.id == b.writer }">
 		<form action="${pageContext.request.contextPath }/Board/EditBoard_designTest.jsp" method="post" name="editForm" onsubmit="return check()">
 		  <div class="form-group">
-			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"	>
+			<table class="table table-bordered" width="100%" cellspacing="0"	>
 				<tr>
 						<th>글번호</th>
 				<td colspan="2"><input class="form-control" type="text" value="${b.sequence }" name="sequence" size="60" readonly><br>
@@ -151,9 +151,10 @@
 			<input class="btn float-right" type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/Board/List_free_designTest.jsp?pagenum=1'" ><br>
 		</div>
 		</form>
-			<jsp:include  page="/reply/ReplyList_designTest.jsp">
-				<jsp:param value="${b.sequence }" name="sequence"/>
-			</jsp:include>
+		
+		<jsp:include  page="/reply/ReplyList_designTest.jsp">
+			<jsp:param value="${b.sequence }" name="sequence"/>
+		</jsp:include>
 	</c:if>
 	
 	</div>
