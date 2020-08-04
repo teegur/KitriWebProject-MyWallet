@@ -41,10 +41,10 @@
                   </div>
                   <form class="user" action="${pageContext.request.contextPath }/LoginController" method="post">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" name="id">
+                      <input type="text" class="form-control form-control-user" name="id" placeholder="아이디">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" name="pwd">
+                      <input type="password" class="form-control form-control-user" name="pwd" placeholder="비밀번호">
                     </div>
                     <!-- 
                     <div class="form-group">
