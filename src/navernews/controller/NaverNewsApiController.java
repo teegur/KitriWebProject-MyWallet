@@ -91,7 +91,9 @@ public class NaverNewsApiController extends HttpServlet {
             	String link = obj.getString("link");
             	String description = obj.getString("description");
             	String title = obj.getString("title");
-            	String pubDate = obj.getString("pubDate");
+            	String pubDate = obj.getString("pubDate").substring(0, 16);
+            	
+            	//System.out.println(pubDate.substring(0,16));
             	
             	//out.println(link); 확인!
             	
