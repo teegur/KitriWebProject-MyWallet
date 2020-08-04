@@ -59,6 +59,7 @@
                   <hr>
                   <div class="text-center">
                		 <a class="small" href="${pageContext.request.contextPath }/view/pwdSearch.jsp" onClick="window.open(this.href, '', 'width=500, height=300'); return false;">Forgot Password?</a>
+               		 <a class="small" href="${pageContext.request.contextPath }/view/idSearch.jsp" onClick="window.open(this.href, '', 'width=500, height=300'); return false;">Forgot Id?</a>
                   </div>
                   <div class="text-center small">
                    	아이디가 없으시다면? <a href="${pageContext.request.contextPath }/view/JoinForm.jsp">회원가입</a> <!-- 정상적으로 링크 연결됨. -->

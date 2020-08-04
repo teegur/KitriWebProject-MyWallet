@@ -395,4 +395,48 @@ public class memberDAOImpl implements memberDAO{
 	        return false; // 동일한 값이 없다면
 	}
 
+	@Override
+	public memberVO search_email(String email) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+	    ResultSet rs = null;
+	    memberVO m = null;
+	            
+	    //db에서 id에 대한 결과를 출력하는 sql
+	    String sql = "select * from membertest where email=?";
+	            
+	    PreparedStatement pstmt = null;
+	            
+	    try {
+	               //커넥션 객체 획득
+	    	conn = db.getConnection();
+	               
+	        //java에서 sql을 실행하는 PreparedStatement객체 생성
+	        pstmt = conn.prepareStatement(sql);
+	               
+	        //sql의 ?파라메터 매칭
+	        pstmt.setString(1, email);
+	        
+	        //System.out.println(email);
+	               
+	        // sql 실행
+	        rs = pstmt.executeQuery(); // 결과값 출력
+	               
+	        if (rs.next()) {
+	             return new memberVO(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getInt(8));
+	        }
+	               
+	        } catch(SQLException e) {
+	            e.printStackTrace();
+	        } finally {
+	        	try {
+	                rs.close();
+	                pstmt.close();
+	                conn.close();
+	            } catch(SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	    return null;
+	}
 }

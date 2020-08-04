@@ -25,4 +25,6 @@ public interface memberDAO {
 	
 	boolean select_email(String email); // 중복된 이메일 검색
 	
+	memberVO search_email(String email); // 이메일로 가입된 회원정보 검색
+	
 }
