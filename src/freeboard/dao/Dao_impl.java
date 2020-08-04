@@ -113,7 +113,7 @@ Connection conn=null;
 		Connection conn=null;
 		ResultSet rs=null;
 		BoardVO b=null;
-		String sql="select * from free_board where seq=?";
+		String sql="select * from free_board where seq=? order by seq desc";
 		PreparedStatement pstmt =null;
 		
 		try {
