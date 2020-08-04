@@ -15,16 +15,16 @@ import household.dao.hhDao;
 import model.hhVO;
 
 /**
- * Servlet implementation class hhSelectMonthController
+ * Servlet implementation class hhSelectMonthController2
  */
-@WebServlet("/hhSelectMonthController")
-public class hhSelectMonthController extends HttpServlet {
+@WebServlet("/hhSelectMonthController2")
+public class hhSelectMonthController2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public hhSelectMonthController() {
+    public hhSelectMonthController2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -86,12 +86,11 @@ public class hhSelectMonthController extends HttpServlet {
 		request.setAttribute("m", m);		
 		
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/household/HouseholdMonthView.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/household/HouseholdMonthView2.jsp");
 		
 		if (dispatcher != null) {
 			dispatcher.forward(request, response);
 		}
-		
 	}
 
 	/**
