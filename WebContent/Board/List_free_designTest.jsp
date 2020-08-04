@@ -70,7 +70,12 @@
 		               <td>${b.sequence}</td>
 		               <td>
 		                  <a href="${pageContext.request.contextPath }/ReadController?seq=${b.sequence }" style="color:black">
-		                  ${b.title} [${list[status.index].replycount}]</a>
+		                  ${b.title} 
+		                 </a>
+		                  
+		                  <c:if test="${list[status.index].replycount ne 0}">
+		                   	<small>[${list[status.index].replycount }]</small>
+		                   </c:if>
 		               </td>
 		               <td>${b.writer}</td>
 		               <td>${b.time}</td>

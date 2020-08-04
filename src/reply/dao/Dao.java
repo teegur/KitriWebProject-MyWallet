@@ -151,7 +151,7 @@ public ArrayList count() {
 	try {		
 		
 		conn = db.getConnection();
-		String sql = "select seq, count(boardseq) from free_board,reply where boardseq(+)=seq group by seq";
+		String sql = "select seq, count(boardseq) from free_board,reply where boardseq(+)=seq group by seq order by seq desc";
 		pstmt =conn.prepareStatement(sql);
 		
 		
