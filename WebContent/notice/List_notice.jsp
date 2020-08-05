@@ -43,7 +43,7 @@
      <!-- Page Heading -->
      <h1 class="h3 mb-2 text-gray-800">공지사항</h1>
 	   
-	<c:import url="/NoticeListController"></c:import>	
+	
 	<div class="card shadow mb-4">
        <div class="card-header py-3" style="margin-left: 0px; margin-right: 0px; text-align:center">
          <h6 class="m-0 font-weight-bold text-dark">글 목록</h6>

@@ -176,3 +176,8 @@ create sequence replyseq
 	recommend_cnt number(5)
 )
 create sequence seq_board;
+
+create table attendance (
+  id varchar2(20),
+  w_date varchar2(20)
+);
