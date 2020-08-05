@@ -55,59 +55,116 @@ function hhWrite(year, month){
 		}
 	}
 }
+
+function hhCategoryWrite(year, month){
+	var form = document.getElementById("hhWriteForm");
+	var type = 3;	
+	var category = form.addcategory.value;
+	var content = " ";
+	var price = 0;
+	if(Number(month) >= 1 && Number(month) <= 9){
+		month = '0' + month;
+	}
+	var date = year + '-' + month;
+	
+	
+	if(!category ){ // 여기까지 했음.
+		alert("카테고리를 입력해 주세요");
+		return false;
+	}
+	else{
+			var param = "content=" + content + "&type=" + type + "&date=" + date + "&category=" + category + "&price=" + price;
+		
+		
+			httpRequest = getXMLHttpRequest();
+			httpRequest.onreadystatechange = checkFunc;
+			httpRequest.open("POST", "http://localhost:8081/Project_semi/hhWriteController",true);
+			httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8');
+			httpRequest.send(param);
+		}
+	}
+	
+function categoryDelete(){
+	var form = document.getElementById("hhWriteForm");
+	var category = form.category.value;	
+	var delConfirm = confirm('해당 카테고리의 모든 내역이 함께 삭제됩니다.');
+	if(delConfirm ){
+			var param ="&category=" + category;
+			
+			httpRequest = getXMLHttpRequest();
+			httpRequest.onreadystatechange = checkFunc;
+			httpRequest.open("POST", "http://localhost:8081/Project_semi/hhDeleteCategory",true);
+			httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8');
+			httpRequest.send(param);
+	}
+	else{
+		alert("취소 되었습니다");
+	}
+}
+
 function checkFunc(){
 	if(httpRequest.readyState == 4){
 		var resultText = httpRequest.responseText;
 		document.location.reload();					
 	}
 }
+
+
 </script>
 </head>
 <body>
 <c:import url="/hhGetCatAllController"/>
 	<form class="form-group" action="" id="hhWriteForm">
-		<table style="margin-left: auto; margin-right:auto;" >
+		<table class="table table-bordered" width="100%" cellspacing="0">
 		<tr>
 			<td></td><td><input type="radio" name="type" value="0">지출<input type="radio" name="type" value="1">수입</td>
 		</tr>
 		<tr>
-			<td>날짜 :</td><td><input class="form-control" type="date" name="date"></td>
-		</tr>
-		<tr>
-			<td>카테고리 :</td> 
-			<td>				
-				<select name="category" id="category">
-				<c:forEach var="cat" items="${cat}">
-				<c:if test="${cat.category ne '자동생성'}">
-				<option value="${cat.category }">${cat.category }</option>	
-				</c:if>	
-				</c:forEach>		
-				</select>
-			</td>
-			<td>
-				<input type="button" onclick="categoryDelete()" value="선택 카테고리 삭제">
-			</td>
+			<td>날짜 </td><td><input class="form-control" type="date" name="date"></td>
 		</tr>
 		
 		<tr>
-		<td></td>			
-			<td><input class="form-control" type="text" name="addcategory"></td>
-			<td><input type="button" onclick="hhCategoryWrite(${year}, ${month})" value="카테고리추가"></td>	
+		<td>카테고리 </td>
+		<td>
+		<div class="input-group">
+		  	<select class="custom-select" name="category" id="category">
+			    <option selected>카테고리 선택</option>
+			    <c:forEach var="cat" items="${cat}">
+					<c:if test="${cat.category ne '자동생성'}">
+						<option value="${cat.category }">${cat.category }</option>	
+					</c:if>	
+				</c:forEach>
+		 	</select>
+			  <div class="input-group-append">
+			    <button class="btn btn-outline-secondary" type="button" onclick="categoryDelete()">삭제</button>
+			  </div>
+		</div>
+		</td>
+		</tr>
+
+		<tr><td></td>
+		<td>
+			<div class="input-group">
+			  <input type="text" class="form-control" placeholder="추가할 카테고리 입력" name="addcategory">
+			  <div class="input-group-append">
+			    <button class="btn btn-outline-secondary" type="button" onclick="hhCategoryWrite(${year}, ${month})">추가</button>
+			  </div>
+			</div>
+		</td>
 		</tr>
 		
 		<tr>
-			<td>내용 :</td><td><input class="form-control" type="text" name="content"></td>
+			<td>내용 </td><td><input class="form-control" type="text" name="content"></td>
 		</tr>
 		<tr>
-			<td>금액 :</td>
+			<td>금액 </td>
 			<td><input class="form-control" type="number" name="price"></td>
 		</tr>
-		<tr>
-			<td></td>
-			<td><input class="btn btn-dark" type="button" value="작성 완료" onclick="hhWrite(${year},${month})"> 
-			<input class="btn btn-secondary" type="reset" value="초기화"></td>	
-		</tr>
 		</table>
+		
+			<input class="btn btn-secondary float-right" type="reset" value="초기화">
+			<input class="btn btn-dark float-right" type="button" value="작성 완료" onclick="hhWrite(${year},${month})"> 
+		
 	</form>
 </body>
 </html>
