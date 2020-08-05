@@ -78,7 +78,7 @@ function hhCategoryWrite(year, month){
 		
 			httpRequest = getXMLHttpRequest();
 			httpRequest.onreadystatechange = checkFunc;
-			httpRequest.open("POST", "http://localhost:8081/Project_semi/hhWriteController",true);
+			httpRequest.open("POST", "http://localhost:8081/Project_semi/hhWriteCatController",true);
 			httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8');
 			httpRequest.send(param);
 		}
@@ -87,7 +87,7 @@ function hhCategoryWrite(year, month){
 function categoryDelete(){
 	var form = document.getElementById("hhWriteForm");
 	var category = form.category.value;	
-	var delConfirm = confirm('해당 카테고리의 모든 내역이 함께 삭제됩니다.');
+	var delConfirm = confirm('정말 삭제하시겠습니까?');
 	if(delConfirm ){
 			var param ="&category=" + category;
 			

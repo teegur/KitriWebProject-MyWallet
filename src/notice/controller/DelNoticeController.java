@@ -41,7 +41,7 @@ public class DelNoticeController extends HttpServlet {
 		int num=Integer.parseInt(request.getParameter("sequence"));
 		service.delBoard(num);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/notice/List_notice.jsp?pagenum=1");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/NoticeListController");
 		if(dispatcher != null) {
 		dispatcher.forward(request, response);
 		}

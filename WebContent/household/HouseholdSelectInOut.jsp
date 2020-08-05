@@ -11,7 +11,7 @@
 <body>
 <c:if test="${sessionScope.id == null }">
 		<script type="text/javascript">
-		alert("로그인을 해야 가계부 관리가 가능합니다");
+		alert("로그인 후 가계부 관리가 가능합니다");
 		location.href="${pageContext.request.contextPath }/view/Login.jsp"
 		</script>
 </c:if>
@@ -64,15 +64,6 @@
    </div>
    <!-- End of Main Content -->
       
-	<!-- Footer -->
-	<footer class="sticky-footer bg-white">
-	  <div class="container my-auto">
-	    <div class="copyright text-center my-auto">
-	      <span>Copyright &copy; Wallet team</span>
-	    </div>
-	  </div>
-	</footer>
-	<!-- End of Footer -->
       
      </div>
   <!-- End of content Wrapper -->

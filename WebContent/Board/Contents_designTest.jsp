@@ -66,7 +66,7 @@
 		
 	 <!-- 내가 작성자일 때 -->
 	<c:if test="${sessionScope.id == b.writer }">
-		<form action="${pageContext.request.contextPath }/Board/EditBoard_designTest.jsp" method="post" name="editForm" onsubmit="return check()">
+		<form action="${pageContext.request.contextPath }/Board/EditBoard_designTest.jsp" method="get" name="editForm" onsubmit="return check()">
 		  <div class="form-group">
 			<table class="table table-bordered" width="100%" cellspacing="0"	>
 				<tr>
@@ -99,7 +99,7 @@
 				</tr>	
 			</table> 
 			
-			<input class="btn float-right" type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/Board/List_free_designTest.jsp?pagenum=1'" ><br>
+			<input class="btn float-right" type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/FreeListController'" ><br>
 		 </div>
 		</form>
 	
@@ -148,7 +148,7 @@
 			<%}	%>
 			
 			
-			<input class="btn float-right" type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/Board/List_free_designTest.jsp?pagenum=1'" ><br>
+			<input class="btn float-right" type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/FreeListController'" ><br>
 		</div>
 		</form>
 		

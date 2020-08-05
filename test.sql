@@ -15,7 +15,7 @@ create sequence replyseq
 	minvalue 1
 	nocycle
 	
-
+select * from household where id=? order by w_date desc
 
 create table free_board(
 	seq number(5),
@@ -176,3 +176,8 @@ create sequence replyseq
 	recommend_cnt number(5)
 )
 create sequence seq_board;
+
+create table attendance (
+  id varchar2(20),
+  w_date varchar2(20)
+);

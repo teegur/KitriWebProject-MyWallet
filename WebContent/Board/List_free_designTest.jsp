@@ -43,7 +43,6 @@
      <!-- Page Heading -->
      <h1 class="h3 mb-2 text-gray-800">자유게시판</h1>
 	   
-	<c:import url="/FreeListController"></c:import>	
 
   		
 	<div class="card shadow mb-4">
@@ -60,7 +59,7 @@
 		            <th>작성자</th>
 		            <th>작성시간</th>
 		            <th>조회수</th>
-		            <th>추천수</th>
+		            <th>좋아요수</th>
 		         </tr>
 		       </thead>
        			<tbody>

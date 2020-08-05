@@ -46,6 +46,11 @@ function cancel(){
       <div class="card-body">
        <div class="table-responsive">
 		<form action="${pageContext.request.contextPath }/EditBoardController" method="post">
+		<% request.setCharacterEncoding("utf-8"); 
+		String title=request.getParameter("title");
+		String content= request.getParameter("content");
+		
+		%>
 		  <div class="form-group">
 			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"	>
 							<tr>
@@ -64,11 +69,11 @@ function cancel(){
 			</tr>	
 			<tr>
 				<th>글 제목</th>
-				<td><input class="form-control" type="text" value="<%=request.getParameter("title") %>" name="title" size="60" ${str }></td>
+				<td><input class="form-control" type="text" value="<%=title %>" name="title" size="60" ${str }></td>
 			</tr>	
 			<tr>
 				<th>글 내용</th>
-				<td><textarea class="form-control" rows="20" cols="60" name="content" ${str }><%=request.getParameter("content") %></textarea></td>
+				<td><textarea class="form-control" rows="20" cols="60" name="content" ><%=content %></textarea></td>
 			</tr>	
 			<tr>
 				<td colspan="2">

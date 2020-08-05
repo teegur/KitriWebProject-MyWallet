@@ -45,7 +45,7 @@ public class EditBoardController extends HttpServlet {
 	
 		service.editBoard(b);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/Board/List_free_designTest.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/FreeListController");
 		if(dispatcher != null) {
 		dispatcher.forward(request, response);
 		}
