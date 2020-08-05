@@ -108,10 +108,11 @@ function moveback(){
 	<table style="margin-left: auto;margin-right: auto;">
 		<tr>
 			<td>
-				<input type="button" value="월 목록 이동" onclick="javscript:moveback()" >
+				<input class="btn btn-dark" type="button" value="월 목록 이동" onclick="javscript:moveback()" >
 			</td>
 		</tr>
 	</table>
+	<br>
 	
 	</div>
         <!-- /.container-fluid -->
@@ -120,15 +121,6 @@ function moveback(){
       <!-- End of Main Content -->
       
       
-      <!-- Footer -->
-	<footer class="sticky-footer bg-white">
-	  <div class="container my-auto">
-	    <div class="copyright text-center my-auto">
-	      <span>Copyright &copy; Wallet team</span>
-	    </div>
-	  </div>
-	</footer>
-	<!-- End of Footer -->
 	
 	</div>
     <!-- End of Content Wrapper -->

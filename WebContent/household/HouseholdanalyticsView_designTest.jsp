@@ -70,7 +70,7 @@ function moveback(){
 <c:if test = "${empty out}">
 		<h4 align="center">작성이 필요합니다</h4>
 		<br>
-</c:if>
+</c:if> 
 <c:if test = "${not empty out}">
 <c:import url="/household/HouseholdAnalyticsOut.jsp"/>
 <table>

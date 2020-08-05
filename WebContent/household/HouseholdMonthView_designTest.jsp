@@ -26,6 +26,10 @@ function delConfirm(year, month){
 	}
 }
 </script>
+<style>
+td{text-align:center;}
+</style>
+
 </head>
 <body>
 	<c:import url="/view/Menu.jsp" />	
@@ -86,7 +90,7 @@ function delConfirm(year, month){
 				<c:forEach var="m" items="${m }">
 					<tr>
 						<td>${m.getDate() }</td>
-						<td><a class="btn btn-primary" href="${pageContext.request.contextPath }/hhGetMonthController?year=${m.getDate()}&month=${m.getContent()}">${m.getContent() }</a></td>
+						<td><a class="btn btn-secondary btn-sm" href="${pageContext.request.contextPath }/hhGetMonthController?year=${m.getDate()}&month=${m.getContent()}">${m.getContent() }</a></td>
 						<td>${m.getKey() }</td>
 						<td><a href="javascript:delConfirm(${m.getDate()}, ${m.getContent()})">삭제</a></td>
 					</tr>
@@ -98,24 +102,14 @@ function delConfirm(year, month){
 		<!-- End of card body -->
        </div>
        <!-- End of card -->
-
+ 
 	
 	
 	</div>
      <!-- /.container-fluid -->
 
    </div>
-   <!-- End of Main Content -->
-      
-	<!-- Footer -->
-	<footer class="sticky-footer bg-white">
-	  <div class="container my-auto">
-	    <div class="copyright text-center my-auto">
-	      <span>Copyright &copy; Wallet team</span>
-	    </div>
-	  </div>
-	</footer>
-	<!-- End of Footer -->
+   <!-- End of Main Content --> 
       
      </div>
   <!-- End of content Wrapper -->

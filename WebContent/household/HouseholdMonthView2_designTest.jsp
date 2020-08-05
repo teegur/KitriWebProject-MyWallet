@@ -17,6 +17,9 @@ function oncheck(){
 	return true;
 }
 </script>
+<style>
+td{text-align:center;}
+</style>
 </head>
 <body>
 	<c:import url="/view/Menu.jsp" />
@@ -46,7 +49,7 @@ function oncheck(){
 			<c:forEach var="m" items="${m }">
 				<tr>
 					<td>${m.getDate() }</td>
-					<td><a href="${pageContext.request.contextPath }/hhGetGraphData?year=${m.getDate()}&month=${m.getContent()}">${m.getContent() }</a></td>
+					<td><a class="btn btn-secondary btn-sm" href="${pageContext.request.contextPath }/hhGetGraphData?year=${m.getDate()}&month=${m.getContent()}">${m.getContent() }</a></td>
 					<td>${m.getKey() }</td>
 				</tr>
 			</c:forEach>	
@@ -65,19 +68,9 @@ function oncheck(){
    </div>
    <!-- End of Main Content -->
       
-	<!-- Footer -->
-	<footer class="sticky-footer bg-white">
-	  <div class="container my-auto">
-	    <div class="copyright text-center my-auto">
-	      <span>Copyright &copy; Wallet team</span>
-	    </div>
-	  </div>
-	</footer>
-	<!-- End of Footer -->
-      
      </div>
   <!-- End of content Wrapper -->
-</div>
+</div>  
 <!-- End of Page Wrapper -->
 
 </body>
