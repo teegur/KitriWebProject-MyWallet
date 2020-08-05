@@ -48,22 +48,28 @@ public class hhGetGraphData extends HttpServlet {
 		
 		String year = request.getParameter("year");
 		String month = request.getParameter("month");
-		String color[] = {"#FFE4E1", "#FFE4C4", "#E6E6FA", "#98FB98", "#AFEEEE", "#FFD700", "#90EE90", "#B0E0E6", "#FFC0CB", "#F0F8FF" };		
+		String color[] = {"#E6E6FA","#AFEEEE", "#FFE4E1", "#FFE4C4",  "#98FB98",  "#FFD700", "#90EE90", "#B0E0E6", "#FFC0CB", "#F0F8FF" };		
 		
 		in = dao.selectcategory((String)session.getAttribute("id"), year + "-" + month, 1);
 		//in = dao.selectcategory("abc", "2020-08", 0); //test
 		out = dao.selectcategory((String)session.getAttribute("id"), year + "-" + month, 0);
 		//out = dao.selectcategory("abc", "2020-08", 1);
+		//추가
+		ChartData insum = new ChartData(0,"총계");
+		ChartData outsum = new ChartData(0,"총계");
 		
 		for(int i = 0; i < in.size(); i ++) {			
 			incolors.add(color[i % color.length]);
-			
+			insum.setPrice(insum.getPrice()+in.get(i).getPrice());
 		}
 		
 		for(int i = 0; i < out.size(); i ++) {
 			outcolors.add(color[i % color.length]);
+			outsum.setPrice(outsum.getPrice()+out.get(i).getPrice());
 		}
 		
+		request.setAttribute("insum", insum);
+		request.setAttribute("outsum", outsum);
 		request.setAttribute("in", in);
 		request.setAttribute("out", out);
 		request.setAttribute("incolors", incolors);

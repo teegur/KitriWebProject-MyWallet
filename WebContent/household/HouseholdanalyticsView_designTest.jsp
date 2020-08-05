@@ -46,7 +46,9 @@ function moveback(){
 		<tr>
 			<th>카테고리</th><th>금액</th>
 		</tr>
-		
+		<tr>
+			<td>${insum.category}</td><td>${insum.price }원</td>
+		</tr>	
 		<c:forEach var="input" items="${in}">
 		<tr>
 			<td>${input.category}</td><td>${input.price }원</td>
@@ -74,6 +76,9 @@ function moveback(){
 	<tr>
 		<th>카테고리</th><th>금액</th>
 	</tr>
+	<tr>
+			<td>${outsum.category}</td><td>${outsum.price }원</td>
+	</tr>	
 	<c:forEach var="output" items="${out}">
 	<tr>
 		<td>${output.category}</td><td>${output.price }원</td>
