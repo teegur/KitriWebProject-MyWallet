@@ -32,7 +32,7 @@ function moveback(){
 <h4 align="center">${year }년 ${month }월 통계</h4>
 
 <div class="row">
-<div class="col-lg-5">
+<div class="col-lg-5" style="margin-top:0px;">
 
 	<h4 align="center">수입</h4>
 	
@@ -60,10 +60,11 @@ function moveback(){
 </div>
 
 <div class="col" style="text-align:center">
-<h1>VS</h1>
+<h1>VS</h1><br>
+<input class="btn btn-dark" type="button" value="목록 이동" onclick="javscript:moveback()" >
 </div>
 
-<div class="col-lg-5">
+<div class="col-lg-5" style="margin-top:0px;">
 <h4 align="center">지출</h4>
 
 <c:if test = "${empty out}">
@@ -87,13 +88,7 @@ function moveback(){
 </table>
 </c:if>
 <br>
-<table style="margin-left: auto;margin-right: auto;">
-		<tr>
-			<td>
-				<input type="button" value="목록 이동" onclick="javscript:moveback()" >
-			</td>
-		</tr>
-	</table>
+
 </div>
 	
 	</div>
@@ -105,15 +100,6 @@ function moveback(){
    </div>
    <!-- End of Main Content -->
       
-	<!-- Footer -->
-	<footer class="sticky-footer bg-white">
-	  <div class="container my-auto">
-	    <div class="copyright text-center my-auto">
-	      <span>Copyright &copy; Wallet team</span>
-	    </div>
-	  </div>
-	</footer>
-	<!-- End of Footer -->
       
      </div>
   <!-- End of content Wrapper -->
