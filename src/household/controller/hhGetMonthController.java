@@ -56,7 +56,7 @@ public class hhGetMonthController extends HttpServlet {
 		request.setAttribute("year", request.getParameter("year"));
 		request.setAttribute("month", request.getParameter("month"));
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/household/householdList.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/household/householdList_designTest.jsp");
 		
 		if (dispatcher != null) {
 			dispatcher.forward(request, response);

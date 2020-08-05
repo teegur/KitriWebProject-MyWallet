@@ -26,7 +26,7 @@ function moveback(){
 	
 	<h3 align="center">${year}년 ${month}월 가계부 목록</h3>
 	
-	<c:import url="/household/householdWrite.jsp" /> <!-- 가계부 작성 폼 -->
+	<c:import url="/household/householdWrite_designTest.jsp" /> <!-- 가계부 작성 폼 -->
 	
 	
 	<br>

@@ -86,7 +86,7 @@ public class hhSelectMonthController extends HttpServlet {
 		request.setAttribute("m", m);		
 		
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/household/HouseholdMonthView.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/household/HouseholdMonthView_designTest.jsp");
 		
 		if (dispatcher != null) {
 			dispatcher.forward(request, response);
