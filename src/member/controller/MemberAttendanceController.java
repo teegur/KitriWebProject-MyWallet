@@ -81,6 +81,7 @@ public class MemberAttendanceController extends HttpServlet {
 		} else { // 출석하지 않은 경우
 			request.setAttribute("Attendance_flag", Attendance_flag); // 아직안한 경우 false
 			dao.check_attendance(id,d_result);
+			// 점수 추가 sql써야함.
 		}
 		
 		
