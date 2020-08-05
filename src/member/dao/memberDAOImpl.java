@@ -439,4 +439,51 @@ public class memberDAOImpl implements memberDAO{
 	        }
 	    return null;
 	}
+
+	@Override
+	public ArrayList<String> select_forCalendar(String id) {
+		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
+				Connection conn = null;
+		        ResultSet rs = null;
+		        memberVO m = null;
+		           
+		        ArrayList<String> result = new ArrayList<String>();
+		        //db에서 id에 대한 결과를 출력하는 sql
+		        String sql = "select w_date from attendance where id=?";
+		        
+		        PreparedStatement pstmt = null;
+		        
+		        try {
+		           //커넥션 객체 획득
+		           conn = db.getConnection();
+		           
+		           
+		           //java에서 sql을 실행하는 PreparedStatement객체 생성
+		           pstmt = conn.prepareStatement(sql);
+		           
+		           pstmt.setString(1, id);
+		           // sql 실행
+		           rs = pstmt.executeQuery(); // 결과값 출력
+		           
+		           while (rs.next()) {
+		        	  //
+		        	  String tmp = rs.getString(1).replace("/", "");
+		        	  result.add(tmp);
+		              //result.add(rs.getString(1));
+		           }
+		           
+		        } catch(SQLException e) {
+		           e.printStackTrace();
+		        } finally {
+		           try {
+		              rs.close();
+		              pstmt.close();
+		              conn.close();
+		           } catch(SQLException e) {
+		              e.printStackTrace();
+		           }
+		        }
+		 return result;
+	}
 }

@@ -27,4 +27,6 @@ public interface memberDAO {
 	
 	memberVO search_email(String email); // 이메일로 가입된 회원정보 검색
 	
+	ArrayList<String> select_forCalendar(String id); // 아이디로 출석정보 검색
+	
 }
