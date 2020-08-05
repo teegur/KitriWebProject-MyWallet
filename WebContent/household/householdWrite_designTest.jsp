@@ -153,7 +153,7 @@ function checkFunc(){
 		</td>
 		</tr>
 		
-		<tr>
+		<tr> 
 			<td>내용 </td><td><input class="form-control" type="text" name="content"></td>
 		</tr>
 		<tr>
