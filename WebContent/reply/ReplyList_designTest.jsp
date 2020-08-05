@@ -83,7 +83,9 @@ function checkFunc(){
        <div class="table-responsive">
 		<c:if test="${requestScope.ogsize != 0}"> 
 			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+			   
 			  <thead style="display: none">
+			  
 			  <tr>
 			  <th width="10%">아이디</th>
 			  <th>내용</th>
@@ -101,7 +103,7 @@ function checkFunc(){
 						<td><a href="javascript:delConfirm(${reply.getReplyseq()})">삭제</a></td>
 					</c:if>
 					
-					<c:if test="${ sessionScope.id != reply.getId() }">  
+					<c:if test="${sessionScope.id != 'admin' && sessionScope.id != reply.getId() }">  
 						<td></td>
 					</c:if>					
 					</tr>
