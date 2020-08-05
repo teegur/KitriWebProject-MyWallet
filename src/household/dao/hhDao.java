@@ -60,7 +60,7 @@ public class hhDao {
 		
 		try {			
 			conn = db.getConnection();
-			String sql = "select * from household where id=? order by w_date desc";
+			String sql = "select * from household where id=? order by w_date desc, price desc, category";
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, id); 
@@ -185,7 +185,7 @@ public class hhDao {
 		
 		try {			
 			conn = db.getConnection();
-			String sql = "select category from household where id = ? group by category order by category";
+			String sql = "select category from household where id = ? and type = 3 group by category order by category";
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, id); 
@@ -218,7 +218,7 @@ public class hhDao {
 		
 		try {			
 			conn = db.getConnection();
-			String sql = "delete from household where id = ? and category = ?";
+			String sql = "delete from household where id = ? and category = ? and type = 3";
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, id);
@@ -238,6 +238,82 @@ public class hhDao {
 		}		
 		
 	}
+	
+	public boolean isExistingCat(hhVO HH) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;		
+		ResultSet rs = null;
+		boolean result = false; // 결과를 저장할 어레이리스트
+		
+		try {			
+			conn = db.getConnection();
+			String sql = "select category from household where id = ? and type = ? and category = ?";
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, HH.getId()); 
+			pstmt.setInt(2, HH.getType());
+			pstmt.setString(3, HH.getCategory());
+			
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				result = true;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	public void insertCat(hhVO HH) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;		
+		ResultSet rs = null;
+		
+		boolean isExist = this.isExistingCat(HH);
+		
+		if(!isExist) {
+		try {			
+			conn = db.getConnection();
+			String sql = "insert into household values(hhkey.nextval, ?, ?, ?, ?, ?, ?)";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, HH.getId()); 
+			pstmt.setString(2, HH.getDate());
+			pstmt.setString(3, HH.getCategory());
+			pstmt.setString(4, HH.getContent());
+			pstmt.setInt(5, HH.getPrice());
+			pstmt.setInt(6, HH.getType());
+					
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}		
+		}
+	} // end
 	
 
 }

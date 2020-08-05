@@ -15,7 +15,7 @@ create sequence replyseq
 	minvalue 1
 	nocycle
 	
-
+select * from household where id=? order by w_date desc
 
 create table free_board(
 	seq number(5),
