@@ -99,7 +99,7 @@
 				</tr>	
 			</table> 
 			
-			<input class="btn float-right" type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/Board/List_free_designTest.jsp?pagenum=1'" ><br>
+			<input class="btn float-right" type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/FreeListController'" ><br>
 		 </div>
 		</form>
 	
@@ -148,7 +148,7 @@
 			<%}	%>
 			
 			
-			<input class="btn float-right" type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/Board/List_free_designTest.jsp?pagenum=1'" ><br>
+			<input class="btn float-right" type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/FreeListController'" ><br>
 		</div>
 		</form>
 		

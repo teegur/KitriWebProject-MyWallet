@@ -18,7 +18,9 @@
 			}
 	     
 	}
-	
+	function list(){
+		location.href ="${pageContext.request.contextPath}/NoticeListController"
+	}
 
 
 </script>
@@ -92,7 +94,7 @@
 				</tr>	
 			</table> 
 			
-			<input class="btn float-right" type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/notice/List_notice.jsp?pagenum=1'" ><br>
+			<input class="btn float-right" type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/NoticeListController' "><br>
 		 </div>
 		</form>
 	
@@ -154,7 +156,7 @@
 
 			</table> 
 			
-			<input class="btn float-right" type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/notice/List_notice.jsp?pagenum=1'" ><br>
+			<input class="btn float-right" type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/NoticeListController'" ><br>
 		 </div>
 		</form>
 	
