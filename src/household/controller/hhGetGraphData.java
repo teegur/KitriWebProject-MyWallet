@@ -48,19 +48,20 @@ public class hhGetGraphData extends HttpServlet {
 		
 		String year = request.getParameter("year");
 		String month = request.getParameter("month");
-		String color[] = {"#FF6384", "#36A2EB", "#FFCE56"};		
+		String color[] = {"#FFE4E1", "#FFE4C4", "#E6E6FA", "#98FB98", "#AFEEEE", "#FFD700", "#90EE90", "#B0E0E6", "#FFC0CB", "#F0F8FF" };		
 		
-		in = dao.selectcategory((String)session.getAttribute("id"), year + "-" + month, 0);
+		in = dao.selectcategory((String)session.getAttribute("id"), year + "-" + month, 1);
 		//in = dao.selectcategory("abc", "2020-08", 0); //test
-		out = dao.selectcategory((String)session.getAttribute("id"), year + "-" + month, 1);
+		out = dao.selectcategory((String)session.getAttribute("id"), year + "-" + month, 0);
 		//out = dao.selectcategory("abc", "2020-08", 1);
 		
-		for(int i = 0; i < in.size(); i ++) {
-			incolors.add(color[i]);
+		for(int i = 0; i < in.size(); i ++) {			
+			incolors.add(color[i % color.length]);
+			
 		}
 		
 		for(int i = 0; i < out.size(); i ++) {
-			outcolors.add(color[i]);
+			outcolors.add(color[i % color.length]);
 		}
 		
 		request.setAttribute("in", in);
