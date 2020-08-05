@@ -7,18 +7,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+	function button_close() {
+		opener.location.replace('${pageContext.request.contextPath }/view/AttedancePage.jsp');
+		window.close();
+	}
+</script>
 </head>
 <body>
 	<div style="text-align:center;">
 	<br>
-	<c:if test="${Attendance_flag eq false }">
-		출석하였습니다.<br><br>
-		<a class="btn btn-dark" href="#" onclick="window.close()">닫기</a>
-	</c:if>
-	<c:if test="${Attendance_flag eq true }">
-		오늘은 이미 출석하였습니다.<br><br>
-		<a class="btn btn-dark" href="#" onclick="window.close()">닫기</a>
-	</c:if>
+		<c:if test="${Attendance_flag eq false }">
+			출석하였습니다.<br><br>
+			<a class="btn btn-dark" href="#" onclick="button_close()">닫기</a>
+		</c:if>
+		<c:if test="${Attendance_flag eq true }">
+			오늘은 이미 출석하였습니다.<br><br>
+			<a class="btn btn-dark" href="#" onclick="window.close()">닫기</a>
+		</c:if>
 	</div>
 </body>
 </html>

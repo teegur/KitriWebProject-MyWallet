@@ -48,8 +48,8 @@ public class AttendanceCalendarController extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		String id = "dolly0920"; // 임시데이터 추가
-		//String id = (String) session.getAttribute("id");
+		//String id = "dolly0920"; // 임시데이터 추가
+		String id = (String) session.getAttribute("id");
 		JSONObject jsonObject = new JSONObject();
 		
 		a_date = dao.select_forCalendar(id); // 여기서 String으로 데이터값을 받는다면?

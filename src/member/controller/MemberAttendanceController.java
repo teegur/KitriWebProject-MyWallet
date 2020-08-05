@@ -73,8 +73,8 @@ public class MemberAttendanceController extends HttpServlet {
 		
 		boolean Attendance_flag = dao.select_attendance(id,d_result); // 이미 출석했는지 안했는지 파악
 		
-		System.out.println(d_result);
-		System.out.println(Attendance_flag);
+		//System.out.println(d_result);
+		//System.out.println(Attendance_flag);
 		
 		if (Attendance_flag) { // 이미 출석한 경우
 			request.setAttribute("Attendance_flag", Attendance_flag); // 출석한 경우 true

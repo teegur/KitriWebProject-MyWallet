@@ -181,3 +181,7 @@ create table attendance (
   id varchar2(20),
   w_date varchar2(20)
 );
+
+select * from attendance;
+
+drop table attendance;
