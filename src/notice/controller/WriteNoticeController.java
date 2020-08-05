@@ -53,10 +53,8 @@ public class WriteNoticeController extends HttpServlet {
 		b.setWriter(writer);
 		
 		service.writerBoard(b);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/notice/List_notice.jsp?pagenum=1");
-		if(dispatcher != null) {
-		dispatcher.forward(request, response);
-		}
+		response.sendRedirect("http://localhost:8081/Project_semi/NoticeListController");
+		
 	}
 
 	/**

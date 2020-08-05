@@ -59,7 +59,7 @@
 	      <div class="card-body">
 	       <div class="table-responsive">		
 	       		
-	<form action="${pageContext.request.contextPath }/notice/EditBoard_notice.jsp" method="post">
+	<form action="${pageContext.request.contextPath }/notice/EditBoard_notice.jsp" method="get">
 		
 		<table border="1" cellspacint="0">
 				<tr>

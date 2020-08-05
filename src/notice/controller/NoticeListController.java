@@ -43,28 +43,15 @@ public class NoticeListController extends HttpServlet {
 		NoticeService service= new NoticeServiceImpl();
 		ArrayList<BoardVO> temp=(ArrayList<BoardVO>)service.getAll();//총갯수 데이터
 		ArrayList<BoardVO> list=new ArrayList<BoardVO>();//나눠서 보낼 데이터
-		int pagenum=1;
-		pagenum=Integer.parseInt(request.getParameter("pagenum")); // 페이징 넘버
-		int totalpage = 0;
 
-		int page = 10 * (pagenum - 1); //페이징당 시작 글 넘버
-		int last=page +10; //페이지당 마지막글 넘버
-		if(page + 10 > temp.size()) {
-			last = temp.size();
-		}
-		for(int i=page;i<last;i++) {
-			list.add(temp.get(i));
-		}
-			
-		if(temp.size() %10 ==0){
-			totalpage=temp.size()/10; // 페이징에 보여질 최대 숫자
-		}
-		else{
-			totalpage=temp.size()/10+1;
-		}
-		request.setAttribute("totalpage", totalpage);
-		request.setAttribute("list", list);
+
 	
+		request.setAttribute("list", temp);
+	
+		RequestDispatcher dispatcher = request.getRequestDispatcher("notice/List_notice.jsp");
+		if(dispatcher != null) {
+		dispatcher.forward(request, response);
+		}
 		
 		
 

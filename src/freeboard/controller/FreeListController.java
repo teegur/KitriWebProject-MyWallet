@@ -46,6 +46,7 @@ public class FreeListController extends HttpServlet {
 		
 		ArrayList<BoardReplyVO> list=(ArrayList<BoardReplyVO>)dao.count();
 		
+		//(추가)
 		
 		/*\\
 		int pagenum=1;
@@ -72,6 +73,10 @@ public class FreeListController extends HttpServlet {
 		request.setAttribute("list", list);
 		
 		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("Board/List_free_designTest.jsp");
+		if(dispatcher != null) {
+		dispatcher.forward(request, response);
+		}
 		
 
 	}

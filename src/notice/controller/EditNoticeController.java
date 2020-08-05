@@ -47,7 +47,7 @@ public class EditNoticeController extends HttpServlet {
 	
 		service.editBoard(b);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/notice/List_notice.jsp?pagenum=1");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/NoticeListController");
 		if(dispatcher != null) {
 		dispatcher.forward(request, response);
 		}
