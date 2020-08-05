@@ -42,7 +42,7 @@ function delConfirm(year, month){
 
    <!-- Begin Page Content -->
    <div class="container-fluid">
-
+ 
      
      <div class="card shadow mb-4">
        <div class="card-header py-3" style="margin-left: 0px; margin-right: 0px; text-align:center">
