@@ -97,7 +97,7 @@ function checkFunc(){
 						<td>${reply.getId() }</td>
 						<td>${reply.getContent() }</td>
 						<td>${reply.getW_date() }</td>
-					<c:if test="${ sessionScope.id == reply.getId() }">  
+					<c:if test="${sessionScope.id eq 'admin'||sessionScope.id eq reply.getId()}">   
 						<td><a href="javascript:delConfirm(${reply.getReplyseq()})">삭제</a></td>
 					</c:if>
 					
