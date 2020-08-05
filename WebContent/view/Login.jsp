@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 
@@ -23,9 +24,14 @@
 </head>
 
 <body class="bg-gradient-dark">
-
+<!-- 홍석 추가 -->
+<c:if test="${flag2== false }">
+		<script type="text/javascript">
+		alert("로그인을 실패했습니다");
+		</script>
+</c:if>
   <div class="container">
-
+<!-- 홍석 추가 -->
     <!-- Outer Row -->
     <div class="row justify-content-center">
 

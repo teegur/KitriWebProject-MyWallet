@@ -44,7 +44,7 @@ public class LoginController extends HttpServlet {
       //ServiceInterface service = new JoinServiceImpl();
       
       boolean flag = false;
-      
+      boolean flag2 = false;//홍석추가
       // 세션 생성
       HttpSession session = request.getSession();
       
@@ -69,12 +69,13 @@ public class LoginController extends HttpServlet {
          session.setAttribute("cls", cls);
          // 로그인 성공 체크
          flag = true;
+         flag2 = true; //홍석추가
          // 상태 변경
          dao.update_status("온라인", id); // 온라인으로 상태 변경
       }
       
       session.setAttribute("flag",flag); // 로그인 성공 여부 저장
-      
+      request.setAttribute("flag2", flag2); //홍석 추가
       String path = "/view/Login.jsp"; // 로그인 실패 시 로그인 창으로
       
       if (flag) { // 로그인 성공 시  main으로
