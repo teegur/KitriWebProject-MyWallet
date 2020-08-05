@@ -43,8 +43,7 @@ function delConfirm(year, month){
    <!-- Begin Page Content -->
    <div class="container-fluid">
 
-     <!-- Page Heading -->
-     <h1 class="h3 mb-2 text-gray-800">가계부 작성</h1>
+     
      <div class="card shadow mb-4">
        <div class="card-header py-3" style="margin-left: 0px; margin-right: 0px; text-align:center">
          <h6 class="m-0 font-weight-bold text-dark">새로운 월 추가</h6>
