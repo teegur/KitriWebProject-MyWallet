@@ -71,7 +71,7 @@ public class hhGetGraphData extends HttpServlet {
 		request.setAttribute("year", year);
 		request.setAttribute("month", month);
 						
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/household/HouseholdanalyticsView.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/household/HouseholdanalyticsView_designTest.jsp");
 		
 		if (dispatcher != null) {
 			dispatcher.forward(request, response);

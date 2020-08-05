@@ -78,7 +78,7 @@ function hhCategoryWrite(year, month){
 		
 			httpRequest = getXMLHttpRequest();
 			httpRequest.onreadystatechange = checkFunc;
-			httpRequest.open("POST", "http://localhost:8081/Project_semi/hhWriteController",true);
+			httpRequest.open("POST", "http://localhost:8081/Project_semi/hhWriteCatController",true);
 			httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8');
 			httpRequest.send(param);
 		}
