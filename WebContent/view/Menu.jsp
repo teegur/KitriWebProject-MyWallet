@@ -21,10 +21,10 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item" style="width:200px">
-        <a class="nav-link" style="text-align:center;" href="${pageContext.request.contextPath }/NoticeListController">공지사항</a>
+        <a class="nav-link" style="text-align:center;" href="${pageContext.request.contextPath }/notice/List_notice.jsp?pagenum=1">공지사항</a>
       </li>
       <li class="nav-item" style="width:200px">
-        <a class="nav-link" style="text-align:center;" href="${pageContext.request.contextPath }/FreeListController">자유게시판</a>
+        <a class="nav-link" style="text-align:center;" href="${pageContext.request.contextPath }/Board/List_free_designTest.jsp">자유게시판</a>
       </li>
       <li class="nav-item" style="width:200px">
         <a class="nav-link" style="text-align:center;" href="${pageContext.request.contextPath }/household/HouseholdSelectInOut.jsp">가계부작성</a>
@@ -33,7 +33,7 @@
       <!-- 작업중 -->
 	  <c:if test="${sessionScope.flag eq true }"> <!-- 로그인에 성공한 경우만 메뉴가 보인다. -->
 		  <li class="nav-item" style="width:200px">
-	        <a class="nav-link" style="text-align:center;" href="${pageContext.request.contextPath }/MemberAttendanceController">출석 체크</a>
+	        <a class="nav-link" style="text-align:center;" href="${pageContext.request.contextPath }/view/AttedancePage.jsp">출석 체크</a>
 	      </li>   
 	  </c:if>
     </ul>
