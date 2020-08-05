@@ -36,7 +36,7 @@ function addcolor(acolor){
    		adddata('${out.price}');
    </script>	
 </c:forEach>
-<c:forEach var="color" items="${incolors}">
+<c:forEach var="color" items="${outcolors}">
 	<script type="text/javascript">
    		addcolor('${color}');
    </script>	

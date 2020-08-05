@@ -9,7 +9,13 @@
 <script src="https://kit.fontawesome.com/a876b41567.js" crossorigin="anonymous"></script>
 </head>
 <body>
-	<c:import url="/view/Menu.jsp" />
+<c:if test="${sessionScope.id == null }">
+		<script type="text/javascript">
+		alert("로그인 후 가계부 관리가 가능합니다");
+		location.href="${pageContext.request.contextPath }/view/Login.jsp"
+		</script>
+</c:if>
+<c:import url="/view/Menu.jsp" />
 	
 <!-- Page Wrapper -->
 <div id="wrapper">
