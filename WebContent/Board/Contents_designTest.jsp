@@ -66,7 +66,7 @@
 		
 	 <!-- 내가 작성자일 때 -->
 	<c:if test="${sessionScope.id == b.writer }">
-		<form action="${pageContext.request.contextPath }/Board/EditBoard_designTest.jsp" method="post" name="editForm" onsubmit="return check()">
+		<form action="${pageContext.request.contextPath }/Board/EditBoard_designTest.jsp" method="get" name="editForm" onsubmit="return check()">
 		  <div class="form-group">
 			<table class="table table-bordered" width="100%" cellspacing="0"	>
 				<tr>
