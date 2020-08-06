@@ -34,10 +34,11 @@
      <h1 class="h3 mb-2 text-gray-800" style="visibility:hidden"> |</h1>
 	
 <div class="row">
-	<div class="col-lg-6">
-	<div class="card mb-4" style="width:500px; height:200px;">
-		<div class="card-header py-3" style="margin-left: 0px; margin-right: 0px; text-align:center">
-            <h6 class="m-0 font-weight-bold text-dark">가계부 작성</h6>
+<div class="col-lg-6">
+ 
+	<div class="card mb-4 border-left-primary shadow" style="width:500px; height:200px;">
+		<div class="card-header" style="border-bottom:none; background-color:white; margin-left: 0px; margin-right: 0px; text-align:center">
+            <h6 class="m-0 font-weight-bold text-primary">가계부 작성</h6>
         </div>
 	    <div class="card-body">
 			 <a class="col btn btn-primary btn-lg btn-block" href = "${pageContext.request.contextPath }/hhSelectMonthController"> 
@@ -45,25 +46,29 @@
 			 </a>	
 		</div>
 	</div>
-	</div>
-	
-	<div class="col-lg-6">
-	<div class="card mb-4" style="width:500px; height:200px;">
-		<div class="card-header py-3" style="margin-left: 0px; margin-right: 0px; text-align:center">
-           <h6 class="m-0 font-weight-bold text-dark">월별 통계 보기</h6>
-        </div>
+
+
+</div>
+
+<div class="col-lg-6">
+	<div class="card mb-4 border-left-danger shadow" style="width:500px; height:200px;">
+		<div class="card-header" style="border-bottom:none; background-color:white; margin-left: 0px; margin-right: 0px; text-align:center">
+	          <h6 class="m-0 font-weight-bold text-danger">월별 통계 보기</h6>
+	       </div>
 	    <div class="card-body">
 			 <a class="col btn btn-danger btn-lg btn-block" href = "${pageContext.request.contextPath }/hhSelectMonthController2"> 
 			 <i style="font-size:60px;" class="fas fa-chart-pie"></i>
 			 </a>
 		</div>
 	</div>
-	</div>
+</div>
 </div>
 
-	<div class="card mb-4" style="width:500px; height:200px;">
-		<div class="card-header py-3" style="margin-left: 0px; margin-right: 0px; text-align:center">
-           <h6 class="m-0 font-weight-bold text-dark">전체 통계 보기</h6>
+<div class="row">
+<div class="col-lg-6">
+	<div class="card mb-4 border-left-info shadow" style="width:500px; height:200px;">
+		<div class="card-header" style="border-bottom:none; background-color:white; margin-left: 0px; margin-right: 0px; text-align:center">
+           <h6 class="m-0 font-weight-bold text-info">재성 통계</h6>
         </div>
 	    <div class="card-body">
 			 <a class="col btn btn-info btn-lg btn-block" href = "#"> 
@@ -71,7 +76,20 @@
 			 </a>
 		</div>
 	</div>
+</div>
+<div class="col-lg-6">	
+	<div class="card mb-4 border-left-success shadow" style="width:500px; height:200px;">
+		<div class="card-header" style="border-bottom:none; background-color:white; margin-left: 0px; margin-right: 0px; text-align:center">
+           <h6 class="m-0 font-weight-bold text-success">종수 통계</h6>
+        </div>
+	    <div class="card-body">
+			 <a class="col btn btn-success btn-lg btn-block" href = "#"> 
+			 <i style="font-size:60px;" class="fas fa-chart-bar"></i>
+			 </a>
+		</div>
 	</div>
+</div>
+</div>
 	
 	</div>
      <!-- /.container-fluid -->
