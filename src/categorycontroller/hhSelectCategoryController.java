@@ -37,14 +37,15 @@ public class hhSelectCategoryController extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		HttpSession session=request.getSession();
-		String id=(String)session.getAttribute("id");
-		String year = request.getParameter("year");
-		String month = request.getParameter("month");
-		
 		dao_category dao=new dao_category();
-		ArrayList<categoryVO> list = dao.category(id, (year + "-" + month));
+		
+		
+		String id=(String)session.getAttribute("id");
+
+		ArrayList<String> list = dao.CGlist(id);
+		//ArrayList<categoryVO> list = dao.category(id, (year + "-" + month));
 		request.setAttribute("list", list);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/household/HouseholdCategoryView.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/category/HouseholdCategoryView.jsp");
 		
 		if (dispatcher != null) {
 			dispatcher.forward(request, response);
