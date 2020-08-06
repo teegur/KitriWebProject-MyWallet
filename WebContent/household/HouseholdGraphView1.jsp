@@ -17,10 +17,10 @@
 	<br>
 	<div style="text-align:center;">
 		<c:if test="${type eq 1 }"> <!-- 수입일 때 -->
-			<a class="btn btn-dark" href="http://localhost:8081/Project_semi/householdYearGraphController?id=${id }&type=0">지출 내역</a>
+			<a class="btn btn-dark" href="http://localhost:8081/Project_semi/householdYearGraphController?id=${id }&type=0">>>지출 내역</a>
 		</c:if>
 		<c:if test="${type eq 0 }"> <!-- 지출일 때 -->
-			<a class="btn btn-dark" href="http://localhost:8081/Project_semi/householdYearGraphController?id=${sessionScope.id }&type=1">수입 내역</a>
+			<a class="btn btn-dark" href="http://localhost:8081/Project_semi/householdYearGraphController?id=${sessionScope.id }&type=1">>>수입 내역</a>
 		</c:if>
 	</div>
 	<br>

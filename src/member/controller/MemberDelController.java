@@ -46,7 +46,7 @@ public class MemberDelController extends HttpServlet {
 				
 		dao.delete(id);
 				
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/view/main.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/MemberListController"); // "/view/main.jsp"
 				
 		if (dispatcher!=null) {
 			dispatcher.forward(request, response);
