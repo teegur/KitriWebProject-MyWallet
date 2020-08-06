@@ -75,7 +75,7 @@
 	                  <td>${m.getStatus() }</td>
 	                  <td>${m.getCls() }</td>
 	                  <td>${m.getScore() }</td>
-	                  <td><a href="${pageContext.request.contextPath }/DelController?id=${m.getId() }">삭제</a></td>
+	                  <td><a href="${pageContext.request.contextPath }/MemberDelController?id=${m.getId() }" onclick="return confirm('삭제하시겠습니까?')">삭제</a></td>
 				   </tr>
             	   </c:if>
          		   </c:forEach>

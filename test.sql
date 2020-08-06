@@ -17,6 +17,9 @@ create sequence replyseq
 	
 select * from household where id=? order by w_date desc
 
+
+select * from FREE_BOARD;
+
 create table free_board(
 	seq number(5),
 	title varchar2(100),           
@@ -95,7 +98,7 @@ create table membertest (
    score number(20)
 )
 
-insert into MEMBERTEST values ('admin','愿�由ъ옄','xxxx','1234','xxxx','�삤�봽�씪�씤','愿�由ъ옄',100000);
+insert into MEMBERTEST values ('admin','관리자','xxxx','1234','xxxx','오프라인','관리자',100000);
 
 select * from household;
 
