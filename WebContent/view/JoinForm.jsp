@@ -99,11 +99,11 @@
 	function sendEmail() {
       var emailTxt = document.getElementById("userEmail").value;
       //alert(emailTxt);
-      alert("이메일 확인 후 인증 메일을 전송합니다. 잠시만 기다려주세요.");
       if(!emailTxt) {
          alert("이메일을 입력하세요.");
          return false;
       } else {
+    	 alert("이메일 확인 후 인증 메일을 전송합니다. 잠시만 기다려주세요.");
          //alert(idTxt); // 여기까지 출력됨
          var param = "email="+emailTxt
          httpRequest = getXMLHttpRequest();
