@@ -47,17 +47,19 @@ public class RecController extends HttpServlet {
 		String id=(String)session.getAttribute("id");
 		
 		nService service=new ServiceImpl();
-		LikeVO like =dao.likeselect(num); //like 테이블 불러오기
-		boolean flag = false;
-		if(like ==null) { //좋아요를 안눌렀다면 likey에 추가와 추천 카운트 +1
-			dao.like(id, num);
-			dao.recupdate(num);
-			
-		}
-		else { 			//좋아요를 눌렀다면 likey에서 삭제하고 추천카운트 -1
-			dao.likedelete(num);
-			dao.recdelete(num);
+		LikeVO like =dao.likeselect(id,num); //like 테이블 불러오기
+		
+		//System.out.println(like.getSequence());
+		if(like != null) { 			//좋아요를 눌렀다면 likey에서 삭제하고 추천카운트 -1
+			dao.likedelete(id,num); //테이블에서 삭제
+			dao.recdelete(num); //추천 카운트 -1
 			request.setAttribute("like", like.getLike());
+		}
+		//if(like.getId() ==null)
+		else { //좋아요를 안눌렀다면 likey에 추가와 추천 카운트 +1
+			dao.like(id, num); //테이블에서 추가
+			dao.recupdate(num); //추천카운트 +1
+			
 		}
 		
 		response.sendRedirect(request.getHeader("referer"));

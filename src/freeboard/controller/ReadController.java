@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.BoardVO;
 import model.LikeVO;
@@ -39,14 +40,17 @@ public class ReadController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		HttpSession session=request.getSession();
 		Dao dao=new Dao_impl();
 		nService service =new ServiceImpl();
 		int seq =Integer.parseInt(request.getParameter("seq"));
+		String id=(String)session.getAttribute("id");
 		
 		BoardVO b=service.getBoard(seq);
-		service.countupdate(b);
-		LikeVO like =dao.likeselect(seq);
-		request.setAttribute("like", like);
+		service.countupdate(b); //조회수 +1
+		LikeVO like =dao.likeselect(id,seq); //로그인된 아이디와 들어간 글번호에 해당하는 데이터 가져오기
+		request.setAttribute("like", like); //컨텐츠로 받은 데이터 보내기
+		
 		b.setViewcount(b.getViewcount()+1);
 		request.setAttribute("b", b);
 		

@@ -289,10 +289,10 @@ Connection conn=null;
 		
 	}
 
-	public void likedelete(int sequence) {
+	public void likedelete(String id,int sequence) {
 		Connection conn=null;
 		
-		String sql="delete likey where seq=?";
+		String sql="delete likey where id=? and seq=? ";
 		PreparedStatement pstmt =null;
 		
 		try {
@@ -300,8 +300,8 @@ Connection conn=null;
 			pstmt= conn.prepareStatement(sql);
 			
 			
-			pstmt.setInt(1,sequence);
-			
+			pstmt.setString(1, id);
+			pstmt.setInt(2,sequence);
 			
 			pstmt.executeUpdate();
 			
@@ -321,20 +321,21 @@ Connection conn=null;
 	}
 	
 	@Override
-	public LikeVO likeselect(int num) {
+	public LikeVO likeselect(String id,int num) {
 		Connection conn=null;
 		ResultSet rs=null;
 		BoardVO b=null;
-		String sql="select * from likey where seq=? ";
+		String sql="select * from likey where id=? and seq=?";
 		PreparedStatement pstmt =null;
 		
 		try {
 			conn =db.getConnection();
 			pstmt= conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, num);
-			
+			pstmt.setString(1, id);
+			pstmt.setInt(2, num);
 			rs=pstmt.executeQuery();
+			
 			if(rs.next()) {
 				return new LikeVO(rs.getString(1),rs.getInt(2),rs.getString(3));
 			}
