@@ -125,6 +125,13 @@
 
   <!-- Page level custom scripts -->
   <script src="${pageContext.request.contextPath }/startbootstrap-sb-admin-2-gh-pages/js/demo/datatables-demo.js"></script>
+  
+  <script type="text/javascript">
+  $("#dataTable").DataTable({
+		order: [ [ 0, "desc" ] ]
+	});
+  </script>
+  
 
 <style>
 div.dataTables_info{ display: none}
