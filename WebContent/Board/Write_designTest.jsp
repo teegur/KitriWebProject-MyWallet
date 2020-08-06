@@ -6,6 +6,26 @@
 <head>
 <meta charset="UTF-8">
 <title>자유 게시판</title>
+
+<script type="text/javascript">
+
+function check(){
+	var form = document.getElementById("writeform");
+	var title =form.title.value;
+	var content =form.content.value;
+	
+	if(!content || !title){ // 여기까지 했음.
+		alert("공란이 있습니다");
+		return false;
+	}	
+
+}
+
+</script>
+
+
+
+
 <style>
 </style>
 </head>
@@ -38,7 +58,7 @@
        
       <div class="card-body">
        <div class="table-responsive">
-		<form action="${pageContext.request.contextPath }/WriteController_free" method="post">
+		<form action="${pageContext.request.contextPath }/WriteController_free" method="post" id="writeform" onsubmit="return check()">
 		  <div class="form-group">
 			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"	>
 				<tr>
