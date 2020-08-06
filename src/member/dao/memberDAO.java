@@ -29,4 +29,6 @@ public interface memberDAO {
 	
 	ArrayList<String> select_forCalendar(String id); // 아이디로 출석정보 검색
 	
+	void update_attendance_score(String id); // 해당 아이디의 점수 + (출석점수 10점)
+	
 }

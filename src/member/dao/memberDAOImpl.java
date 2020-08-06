@@ -486,4 +486,32 @@ public class memberDAOImpl implements memberDAO{
 		        }
 		 return result;
 	}
+
+	@Override
+	public void update_attendance_score(String id) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+	      
+	      String sql = "update membertest set score=score+10 where id=?";
+	      
+	      PreparedStatement pstmt = null;
+	      try {
+	         conn = db.getConnection();
+	         
+	         pstmt = conn.prepareStatement(sql); // sql명령 실행
+	         
+	         pstmt.setString(1, id);
+	         
+	         pstmt.executeUpdate();
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         try {
+	            pstmt.close();
+	            conn.close();
+	         } catch (SQLException e) {
+	            e.printStackTrace();
+	         }
+	      }
+	}
 }

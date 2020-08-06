@@ -71,7 +71,7 @@ select * from free_board;
 
 select * from membertest;
 
-insert into membertest values ('test1','테스트1','test1@naver.com','1234','서울시 구로구','오프라인','일반회원',0);
+insert into membertest values ('test2','테스트2','test2@naver.com','1234','서울시 구로구','오프라인','일반회원',0);
 
 select * from household;
 
