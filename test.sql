@@ -188,3 +188,19 @@ create table attendance (
 select * from attendance;
 
 drop table attendance;
+
+select * from household;
+
+drop table household;
+
+create table household (
+   key number(20),
+   id  varchar2(20),
+   w_date  varchar2(20), 
+   category  varchar2(20),
+   content varchar2(20) ,
+   price number(20),
+   type number(1)
+)
+
+select substr(w_date,6,2), sum(price) from household group by substr(w_date,6,2) order by substr(w_date,6,2) asc;
