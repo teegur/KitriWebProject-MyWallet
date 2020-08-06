@@ -12,7 +12,7 @@
         border:1px solid #BDBDBD;
         text-align:center;
         width:80%;
-        height:600px;
+        height:500px;
     }
 </style>
 <script>
@@ -167,7 +167,7 @@
 	        // yearmonth.innerHTML에서 연월정보는 불러올수있다 이 값과 cnt(일)을 비교하여 효율적인 알고리즘 구성이 가능한가?
 	  		var test_tmp = String(today.getFullYear()).substring(2,4)+lpad(String(today.getMonth()+1),2,"0")+lpad(String(i),2,"0");
 	        //console.log(test_tmp);
-	        if (myTrie.isWord(test_tmp)){
+	        if (myTrie.isWord(test_tmp)){ // 있는지 없는지 체크
 	        	var img = new Image();
 	        	img.src = '${pageContext.request.contextPath }/attendancecheck.png';
 	        	console.log(img.src);
