@@ -44,10 +44,8 @@ public class householdYearGraphController extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		//System.out.println(session.getAttribute("id"));
-		//String id = (String)session.getAttribute("id");
-		//System.out.println(id); 
+		//System.out.println((String)session.getAttribute("id"));
 		String id = request.getParameter("id");
-		//String id = "dolly0920"; // (임시)
 		
 		Calendar cal = Calendar.getInstance();
 		
@@ -61,18 +59,21 @@ public class householdYearGraphController extends HttpServlet {
 		int type = Integer.parseInt(request.getParameter("type")); // 넘겨줄 때 type값 읽어서 넘긴다.(수입:1, 지출 :0)
 		//int type = 1;
 		
+		/*
 		System.out.println("----");
 		System.out.println(id); // 이 부분이 안읽힌다.
 		System.out.println(year);
 		System.out.println(type);
 		System.out.println("----");
+		*/
 		
 		res = dao.select_by_id(id,year,type);// 아이디에 대한 정보를 (월) (지출or수입의 합) 형태로 출력 (hhYearVO 객체로 저장)
 		
+		/*
 		for (hhYearVO one:res) {
 			System.out.println(one);
 		}
-		
+		*/
 		request.setAttribute("res", res);
 		request.setAttribute("type", Integer.toString(type));
 		request.setAttribute("id", id);
