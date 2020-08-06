@@ -60,7 +60,7 @@
 			data.push(${m.getMoney_sum()});
 			backgroundColor.push(back_color[tmp_i]); // 추가
 			borderColor.push(border_color[tmp_i]); // 추가
-			tmp_i += 1; // 추가
+			//tmp_i += 1; // 추가 (색다르게할꺼면 추가)
 		</script>
 	</c:forEach>
 	
