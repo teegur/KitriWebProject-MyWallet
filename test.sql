@@ -118,7 +118,7 @@ create table likey(
  seq number(5), 
  likey varchar2(10)
 );
-
+drop table likey
 select * from likey;
 
 select * from free_board;
@@ -188,3 +188,10 @@ create table attendance (
 select * from attendance;
 
 drop table attendance;
+
+select category,SUM(CASE WHEN date LIKE '202008%' THEN price END) from household group by category 
+
+select category, sum(price) from household 
+group by category
+
+select * from household order by w_date;
