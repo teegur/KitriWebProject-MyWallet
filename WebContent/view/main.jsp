@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- Custom styles for this template -->
+<link href="${pageContext.request.contextPath }/startbootstrap-sb-admin-2-gh-pages/css/sb-admin-2.min.css" rel="stylesheet">
 <script>
 
 </script>
@@ -66,28 +68,13 @@
 
             </div>
 	   
-	   
-	   
-	   
-	   
-	   
-	   
+
 	   
    </div>
      <!-- /.container-fluid -->
 
    </div>
    <!-- End of Main Content -->
-      
-	<!-- Footer -->
-	<footer class="sticky-footer bg-white">
-	  <div class="container my-auto">
-	    <div class="copyright text-center my-auto">
-	      <span>Copyright &copy; Wallet team</span>
-	    </div>
-	  </div>
-	</footer>
-	<!-- End of Footer -->
       
      </div>
   <!-- End of content Wrapper -->

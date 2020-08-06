@@ -26,13 +26,18 @@
 <div id="content-wrapper" class="d-flex flex-column">
 
   <!-- Main Content -->
-<div id="content">
+<div id="content" style="margin-left:15%; margin-right:15%">
 
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container-fluid" style="min-height:800px">
 <!-- Page Heading -->
-     <h1 class="h3 mb-2 text-gray-800" style="visibility:hidden"> |</h1>
-	
+     <h1 class="h3 mb-2 text-gray-800"> 나의 가계부</h1>
+
+<div class="card shadow mb-4">	
+	<div class="card-header py-3" style=" margin-left: 0px; margin-right: 0px; text-align:center">
+		<h6 class="m-0 font-weight-bold text-dark">가계부 관리 메뉴</h6>
+	</div>
+<div class="card-body" style="margin-left:5px; margin-right:5px">
 <div class="row">
 <div class="col-lg-6">
  
@@ -83,11 +88,14 @@
            <h6 class="m-0 font-weight-bold text-success">종수 통계</h6>
         </div>
 	    <div class="card-body">
-			 <a class="col btn btn-success btn-lg btn-block" href = "${pageContext.request.contextPath }/hhSelectCategoryController"> 
+			 <a class="col btn btn-success btn-lg btn-block" href = "#"> 
 			 <i style="font-size:60px;" class="fas fa-chart-bar"></i>
 			 </a>
 		</div>
 	</div>
+</div>
+</div>
+
 </div>
 </div>
 	

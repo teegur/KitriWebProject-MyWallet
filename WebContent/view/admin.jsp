@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-
+<html>
 <head>
 
   <meta charset="utf-8">
@@ -36,10 +36,10 @@
     <div id="content-wrapper" class="d-flex flex-column">
 
       <!-- Main Content -->
-      <div id="content">
+      <div id="content" style="margin-left:15%; margin-right:15%">
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
+        <div class="container-fluid" style="min-height:800px">
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">관리자 페이지</h1>

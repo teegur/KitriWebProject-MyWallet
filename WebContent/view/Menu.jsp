@@ -14,7 +14,7 @@
 </head>
 <body>
 <jsp:include page ="./Design.jsp" /> 
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+<nav class="navbar navbar-expand-md shadow-lg bg-dark navbar-dark">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -27,7 +27,7 @@
         <a class="nav-link" style="text-align:center;" href="${pageContext.request.contextPath }/FreeListController">자유게시판</a>
       </li>
       <li class="nav-item" style="width:200px">
-        <a class="nav-link" style="text-align:center;" href="${pageContext.request.contextPath }/household/HouseholdSelectInOut.jsp">가계부작성</a>
+        <a class="nav-link" style="text-align:center;" href="${pageContext.request.contextPath }/household/HouseholdSelectInOut.jsp">나의 가계부</a>
       </li>
       
       <!-- 작업중 -->

@@ -35,10 +35,10 @@
 <div id="content-wrapper" class="d-flex flex-column">
 
   <!-- Main Content -->
- <div id="content">
+ <div id="content" style="margin-left:15%; margin-right:15%">
 
    <!-- Begin Page Content -->
-   <div class="container-fluid">
+   <div class="container-fluid" style="min-height:800px">
 
      <!-- Page Heading -->
      <h1 class="h3 mb-2 text-gray-800">공지사항</h1>
@@ -50,7 +50,7 @@
        </div>
        <div class="card-body">
        	<div class="table-responsive">
-			<table class="table table-bordered" id="dataTable" width="600px" cellspacing="0">	
+			<table class="table table-bordered" id="dataTable" width="800px" cellspacing="0">	
 		     <thead>
 		         <tr>
 		            <th>글번호</th>

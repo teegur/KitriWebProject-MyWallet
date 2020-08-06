@@ -35,10 +35,10 @@
 <div id="content-wrapper" class="d-flex flex-column">
 
   <!-- Main Content -->
- <div id="content">
+ <div id="content" style="margin-left:15%; margin-right:15%">
 
    <!-- Begin Page Content -->
-   <div class="container-fluid">
+   <div class="container-fluid" style="min-height:800px">
 
      <!-- Page Heading -->
      <h1 class="h3 mb-2 text-gray-800">자유게시판</h1>
@@ -59,7 +59,7 @@
 		            <th>작성자</th>
 		            <th>작성시간</th>
 		            <th>조회수</th>
-		            <th>좋아요수</th>
+		            <th>추천수</th>
 		         </tr>
 		       </thead>
        			<tbody>
