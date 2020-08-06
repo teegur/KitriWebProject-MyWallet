@@ -58,7 +58,7 @@ public class hhGetGraphData extends HttpServlet {
 		ChartData insum = new ChartData(0,"총계");
 		ChartData outsum = new ChartData(0,"총계");
 		
-		for(int i = 0; i < in.size(); i ++) {			
+		for(int i = 0; i < in.size(); i ++) {
 			incolors.add(color[i % color.length]);
 			insum.setPrice(insum.getPrice()+in.get(i).getPrice());
 		}
