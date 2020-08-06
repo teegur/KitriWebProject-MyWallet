@@ -119,6 +119,8 @@ create table likey(
  likey varchar2(10)
 );
 
+drop table likey;
+
 select * from likey;
 
 select * from free_board;

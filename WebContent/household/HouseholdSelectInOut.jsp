@@ -71,7 +71,7 @@
            <h6 class="m-0 font-weight-bold text-info">재성 통계</h6>
         </div>
 	    <div class="card-body">
-			 <a class="col btn btn-info btn-lg btn-block" href = "#"> 
+			 <a class="col btn btn-info btn-lg btn-block" href = "${pageContext.request.contextPath }/household/HouseholdYearView.jsp"> 
 			 <i style="font-size:60px;" class="fas fa-chart-line"></i>
 			 </a>
 		</div>
