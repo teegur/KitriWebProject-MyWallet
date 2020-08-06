@@ -115,7 +115,7 @@ insert into attendance values ('dolly0920',sysdate);
 
 create table likey(
  id varchar2(20) ,
- seq number(5) primary key,
+ seq number(5), 
  likey varchar2(10)
 );
 

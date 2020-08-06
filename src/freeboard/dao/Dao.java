@@ -18,7 +18,7 @@ public interface Dao {
 	void recupdate(int num);
 	void recdelete(int num);
 	void like(String id,int sequence);
-	LikeVO likeselect(int num);
-	void likedelete(int num);
+	LikeVO likeselect(String id,int num);
+	void likedelete(String id,int num);
 	
 }
