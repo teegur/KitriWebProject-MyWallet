@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,11 +32,10 @@
 		<table class="table table-bordered" width="100%" cellspacing="0">
 			<tr>
 				<th>카테고리</th>
-			<c:forEach var="m" items="${list }">
+				
+			<c:forEach var="list" items="${list }" >
 				<tr>
-					
-					<td><a class="btn btn-secondary btn-sm" href="${pageContext.request.contextPath }/CGController?year=${m.getDate()}&month=${m.getContent()}">${getCategory() }</a></td>
-					
+					<td><a class="btn btn-secondary btn-sm" href="${pageContext.request.contextPath }/CGController?category=${list }">${list }</a></td>	
 				</tr>
 			</c:forEach>	
 		</table>
