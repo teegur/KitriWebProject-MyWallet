@@ -22,8 +22,9 @@
         <div class="container-fluid" style="min-height:800px">
 	
 
-	<div style="text-align:center; display:none;"><a class="btn btn-dark" href="${pageContext.request.contextPath }/MemberAttendanceController" target="_blank" onClick="window.open(this.href, '', 'width=300px, height=150px'); return false;">출석 체크</a></div>
-	<br><br>
+	<br>
+	<div style="text-align:center"><a class="btn btn-dark" href="${pageContext.request.contextPath }/MemberAttendanceController" target="_blank" onClick="window.open(this.href, '', 'width=300px, height=150px'); return false;">출석 체크</a></div>
+	<br>
 	<c:import url="/AttendanceCalendarController" />
 	
 		</div>

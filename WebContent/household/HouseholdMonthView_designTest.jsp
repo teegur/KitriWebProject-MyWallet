@@ -115,7 +115,10 @@ td{text-align:center;}
   <!-- End of content Wrapper -->
 </div>
 <!-- End of Page Wrapper -->
-	
+
+<style>
+td{margin:20px;}
+</style>
 
 </body>
 </html>

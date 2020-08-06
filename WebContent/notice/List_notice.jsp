@@ -50,11 +50,11 @@
        </div>
        <div class="card-body">
        	<div class="table-responsive">
-			<table class="table table-bordered" id="dataTable" width="800px" cellspacing="0">	
+			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">	
 		     <thead>
 		         <tr>
 		            <th>글번호</th>
-		            <th>제목</th>
+		            <th width=400px>제목</th>
 		            <th>작성자</th>
 		            <th>작성시간</th>
 		            <th>조회수</th>
@@ -79,9 +79,11 @@
          	   <a href="${pageContext.request.contextPath}/notice/Write_notice.jsp" class="btn btn-dark float-right">글작성</a>
 		</div>
 		<!-- End of card body -->
+		<!-- 
       <c:forEach var="i" begin="1" end="${totalpage }">
       	<a href="${pageContext.request.contextPath }/notice/List_notice.jsp?pagenum=${i}" class="btn btn-primary mx-auto">${i}</a>
       </c:forEach>
+		 -->
         </div>
         <!-- End of card -->
 
