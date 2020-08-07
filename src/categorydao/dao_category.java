@@ -16,7 +16,7 @@ public class dao_category {
 		db = DBConnect.getInstance();
 	}
 	
-	public ArrayList<categoryVO> category(String id, String date) {
+	public ArrayList<categoryVO> category(String id, String category) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;		
@@ -24,17 +24,16 @@ public class dao_category {
 		ArrayList<categoryVO> result =new ArrayList<categoryVO>();
 		try {			
 			conn = db.getConnection();
-			String sql = "select category, substr(w_date,1,7), sum(price) from household where substr(w_date,1,7) like ? and id=? "
-					+ "group by category, substr(w_date,1,7)";
+			String sql ="select category, substr(w_date,1,7), sum(price) from household where id=? and category=? group by category, substr(w_date,1,7) order by category";
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, date); 
-			pstmt.setString(2, id); 
-			
+			pstmt.setString(1, id); 
+			pstmt.setString(2, category); 
 					
-			pstmt.executeQuery(sql);
+			rs= pstmt.executeQuery();
+			
 			while(rs.next()) {
-				result.add(new categoryVO(rs.getString("category"), rs.getString("substr(w_date,1,7)"),rs.getInt("sum(price)")));
+				result.add(new categoryVO(rs.getString("category"),rs.getString("substr(w_date,1,7)"),rs.getInt("sum(price)")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -50,6 +49,7 @@ public class dao_category {
 			}
 		}		return result;
 	}
+	
 	public ArrayList<String> CGlist(String id) {
 		
 		Connection conn = null;

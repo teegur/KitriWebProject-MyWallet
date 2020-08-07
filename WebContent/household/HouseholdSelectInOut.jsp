@@ -88,7 +88,7 @@
            <h6 class="m-0 font-weight-bold text-success">종수 통계</h6>
         </div>
 	    <div class="card-body">
-			 <a class="col btn btn-success btn-lg btn-block" href = "#"> 
+			 <a class="col btn btn-success btn-lg btn-block" href = "${pageContext.request.contextPath }/hhSelectCategoryController"> 
 			 <i style="font-size:60px;" class="fas fa-chart-bar"></i>
 			 </a>
 		</div>
