@@ -9,6 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<!-- /householdYearGraphController -->
+	<!-- http://localhost:8081/Project_semi/householdYearGraphController?id=${sessionScope.id }&type=1 -->
+	
 	<c:import url="http://localhost:8081/Project_semi/householdYearGraphController?id=${sessionScope.id }&type=1" />
 </body>
 </html>

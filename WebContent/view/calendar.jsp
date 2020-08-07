@@ -188,7 +188,31 @@
 	            cell.bgColor = "#BCF1B1"; //오늘날짜배경색
 	        }
 	    }
-	
+	    
+	    //
+	    var cnt = 0;
+	    for (i = 1; i <= 5; i++) // 1일부터 마지막 일까지
+	    { 
+	        cell = row.insertCell();
+	        // innerHTML을 통해서 이미지 추가도 가능하다.
+	        // 데이터베이스에서 불러온 데이터를 트라이형태로 저장해야하나??! --> 트라이 구조를 만드는데 드는 시간을 생각하면 ... (그냥 완전탐색보다 빠르긴함)
+	        // yearmonth.innerHTML에서 연월정보는 불러올수있다 이 값과 cnt(일)을 비교하여 효율적인 알고리즘 구성이 가능한가?
+	  		var test_tmp = String(today.getFullYear()).substring(2,4)+lpad(String(today.getMonth()+1),2,"0")+lpad(String(i),2,"0");
+	        //console.log(test_tmp);
+	        cell.innerHTML = "aslkjglksagdlkjsalkgdalkjgs";
+	        cnt = cnt + 1;
+	        if (cnt % 7 == 1) {//일요일 계산
+	            cell.innerHTML = "<font color=#FF9090>" + i//일요일에 색
+	        }
+	        if (cnt % 7 == 0) { // 1주일이 7일 이므로 토요일 계산
+	            cell.innerHTML = "<font color=#7ED5E4>" + i//토요일에 색
+	            row = calendar.insertRow();// 줄 추가
+	        }
+	        if(today.getFullYear()==date.getFullYear()&&today.getMonth()==date.getMonth()&&i==date.getDate()) 
+	        {
+	            cell.bgColor = "#BCF1B1"; //오늘날짜배경색
+	        }
+	    }
 	}
 </script>
 </head>

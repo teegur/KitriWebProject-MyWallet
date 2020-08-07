@@ -28,7 +28,8 @@
 	</div>
 	<br>
 	<c:import url="/AttendanceCalendarController" />
-	
+	<br>
+	<br>
 		</div>
         <!-- /.container-fluid -->
 
