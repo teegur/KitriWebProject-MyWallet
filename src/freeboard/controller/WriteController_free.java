@@ -52,7 +52,7 @@ public class WriteController_free extends HttpServlet {
 		
 		service.writerBoard(b);
 		
-		response.sendRedirect("http://localhost:8081/Project_semi/FreeListController");
+		response.sendRedirect("/Project_semi/FreeListController");
 		/*
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/FreeListController");
 		if(dispatcher != null) {

@@ -70,10 +70,14 @@
 					backgroundColor: backgroundColor,
 					borderColor: borderColor,
 					borderWidth: 1
+					
 				}] 
 			}, 
 			// 옵션 
-			options: { yAxes: [{ ticks: { beginAtZero: true } }] }
+			options: { yAxes: 
+				[{ ticks: 
+				{ beginAtZero: true } 
+				}] }
 		}); 
 	</script>
 </body>

@@ -34,7 +34,7 @@
 				<th>카테고리</th>
 				
 			<c:forEach var="list" items="${list }" >
-				<c:if test="${list != '자동생성'  && list != '카테고리 선택'}">
+				<c:if test="${list != '자동생성' && list != '카테고리 선택'}">
 				<tr>
 					<td><a class="btn btn-secondary btn-sm" href="${pageContext.request.contextPath }/CGController?category=${list }">${list }</a></td>	
 				</tr>
