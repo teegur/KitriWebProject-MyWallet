@@ -58,7 +58,7 @@
 <div class="col-lg-6">
 	<div class="card mb-4 border-left-danger shadow" style="width:500px; height:200px;">
 		<div class="card-header" style="border-bottom:none; background-color:white; margin-left: 0px; margin-right: 0px; text-align:center">
-	          <h6 class="m-0 font-weight-bold text-danger">월별 통계 보기</h6>
+	          <h6 class="m-0 font-weight-bold text-danger">통합 월별 통계 보기</h6>
 	       </div>
 	    <div class="card-body">
 			 <a class="col btn btn-danger btn-lg btn-block" href = "${pageContext.request.contextPath }/hhSelectMonthController2"> 
@@ -73,7 +73,7 @@
 <div class="col-lg-6">
 	<div class="card mb-4 border-left-info shadow" style="width:500px; height:200px;">
 		<div class="card-header" style="border-bottom:none; background-color:white; margin-left: 0px; margin-right: 0px; text-align:center">
-           <h6 class="m-0 font-weight-bold text-info">재성 통계</h6>
+           <h6 class="m-0 font-weight-bold text-info">수입/지출 월별 통계</h6>
         </div>
 	    <div class="card-body">
 			 <a class="col btn btn-info btn-lg btn-block" href = "${pageContext.request.contextPath }/household/HouseholdYearView.jsp"> 
@@ -85,7 +85,7 @@
 <div class="col-lg-6">	
 	<div class="card mb-4 border-left-success shadow" style="width:500px; height:200px;">
 		<div class="card-header" style="border-bottom:none; background-color:white; margin-left: 0px; margin-right: 0px; text-align:center">
-           <h6 class="m-0 font-weight-bold text-success">종수 통계</h6>
+           <h6 class="m-0 font-weight-bold text-success">카테고리별 월별 통계</h6>
         </div>
 	    <div class="card-body">
 			 <a class="col btn btn-success btn-lg btn-block" href = "${pageContext.request.contextPath }/hhSelectCategoryController"> 
