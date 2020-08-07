@@ -53,7 +53,7 @@ public class WriteNoticeController extends HttpServlet {
 		b.setWriter(writer);
 		
 		service.writerBoard(b);
-		response.sendRedirect("http://localhost:8081/Project_semi/NoticeListController");
+		response.sendRedirect("/Project_semi/NoticeListController");
 		
 	}
 
