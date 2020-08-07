@@ -128,7 +128,7 @@ function checkFunc(){
 		<td>
 		<div class="input-group">
 		  	<select class="custom-select" name="category" id="category">
-			    <option selected>카테고리 선택</option>
+			    
 			    <c:forEach var="cat" items="${cat}">
 					<c:if test="${cat.category ne '자동생성'}">
 						<option value="${cat.category }">${cat.category }</option>	
