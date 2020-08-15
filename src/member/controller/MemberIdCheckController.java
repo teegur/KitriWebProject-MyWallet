@@ -47,9 +47,9 @@ public class MemberIdCheckController extends HttpServlet {
 	      //System.out.println(id); // 여기서 null값 출력된다. 라이브러리 부분 확인해야할듯.
 	    memberVO m = dao.select(id);
 	      
-	    if (m!=null) { // 중복 아이디가 없는 경우
+	    if (m!=null) { // 중복 아이디가 있는 경우
 	       out.println("0");
-	    } else { // 중복 아이디가 있는 경우
+	    } else { // 중복 아이디가 없는 경우
 	       out.println("1");
 	    }
 	    out.close();

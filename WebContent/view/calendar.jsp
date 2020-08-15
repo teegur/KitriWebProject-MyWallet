@@ -176,12 +176,16 @@
 	        	cell.innerHTML = i;	// 달력에 (일 수) 추가!
 	        }
 	        cnt = cnt + 1;
-	        if (cnt % 7 == 1) {//일요일 계산
+	        if (cnt % 7 == 1 && !myTrie.isWord(test_tmp)) {//일요일 계산 + 포함되지 않은 날짜
 	            cell.innerHTML = "<font color=#FF9090>" + i//일요일에 색
 	        }
-	        if (cnt % 7 == 0) { // 1주일이 7일 이므로 토요일 계산
+	        if (cnt % 7 == 0 && !myTrie.isWord(test_tmp)) { // 1주일이 7일 이므로 토요일 계산 + 포함되지 않은 날짜
 	            cell.innerHTML = "<font color=#7ED5E4>" + i//토요일에 색
-	            row = calendar.insertRow();// 줄 추가
+	            //row = calendar.insertRow();// 줄 추가
+	        }
+	        if (cnt%7 == 0) // 토요일은 줄추가 따로 해줘야한다.
+	        {
+	        	row = calendar.insertRow();// 줄 추가
 	        }
 	        if(today.getFullYear()==date.getFullYear()&&today.getMonth()==date.getMonth()&&i==date.getDate()) 
 	        {

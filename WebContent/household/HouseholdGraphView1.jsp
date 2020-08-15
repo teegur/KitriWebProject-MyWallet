@@ -90,7 +90,7 @@
 				}] 
 			}, 
 			// 옵션 
-			options: { yAxes: [{ ticks: { beginAtZero: true } }] }
+			options: { scales: {yAxes: [{ ticks: { beginAtZero: true } }]} }
 		}); 
 	</script>
 </body>
